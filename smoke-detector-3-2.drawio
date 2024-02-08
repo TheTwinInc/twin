@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-08T12:13:08.593Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15" etag="FBhDuwMTyvGtwHjSUsII" version="23.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2024-02-08T12:15:16.540Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0" etag="GfI384bHmkFVoTnDg8hD" version="23.1.2" type="github">
   <diagram name="Page-1" id="Y0vAsx5ezTW01maDcpaE">
-    <mxGraphModel dx="1277" dy="816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1475" dy="1113" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" value="Ports and Connectors" parent="0" />
@@ -86,7 +86,7 @@
           <mxGeometry x="140" y="100" width="330" height="30" as="geometry" />
         </mxCell>
         <mxCell id="W0jqy3Lbwt0PnIEyNUGf-2" value="Suction Fan Unit&amp;nbsp;two identical fans mounted in series" style="verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid2misc.fan;fanType=common" parent="1" vertex="1">
-          <mxGeometry x="410" y="150" width="50" height="50" as="geometry" />
+          <mxGeometry x="600" y="150" width="50" height="50" as="geometry" />
         </mxCell>
         <mxCell id="W0jqy3Lbwt0PnIEyNUGf-3" value="audible and visible alarms will be given" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#005F4B;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam2.alarm;" parent="1" vertex="1">
           <mxGeometry x="560" y="440" width="28.000000000000004" height="28.000000000000004" as="geometry" />
