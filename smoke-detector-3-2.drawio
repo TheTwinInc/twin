@@ -1,0 +1,125 @@
+<mxfile host="app.diagrams.net" modified="2024-02-08T12:15:16.540Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0" etag="GfI384bHmkFVoTnDg8hD" version="23.1.2" type="github">
+  <diagram name="Page-1" id="Y0vAsx5ezTW01maDcpaE">
+    <mxGraphModel dx="1475" dy="1113" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" value="Ports and Connectors" parent="0" />
+        <mxCell id="oriv23ejQ34eOIF7qntC-1" value="Ship&amp;nbsp;cargo hold" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="50" y="250" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-2" value="Register" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="160" y="250" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-3" value="Air vents" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="250" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-8" value="RS485" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="oriv23ejQ34eOIF7qntC-4" target="oriv23ejQ34eOIF7qntC-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-14" value="RS485" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="oriv23ejQ34eOIF7qntC-4" target="oriv23ejQ34eOIF7qntC-30" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="375" y="465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-4" value="Smoke Detector" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="320" y="250" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-6" value="Air" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="-0.0476" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="260" as="sourcePoint" />
+            <mxPoint x="340" y="260" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0cYp9eGCAT91XubLjyGx-4" value="Ethernet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="oriv23ejQ34eOIF7qntC-7" target="0cYp9eGCAT91XubLjyGx-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-7" value="Adaptor" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="540" y="275" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-12" value="RDFlib Triples" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="0cYp9eGCAT91XubLjyGx-3" target="oriv23ejQ34eOIF7qntC-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="310" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-20" value="Websocets RDFlib Triples" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="oriv23ejQ34eOIF7qntC-11" target="oriv23ejQ34eOIF7qntC-16" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="oriv23ejQ34eOIF7qntC-11" target="oriv23ejQ34eOIF7qntC-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-25" value="RDFlib Triples Internet" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oriv23ejQ34eOIF7qntC-24" vertex="1" connectable="0">
+          <mxGeometry x="-0.025" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-11" value="TrinPod™ Server" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="1010" y="265" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-16" value="Ship WebApp" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1310" y="275" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-23" value="Fleet TrinPod™ Server" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="1010" y="500" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-26" value="Websocets RDFlib Triples" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="oriv23ejQ34eOIF7qntC-23" target="oriv23ejQ34eOIF7qntC-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1130" y="530" as="sourcePoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-27" value="Fleet WebApp" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1310" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0cYp9eGCAT91XubLjyGx-1" value="On / Off" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="oriv23ejQ34eOIF7qntC-30" target="oriv23ejQ34eOIF7qntC-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-30" value="Bridge Display/ Control Panel" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="315" y="480" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="0cYp9eGCAT91XubLjyGx-3" value="Proxy" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="750" y="275" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="W0jqy3Lbwt0PnIEyNUGf-1" value="Ship systems optimiser" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="140" y="100" width="330" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="W0jqy3Lbwt0PnIEyNUGf-2" value="Suction Fan Unit&amp;nbsp;two identical fans mounted in series" style="verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid2misc.fan;fanType=common" parent="1" vertex="1">
+          <mxGeometry x="600" y="150" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="W0jqy3Lbwt0PnIEyNUGf-3" value="audible and visible alarms will be given" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#005F4B;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam2.alarm;" parent="1" vertex="1">
+          <mxGeometry x="560" y="440" width="28.000000000000004" height="28.000000000000004" as="geometry" />
+        </mxCell>
+        <mxCell id="W0jqy3Lbwt0PnIEyNUGf-5" value="On Unit Display/ Control Panel" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="360" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="W0jqy3Lbwt0PnIEyNUGf-6" value="Enginer Room Display/ Control Panel" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="180" y="480" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="W0jqy3Lbwt0PnIEyNUGf-7" value="CO2 fire extinguishing system" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="W0jqy3Lbwt0PnIEyNUGf-8" value="special 3-way valves" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10080;points=[[0,0,0],[0,0.5,0],[0,1,0],[1,0,0],[1,0.5,0],[1,1,0]]" parent="1" vertex="1">
+          <mxGeometry x="201.92000000000002" y="271.3" width="28.08" height="18.7" as="geometry" />
+        </mxCell>
+        <mxCell id="0cYp9eGCAT91XubLjyGx-9" value="Electricity" parent="0" visible="0" />
+        <mxCell id="oriv23ejQ34eOIF7qntC-5" value="Electricity" style="endArrow=classic;html=1;rounded=0;" parent="0cYp9eGCAT91XubLjyGx-9" edge="1">
+          <mxGeometry x="1" y="-332" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="270" y="410" as="sourcePoint" />
+            <mxPoint x="340" y="340" as="targetPoint" />
+            <mxPoint x="85" y="-145" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0cYp9eGCAT91XubLjyGx-2" value="Electricity" style="endArrow=classic;html=1;rounded=0;entryX=0.375;entryY=0.286;entryDx=0;entryDy=0;entryPerimeter=0;" parent="0cYp9eGCAT91XubLjyGx-9" target="oriv23ejQ34eOIF7qntC-30" edge="1">
+          <mxGeometry x="-0.1251" y="7" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="420" as="sourcePoint" />
+            <mxPoint x="350" y="350" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0cYp9eGCAT91XubLjyGx-10" value="Boxes" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
