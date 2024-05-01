@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
@@ -17,11 +17,9 @@ export class RegisterComponent {
     form!: FormGroup;
     loading = false;
     submitted = false;
-    // error?: string;
 
     constructor(
         private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
         private router: Router,
         private accountService: AccountService,
         private alarmService: AlarmService
@@ -48,7 +46,6 @@ export class RegisterComponent {
         this.submitted = true;
 
         // reset alert on submit
-        // this.error = '';
         this.alarmService.clear();
 
         // stop here if form is invalid
@@ -65,7 +62,6 @@ export class RegisterComponent {
                     this.router.navigate(['/account/login'], { queryParams: { registered: true }});
                 },
                 error: error => {
-                    // this.error = error;
                     this.alarmService.error(error);
                     this.loading = false;
                 }
