@@ -7,14 +7,14 @@ import { first } from 'rxjs/operators';
 import { AccountService } from '@app/services';
 
 @Component({
-  selector: 'app-users-list',
-  standalone: true,
-  imports: [RouterLink, NgFor, NgIf],
-  templateUrl: './users-list.component.html',
-  styleUrl: './users-list.component.css'
+    selector: 'app-users-list',
+    standalone: true,
+    imports: [RouterLink, NgFor, NgIf],
+    templateUrl: './users-list.component.html',
+    styleUrl: './users-list.component.css'
 })
 export class UsersListComponent implements OnInit {
-  users?: any[];
+    users?: any[];
 
     constructor(private accountService: AccountService) {}
 
