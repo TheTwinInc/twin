@@ -281,3 +281,4 @@ dmypy.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+src/app/twin/.vscode/*
