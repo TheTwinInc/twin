@@ -29,11 +29,13 @@ export class AlarmComponent implements OnInit, OnDestroy {
                         break;
                 }
 
-                this.alarm = alert;
+                this.alarm = alarm;
             });
     }
 
     ngOnDestroy() {
-        this.subscription.unsubscribe();
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 }
