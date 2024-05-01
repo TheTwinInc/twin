@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
     form!: FormGroup;
     loading = false;
     submitted = false;
-    // error?: string;
-    // success?: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -38,11 +36,6 @@ export class LoginComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-
-        // show success message after registration
-        // if (this.route.snapshot.queryParams.registered) {
-        //     this.success = 'Registration successful';
-        // }
     }
 
     // convenience getter for easy access to form fields
@@ -51,9 +44,6 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
-        // reset alert on submit
-        // this.error = '';
-        // this.success = '';
         this.alarmService.clear();
 
         // stop here if form is invalid
@@ -72,7 +62,6 @@ export class LoginComponent implements OnInit {
                 },
                 error: error => {
                     this.alarmService.error(error);
-                    // this.error = error;
                     this.loading = false;
                 }
             });
