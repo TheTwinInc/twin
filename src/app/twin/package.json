@@ -7,7 +7,8 @@
     "build": "ng build --aot --output-hashing none",
     "watch": "ng build --watch --configuration development",
     "update": "ncu -u && npm update && npm install",
-    "test": "ng test"
+    "test": "ng test",
+    "ci-test": "ng test --no-watch --no-progress --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,10 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@inrupt/solid-client": "^2.0.1",
+    "@inrupt/solid-client-authn-browser": "^2.1.0",
+    "@inrupt/vocab-common-rdf": "^1.0.5",
+    "bootstrap": "^5.3.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
