@@ -1,7 +1,7 @@
 /**
  * Represents an IDP
  */
-export interface SolidProvider {
+export interface ISolidProvider {
     name: string;
     image: string;
     loginUrl: string;

@@ -1,6 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 // fake backend
 import { fakeBackendInterceptor } from '@app/helpers';
@@ -20,7 +21,8 @@ bootstrapApplication(AppComponent, {
                 // fake backend
                 fakeBackendInterceptor
             ])
-        )
+        ),
+        provideAnimations()
     ]
 });
 // import { enableProdMode } from '@angular/core';

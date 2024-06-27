@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { MatDialogModule, MatDialogRef, MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule, FormBuilder, FormGroup, UntypedFormControl, Validators } from '@angular/forms';
-import { AccountService, AlarmService, SolidAccountService } from '@app/services';
+import { AccountService, AlarmService, SolidService } from '@app/services';
 import { first } from 'rxjs/operators';
 
 @Component({
@@ -31,7 +31,7 @@ export class LoginDialogComponent {
         private route: ActivatedRoute,
         private router: Router,
         private accountService: AccountService,
-        private solidAccountService: SolidAccountService,
+        private solidService: SolidService,
         private alarmService: AlarmService,
         private dialogRef: MatDialogRef<LoginDialogComponent>
     ) {
@@ -91,7 +91,7 @@ export class LoginDialogComponent {
     }
 
     login() {
-        this.solidAccountService.solidLogin();
+        this.solidService.solidLogin();
     }
 
     save() {

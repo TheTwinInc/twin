@@ -1,0 +1,85 @@
+
+<!-- <div>
+    <p id="dataset">{{dataSetContent}}</p>
+</div> -->
+<mat-card>
+    <mat-card-title>
+        <h1>POD SANDBOX</h1>
+    </mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field style="width:100%">
+              <mat-label>Pod(s)</mat-label>
+              <mat-select [(ngModel)]="selectedPod" name="pod">
+                @for (pod of pods; track pod) {
+                  <mat-option [value]="pod">{{pod}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <p> Selected pod: {{selectedPod}} </p>
+            @if (selectedPod) {
+                <div  class="example-button-row">
+                    <button mat-raised-button color="primary" (click)="getDataset()">Dataset</button>
+                    <button mat-raised-button color="primary" (click)="getDatasetAsTurtle()">Turtle</button>
+                </div>
+            }
+            
+        </form>
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-title>
+        <h1>CONTENTS SANDBOX</h1>
+    </mat-card-title>
+    <mat-card-content>
+        <!-- @for (resource of containedResources; track resource) {
+            <a mat-raised-button color="primary" (click)="navigateResource(resource.url)">{{resource.name}}</a>
+        } -->
+        
+        @for (resource of containedResources; track resource) {
+            <mat-card (click)="navigateResource(resource.url)" color="primary">
+                <!-- <mat-card-title>{{resource.name}}</mat-card-title> -->
+                <mat-card-content color="primary">
+                    {{resource.name}}
+                </mat-card-content>
+            </mat-card>
+        }
+        
+
+    </mat-card-content>
+    <!-- <mat-card-content>
+        <textarea id="editing" (oninput)="updateSandbox(this.value);"></textarea>
+        <form class="sandbox-form" [formGroup]="sandboxForm">
+            <mat-form-field appearance="outline" class="field-full-width">
+                <mat-label>Text</mat-label>
+                <textarea matInput formControlText="text" #textInput></textarea>
+            </mat-form-field>
+        </form>
+        <mat-divider></mat-divider>
+        <pre id="highlight" aria-hidden="true">
+            <code class="language-html" id="highlighting-sandbox">{{turtleText}}</code>
+        </pre>
+        <pre id="code" aria-hidden="true">
+            <code [innerHTML]="turtleText"></code>
+        </pre>
+    </mat-card-content> -->
+    <!-- <mat-card-title>
+        <h1>DATASET SANDBOX</h1>
+    </mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field style="width:100%">
+                <mat-label>WebId</mat-label>
+                <input matInput [(ngModel)]="selectedPod">
+            </mat-form-field>
+        </form>
+        <mat-divider></mat-divider>
+        <div  *ngIf='selectedPod' class="example-button-row">
+            <button mat-raised-button color="primary" (click)="getDataset()">Dataset</button>
+        </div>
+        <mat-divider></mat-divider>
+        <textarea matInput placeholder='' style="width:100%"></textarea>
+        
+    </mat-card-content> -->
+</mat-card>
+ 

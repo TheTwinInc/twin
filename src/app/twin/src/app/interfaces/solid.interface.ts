@@ -1,4 +1,4 @@
-export interface SolidSession {
+export interface ISolidSessionInfo {
     accessToken: string;
     clientId: string;
     idToken: string;

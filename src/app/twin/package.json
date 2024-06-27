@@ -26,6 +26,9 @@
     "@inrupt/solid-client-authn-browser": "^2.1.0",
     "@inrupt/vocab-common-rdf": "^1.0.5",
     "bootstrap": "^5.3.3",
+    "prismjs": "^1.29.0",
+    "rdf-parse": "^2.3.3",
+    "rdflib": "^2.2.35",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

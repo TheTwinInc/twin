@@ -4,6 +4,7 @@ export * from './app-sidebar/app-sidebar.component';
 export * from './login/login.component';
 export * from './logout/logout.component';
 export * from './login-dialog/login-dialog.component';
+export * from './identity-provider-dialog/identity-provider-dialog.component';
 export * from './register/register.component';
 export * from './alarm/alarm.component';
 export * from './header/header.component';

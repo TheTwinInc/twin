@@ -3,7 +3,7 @@
  * @see FOAF
  * @see VCARD
  */
-export interface SolidProfile {
+export interface ISolidProfile {
     address: {
         street?: string;
         // TODO: Add the missing address fields

@@ -1,15 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SolidAccountService } from './solid-account.service';
-import { SolidSession } from  '@app/interfaces';
+import { SolidService } from './solid.service';
 
 describe('SolidAuthService', () => {
-    let service: SolidAccountService;
+    let service: SolidService;
     // let session: Observable<SolidSession>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
-        service = TestBed.inject(SolidAccountService);
+        service = TestBed.inject(SolidService);
     });
 
     it('should be created', () => {

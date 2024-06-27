@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent, FooterComponent, AppSidebarComponent } from './components';
+import { HeaderComponent, FooterComponent, AppSidebarComponent, AppNavComponent } from './components';
 
 @Component({
     selector: 'app-root',
@@ -9,7 +9,8 @@ import { HeaderComponent, FooterComponent, AppSidebarComponent } from './compone
         RouterOutlet,
         HeaderComponent,
         FooterComponent,
-        AppSidebarComponent
+        AppSidebarComponent,
+        AppNavComponent
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'

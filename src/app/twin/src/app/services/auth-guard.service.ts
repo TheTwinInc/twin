@@ -1,16 +1,17 @@
 import { inject } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { SolidAccountService } from '@app/services';
+import { SolidService, LoggerService } from '@app/services';
 
 export function authGuardService(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const router = inject(Router);
-    const accountService = inject(SolidAccountService);
-    const session = accountService.sessionValue;
+    const accountService = inject(SolidService);
+    const logger = inject(LoggerService);
+    const sessionInfo = accountService.sessionInfoValue;
     let userAuthorised = false;
     
-    if (session) {
-        console.log(`Session login: ${session?.info.isLoggedIn}`)
+    if (sessionInfo?.isLoggedIn) {
+        logger.debug(`Session login: ${sessionInfo?.isLoggedIn}`)
         // authorised so return true
         userAuthorised =  true;
     } else {

@@ -1,0 +1,31 @@
+{
+    "graphs":{
+        "default":{
+            "https://id.inrupt.com/thetwin":{
+                "type":"Subject",
+                "url":"https://id.inrupt.com/thetwin",
+                "predicates":{
+                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type":{
+                        "namedNodes":["http://xmlns.com/foaf/0.1/Agent"]
+                    },
+                    "http://www.w3.org/2000/01/rdf-schema#seeAlso":{
+                        "namedNodes":["https://storage.inrupt.com/405a29e9-e940-4e62-842a-530a3f6314fa/profile"]
+                    },"http://www.w3.org/ns/pim/space#storage":{
+                        "namedNodes":["https://storage.inrupt.com/405a29e9-e940-4e62-842a-530a3f6314fa/"]
+                    },"http://www.w3.org/ns/solid/terms#oidcIssuer":{
+                        "namedNodes":["https://login.inrupt.com"]
+                    },"http://xmlns.com/foaf/0.1/isPrimaryTopicOf":{
+                        "namedNodes":["https://storage.inrupt.com/405a29e9-e940-4e62-842a-530a3f6314fa/profile"]
+                    }
+                }
+            }
+        }
+    },
+    "type":"Dataset",
+    "internal_resourceInfo":{
+        "sourceIri":"https://id.inrupt.com/thetwin?lookup",
+        "isRawData":false,
+        "contentType":"text/turtle;charset=UTF-8",
+        "linkedResources":{}
+    }
+}
