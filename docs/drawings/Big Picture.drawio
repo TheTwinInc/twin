@@ -1,0 +1,277 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.10">
+  <diagram name="Page-1" id="ZrUChxMELWOhKsmtvKJ6">
+    <mxGraphModel dx="2607" dy="2614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="azQfmTnibsnZTwjf_XKd-8" value="" style="group;align=left;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="40" y="20" width="220" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-3" value="Matter&lt;br&gt;/Form" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-8">
+          <mxGeometry x="110" y="-10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-2" value="Biology&lt;br&gt;Matter w/life" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-8">
+          <mxGeometry x="100" y="40" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-23" value="Change&lt;br&gt;Event" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-8">
+          <mxGeometry x="50" y="30" width="75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-4" value="Energy/&lt;br&gt;Force" style="triangle;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-8">
+          <mxGeometry y="10" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-24" value="Actor:&lt;br&gt;Intent &amp;amp; &lt;br&gt;Observe&lt;br&gt;&amp;amp; Evaluate&lt;br&gt;&amp;nbsp;&amp;amp; Decide&lt;br&gt;&amp;amp; Act/Energy" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-8">
+          <mxGeometry x="40" y="150" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-40" value="State" style="endArrow=none;html=1;rounded=0;" edge="1" parent="azQfmTnibsnZTwjf_XKd-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="10" as="sourcePoint" />
+            <mxPoint x="290" y="10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-58" value="System" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=10;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-8">
+          <mxGeometry x="100" y="220" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-72" value="" style="group" vertex="1" connectable="0" parent="azQfmTnibsnZTwjf_XKd-8">
+          <mxGeometry width="280" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-6" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="azQfmTnibsnZTwjf_XKd-72">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="300" as="sourcePoint" />
+            <mxPoint x="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-7" value="Space" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="azQfmTnibsnZTwjf_XKd-72">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint as="sourcePoint" />
+            <mxPoint x="280" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-25" value="Energy/&lt;br&gt;Force" style="triangle;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="840" y="204" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-21" value="Matter&lt;br&gt;/Form" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="963.5" y="284" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-20" value="Value" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;width=34.16666666666667;endSize=12.608333333333334;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1083.5" y="339" as="sourcePoint" />
+            <mxPoint x="1133.5" y="289" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1103.5" y="319" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-1" value="Time" style="endArrow=classic;html=1;rounded=0;dashed=1;dashPattern=8 8;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="374" as="sourcePoint" />
+            <mxPoint x="1140" y="374" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-12" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1013.5" y="284" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-10" value="Function" style="shape=or;whiteSpace=wrap;html=1;textDirection=vertical-rl;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-12">
+          <mxGeometry x="40" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-11" value="Latent&lt;br&gt;Active/" style="shape=or;whiteSpace=wrap;html=1;rotation=-180;textDirection=vertical-lr;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-12">
+          <mxGeometry width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-15" value="Change Event" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="294" width="75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-26" value="Matter&lt;br&gt;Form" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="594" y="284" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-27" value="Value" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;width=34.16666666666667;endSize=12.608333333333334;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="714" y="339" as="sourcePoint" />
+            <mxPoint x="764" y="289" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="734" y="319" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-28" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="644" y="284" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-29" value="Function" style="shape=or;whiteSpace=wrap;html=1;textDirection=vertical-rl;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-28">
+          <mxGeometry x="40" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-30" value="Latent&lt;br&gt;Active/" style="shape=or;whiteSpace=wrap;html=1;rotation=-180;textDirection=vertical-lr;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-28">
+          <mxGeometry width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-34" value="Value" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;width=34.16666666666667;endSize=12.608333333333334;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="95" as="sourcePoint" />
+            <mxPoint x="330" y="45" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="300" y="75" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-31" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="210" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-32" value="Function" style="shape=or;whiteSpace=wrap;html=1;textDirection=vertical-rl;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-31">
+          <mxGeometry x="40" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-33" value="Latent&lt;br&gt;Active/" style="shape=or;whiteSpace=wrap;html=1;rotation=-180;textDirection=vertical-lr;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-31">
+          <mxGeometry width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-35" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="30" y="590" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-36" value="Function" style="shape=or;whiteSpace=wrap;html=1;textDirection=vertical-rl;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-35">
+          <mxGeometry x="40" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-37" value="Latent&lt;br&gt;Active/" style="shape=or;whiteSpace=wrap;html=1;rotation=-180;textDirection=vertical-lr;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-35">
+          <mxGeometry width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-39" value="&lt;div&gt;&lt;b&gt;Function&lt;/b&gt;: what the system does&lt;br&gt;&lt;b&gt;Function-Latent&lt;/b&gt;: Function it can/is ready to do &lt;br&gt;&lt;b&gt;Function-Active&lt;/b&gt;: Function it is actively doing.&lt;br&gt;&lt;b&gt;Function-Core&lt;/b&gt;: functions needed for a system to be that type of system.&lt;br&gt;Example:&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Function-All&lt;/b&gt;: functions a system can do including functions not required by the intended type of system. &lt;br&gt;Example: a car can be a house for spiders&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="600" width="200" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-41" value="Input State" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="594" y="274" as="sourcePoint" />
+            <mxPoint x="754" y="274" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-42" value="Output State" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="963.5" y="274" as="sourcePoint" />
+            <mxPoint x="1130" y="274" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-43" value="State" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="540" as="sourcePoint" />
+            <mxPoint x="210" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-44" value="&lt;div&gt;&lt;b&gt;State&lt;/b&gt;: state of Matter, Function &amp;amp; Value, as in form, existence &amp;amp; level&lt;br&gt;for a period of time.&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="97.5" y="540" width="232.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-45" value="Value" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;width=34.16666666666667;endSize=12.608333333333334;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="45" y="892" as="sourcePoint" />
+            <mxPoint x="95" y="842" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="65" y="872" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-46" value="&lt;div&gt;&lt;b&gt;Value&lt;/b&gt;: how well the function does what it does.&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="842" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-47" value="Time" style="endArrow=classic;html=1;rounded=0;dashed=1;dashPattern=8 8;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="420" as="sourcePoint" />
+            <mxPoint x="320" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-48" value="&lt;div&gt;&lt;b&gt;Time&lt;/b&gt;: Chronological time. Change of states&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;using a cyclic standard&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;such as the earth revolving once&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;for a day&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;b&gt;Past&lt;/b&gt;: previous states. Only exists in memory.&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;b&gt;Now&lt;/b&gt;: current states. Only this exists (is real)&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;b&gt;Future&lt;/b&gt;: future states. Only exists in imagination.&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="422" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-22" value="Time" style="endArrow=classic;html=1;rounded=0;dashed=1;dashPattern=8 8;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="190" as="sourcePoint" />
+            <mxPoint x="320" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-49" value="&lt;div&gt;Neo:&lt;br&gt;Entity&lt;br&gt;&amp;nbsp;Attribute&lt;br&gt;&amp;nbsp;State&lt;br&gt;&amp;nbsp;Event&lt;br&gt;&amp;nbsp;Process&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="25" y="1894" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-50" value="Energy/&lt;br&gt;Force" style="triangle;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="27.5" y="1062" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-51" value="&lt;div&gt;&lt;b&gt;Energy/Force:&lt;/b&gt; energy that applies force to matter that changes states.&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1072" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-52" value="Matter&lt;br&gt;/Form" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="912" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-53" value="Biology&lt;br&gt;Matter w/life" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="962" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-54" value="&lt;div&gt;&lt;b&gt;Matter&lt;/b&gt;:&amp;nbsp;Any object with volume and a measurable quantity of atoms.&lt;br&gt;&lt;b&gt;Form&lt;/b&gt;: a more complex entity with form for function.&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="922" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-55" value="&lt;div&gt;&lt;b&gt;Biology&lt;/b&gt;: Matter/Form with life. Life includes Actor attributes.&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="982" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-56" value="Change&lt;br&gt;Event" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="1172" width="75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-57" value="&lt;div&gt;&lt;b&gt;Change Event&lt;/b&gt;:&amp;nbsp;&lt;span style=&quot;background-color: transparent;&quot;&gt;The change of input state to output state caused by a&lt;/span&gt;&lt;/div&gt;&lt;div&gt;system executing a function during a period of time&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1157" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-59" value="System" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=10;" vertex="1" parent="1">
+          <mxGeometry x="893.5" y="174" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-60" value="System" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=10;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1252" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-61" value="&lt;div&gt;&lt;b&gt;System&lt;/b&gt;:&amp;nbsp;An entity capable of executing a function&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1252" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-63" value="Actor:&lt;br&gt;Intent &amp;amp; &lt;br&gt;Observe&lt;br&gt;&amp;amp; Evaluate&lt;br&gt;&amp;nbsp;&amp;amp; Decide&lt;br&gt;&amp;amp; Act/Energy" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1322" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-66" value="&lt;div&gt;&lt;b&gt;Actor&lt;/b&gt;: a person, animal, or system.&lt;/div&gt;&lt;div&gt;More details to come but high level:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Intent&lt;/b&gt;: desire/decision to change states in time. Ability to envision future states&lt;/div&gt;&lt;div&gt;&lt;b&gt;Observe&lt;/b&gt;:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;ability to observe current Now states of Matter.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;Model&lt;/b&gt;: model Matter Past and Future states.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Evaluate&lt;/b&gt;: evaluate matter/solution/state/energy/process/resource ability to change state to desired state&lt;/div&gt;&lt;div&gt;&lt;b&gt;Decide&lt;/b&gt;: ability to make decision&lt;/div&gt;&lt;div&gt;&lt;b&gt;Act/Energy&lt;/b&gt;: ability to put decision into action&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1317" width="200" height="295" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-68" value="Biology&lt;br&gt;Matter w/life" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="154" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-73" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="580" width="560" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-74" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="azQfmTnibsnZTwjf_XKd-73">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="370" as="sourcePoint" />
+            <mxPoint x="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-75" value="Space" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="azQfmTnibsnZTwjf_XKd-73">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint as="sourcePoint" />
+            <mxPoint x="560" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-14" value="Actor:&lt;br&gt;Intent &amp;amp; &lt;br&gt;Observe&lt;br&gt;&amp;amp; Evaluate&lt;br&gt;&amp;nbsp;&amp;amp; Decide&lt;br&gt;&amp;amp; Act/Energy" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="azQfmTnibsnZTwjf_XKd-73">
+          <mxGeometry x="265" y="10" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-76" value="Environment" style="shape=tape;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1682" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-77" value="Players" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1552" width="90" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-78" value="&lt;div&gt;&lt;b&gt;Environment&lt;/b&gt;: the environment the system is operating in beyond the Players. Can think of as second, third, forth level Players.&lt;br&gt;Example: a car has a destination, like a shop or experience, like trees along the road.&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1682" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-79" value="&lt;div&gt;&lt;b&gt;Players&lt;/b&gt;: the other systems required for the target system to execute its functions.&lt;br&gt;Example: a car needs, Driver, Road, Rules, Gravity&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1552" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-81" value="The Components" style="endArrow=baseDash;html=1;rounded=0;startArrow=baseDash;startFill=0;endFill=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="-60" as="sourcePoint" />
+            <mxPoint x="350" y="-60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-82" value="A Matter, Function, Value, view of how the world is, State, and how State change in Time" style="endArrow=baseDash;html=1;rounded=0;startArrow=baseDash;startFill=0;endFill=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="-80" as="sourcePoint" />
+            <mxPoint x="1150" y="-80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="azQfmTnibsnZTwjf_XKd-85" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="azQfmTnibsnZTwjf_XKd-14" target="azQfmTnibsnZTwjf_XKd-59">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="880" y="70" as="sourcePoint" />
+            <mxPoint x="800" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
