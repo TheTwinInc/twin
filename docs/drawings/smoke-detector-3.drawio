@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net" modified="2024-01-24T18:15:04.852Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15" etag="huZlm_Fz0HdiONNApM54" version="23.0.1" type="device">
+  <diagram name="Page-1" id="Y0vAsx5ezTW01maDcpaE">
+    <mxGraphModel dx="1300" dy="816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="oriv23ejQ34eOIF7qntC-1" value="Ship Storage compartment" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="50" y="250" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-2" value="Register" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="160" y="250" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-3" value="Air vents" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="250" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-8" value="RS485" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="oriv23ejQ34eOIF7qntC-4" target="oriv23ejQ34eOIF7qntC-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-14" value="RS485" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="oriv23ejQ34eOIF7qntC-4" target="oriv23ejQ34eOIF7qntC-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="375" y="465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-29" value="???" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="oriv23ejQ34eOIF7qntC-4" target="oriv23ejQ34eOIF7qntC-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-4" value="Smoke Detector" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="320" y="250" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-5" value="Electricity" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry x="-0.1724" y="3" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="270" y="410" as="sourcePoint" />
+            <mxPoint x="340" y="340" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-6" value="Air" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry x="-0.0476" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="260" as="sourcePoint" />
+            <mxPoint x="340" y="260" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="oriv23ejQ34eOIF7qntC-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="305" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="oriv23ejQ34eOIF7qntC-7" target="oriv23ejQ34eOIF7qntC-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-21" value="RS485" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="oriv23ejQ34eOIF7qntC-18">
+          <mxGeometry x="-0.3167" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-7" value="Proxy" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="275" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-12" value="RDFlib Triples" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="oriv23ejQ34eOIF7qntC-9" target="oriv23ejQ34eOIF7qntC-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-9" value="Adaptor" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="275" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-20" value="Websocets RDFlib Triples" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="oriv23ejQ34eOIF7qntC-11" target="oriv23ejQ34eOIF7qntC-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="oriv23ejQ34eOIF7qntC-11" target="oriv23ejQ34eOIF7qntC-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-25" value="RDFlib Triples Internet" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="oriv23ejQ34eOIF7qntC-24">
+          <mxGeometry x="-0.025" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-11" value="TrinPod™ Server" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="265" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-16" value="Ship WebApp" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="275" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-23" value="Fleet TrinPod™ Server" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="500" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-26" value="Websocets RDFlib Triples" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" target="oriv23ejQ34eOIF7qntC-27" parent="1" source="oriv23ejQ34eOIF7qntC-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1130" y="530" as="sourcePoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-27" value="Fleet WebApp" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-28" value="On/Off" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="315" y="85" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="oriv23ejQ34eOIF7qntC-30" value="Bridge Display/ Control Panel" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="315" y="480" width="120" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
