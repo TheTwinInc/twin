@@ -13,10 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 
-import { AlarmService, SolidService, LoggerService, RdfService, HighlightService } from '@app/services';
-import { SolidDataset, UrlString, WithServerResourceInfo } from '@inrupt/solid-client';
+import { AlarmService, SolidAuthService, LoggerService, RdfService, HighlightService, SolidDataService } from '@app/services';
+import { SolidDataset, Thing, UrlString, WithServerResourceInfo } from '@inrupt/solid-client';
 import { IContainedResource } from '@app/interfaces';
-
+import { PodSelectorComponent } from '@app/components';
 
 
 @Component({
@@ -32,7 +32,8 @@ import { IContainedResource } from '@app/interfaces';
         MatInputModule,
         MatButtonModule,
         MatDividerModule,
-        MatListModule
+        MatListModule,
+        PodSelectorComponent
     ],
     templateUrl: './sandbox.component.html',
     styleUrl: './sandbox.component.css',
@@ -47,7 +48,7 @@ import { IContainedResource } from '@app/interfaces';
             useExisting: forwardRef(() => SandboxComponent),
             multi: true
         }
-      ]
+    ]
 })
 export class SandboxComponent {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();
@@ -60,9 +61,11 @@ export class SandboxComponent {
     turtleText: any;
     containedResources?: IContainedResource[] | null;
     dataset?: SolidDataset & WithServerResourceInfo;
+    things?: Thing[] | null;
 
     constructor(
-        private solidService: SolidService,
+        private solidAuthService: SolidAuthService,
+        private solidDataService: SolidDataService,
         private alarmService: AlarmService,
         private logger: LoggerService,
         private rdf: RdfService,
@@ -71,23 +74,24 @@ export class SandboxComponent {
     ) { }
 
     ngOnInit() {
-        this.solidService.sessionInfo
+        this.solidAuthService.sessionInfo
             .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(x => {
                 this.sessionInfo = x;
                 this.onSessionChange(this.sessionInfo);
             });
-        this.solidService.containedResources
+        this.solidDataService.containedResources
             .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(x => {
                 this.containedResources = x;
-                this.onSessionChange(this.containedResources);
             });
-        this.solidService.handleSessionRestore();
+        this.solidDataService.things
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(x => {
+                this.things = x;
+            });
+        this.solidAuthService.handleSessionRestore();
         this.dataItems = [];
-        this.sandboxForm = this.fb.group({
-            text: [null, null],
-        });
     }
 
     ngOnDestroy(): void {
@@ -127,58 +131,11 @@ export class SandboxComponent {
     async onSessionChange (sessionInfo: any) {
         if (sessionInfo?.isLoggedIn) {
             try {
-                this.pods = await this.solidService.getAllPods(sessionInfo.webId);
-                this.pods.push('https://thetwin-app.stage.graphmetrix.net/i');
-                this.pods.push('https://thetwin-iot.stage.graphmetrix.net/i');
-                this.logger.info(`PODS: ${JSON.stringify(this.pods)}`);
+                this.pods = await this.solidDataService.getAllPods(sessionInfo.webId);
+                // this.logger.info(`PODS: ${JSON.stringify(this.pods)}`);
             } catch (error) {
                 this.logger.error(error);
             }
-            
-
-            // // this.dataSetContent = JSON.stringify(pods);
-
-            // // if (undefined != pods[0] ) {
-            // let readingListUrl = '';
-            // if (undefined != this.pods && this.pods.length >= 0 ) {
-            //     readingListUrl = `${this.pods[0]}getting-started/readingList/myList`;
-            // }
-            
-            // let myReadingList: SolidDataset;
-
-            // try {
-            //     // Attempt to retrieve the reading list in case it already exists.
-            //     myReadingList = await this.solidService.getDataset(readingListUrl);
-            //     // Clear the list to override the whole list
-            //     let items = this.solidService.getThingAll(myReadingList);
-            //     // this.dataSetContent += JSON.stringify(items);
-            //     // items.forEach((item) => {
-            //     //     myReadingList = removeThing(myReadingList, item);
-            //     // });
-            //     for (let i = 0; i < items.length; i++) {
-            //         let item = this.solidService.getStringNoLocale(items[i]);
-            //         if (item !== null && Object.keys(item).length !== 0) {
-            //             // listcontent += JSON.stringify(item) + "\n";
-            //             this.dataItems?.push(JSON.stringify(item));
-            //         }
-            //     }
-            //     // this.dataItems += JSON.stringify(listcontent);
-            // } catch (error) {
-            //     // if (typeof error?.statusCode === "number" && error.statusCode === 404) {
-            //     //     // if not found, create a new SolidDataset (i.e., the reading list)
-            //     //     myReadingList = createSolidDataset();
-            //     // } else {
-            //         console.error(error);
-            // }
-            // pods?.forEach(pod => {
-            //     let podOption = {};
-            //     podOption.textContent = pod.toString();
-            //     podOption.value = pod.toString();
-                
-            // });
-            // let response = await this.solidService.getDataSet("https://thetwin.stage.graphmetrix.net/");
-            // this.dataSetContent = JSON.stringify(response);
-            // this.logger.info(`DATASET: ${JSON.stringify(dataSet)}`);
         }
     }
 
@@ -212,8 +169,8 @@ export class SandboxComponent {
     async getDataset() {
         try {
             if (undefined != this.selectedPod) {
-                let solidDataset;
-                solidDataset = await this.solidService.getDataset(`${this.selectedPod}`);
+                let solidDataset = await this.solidDataService.getDataset(`${this.selectedPod}`);
+                this.solidDataService.setContainedResources(solidDataset);
                 this.dataset = solidDataset;
             }
         } catch (error) {
@@ -224,9 +181,11 @@ export class SandboxComponent {
     async getDatasetAsTurtle() {
         try {
             if (undefined != this.selectedPod) {
-                let solidDataset;
-                solidDataset = await this.solidService.getDataset(`${this.selectedPod}`);
-                this.solidService.solidDataSetAsTurtle(solidDataset);
+                let solidDataset = await this.solidDataService.getDataset(`${this.selectedPod}`);
+                this.solidDataService.setContainedResources(solidDataset);
+                
+                // solidDataset =  this.solidDataService.solidDataSetAsTurtle(solidDataset);
+                this.dataset = solidDataset;
             }
         } catch (error) {
             this.logger.error(error);
@@ -316,5 +275,14 @@ export class SandboxComponent {
 
     navigateResource(url: string) {
         this.logger.info(`Navigate url ${url}`);
+    }
+
+    thingToString(thing: Thing):string {
+        let thingString = '';
+        if (undefined != thing) {
+            thingString = JSON.stringify(thing);
+        }
+        thingString
+        return thingString;
     }
 }
