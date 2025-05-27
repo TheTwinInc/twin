@@ -1,7 +1,0 @@
-<mat-sidenav-container>
-    <mat-sidenav>Start</mat-sidenav>
-    <mat-sidenav position="end">End</mat-sidenav>
-    @for (resource of containedResources; track resource) {
-        <section (click)="navigateResource(resource.url)">{{resource.name}}</section>
-    }
-</mat-sidenav-container>
