@@ -1,0 +1,20 @@
+
+<div>
+    <form style="width:100%">
+        <mat-form-field style="width:100%">
+            <mat-label>Pod(s)</mat-label>
+            <mat-select [(ngModel)]="selectedPod" name="pod" (selectionChange)="setPodContainedResources($event.value)">
+                @for (pod of pods; track pod) {
+                    <mat-option [value]="pod">{{pod}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+        <!-- <p> Selected pod: {{selectedPod}} </p>
+         @if (selectedPod) {
+            <div  class="pod-button-row">
+                <button mat-raised-button color="primary" (click)="getDataset()">Dataset</button>
+                <button mat-raised-button color="primary" (click)="getDatasetAsTurtle()">Turtle</button>
+            </div>
+        } -->
+    </form>
+</div>
