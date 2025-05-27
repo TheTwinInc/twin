@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ISessionInfo } from '@inrupt/solid-client-authn-browser';
 
-import { AlarmService, SolidService, LoggerService } from '@app/services';
+import { AlarmService, SolidAuthService, LoggerService } from '@app/services';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class CallbackComponent implements OnInit, OnDestroy {
     sessionInfo?: ISessionInfo | null;
 
     constructor(
-        private solidService: SolidService,
+        private solidService: SolidAuthService,
         private alarmService: AlarmService,
         private router: Router,
         private logger: LoggerService,
@@ -30,7 +30,7 @@ export class CallbackComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(x => {
                 this.sessionInfo = x;
-                this.onSessionChange(this.sessionInfo);
+                // this.onSessionChange(this.sessionInfo);
             });
         this.alarmService.success('Connected to server', true);
         this.solidService.handleSessionRestore();
@@ -42,10 +42,15 @@ export class CallbackComponent implements OnInit, OnDestroy {
     }
 
     onSessionChange (sessionInfo: any) {
-        if (sessionInfo?.isLoggedIn) {
-            this.router.navigate(['/sandbox']);
-        } else {
-            this.router.navigate(['account/callback']);
-        }
+        // this.logger.info(`CC: Redirecting`);
+        // if (!sessionInfo?.isLoggedIn) {
+        //     this.logger.info(`CC: Redirecting`);
+        //     this.router.navigate(['account/callback']);
+        // }
+        // if (sessionInfo?.isLoggedIn) {
+        //     this.router.navigate(['/sandbox']);
+        // } else {
+        //     this.router.navigate(['account/callback']);
+        // }
     }
 }
