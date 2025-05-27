@@ -1,0 +1,21 @@
+
+@if (!editing) {
+    <h2>Your Profile</h2>
+    <p><strong>Name:</strong> {{ form.value.name }}</p>
+    <p><strong>Email:</strong> {{ form.value.email }}</p>
+    <button (click)="editing = true">Edit</button>
+} @else {
+    <h2>Edit Profile</h2>
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <label>
+            Name:
+            <input formControlName="name" />
+        </label>
+        <label>
+            Email:
+            <input formControlName="email" type="email" />
+        </label>
+        <button type="submit">Save</button>
+        <button type="button" (click)="editing = false">Cancel</button>
+    </form>
+}
