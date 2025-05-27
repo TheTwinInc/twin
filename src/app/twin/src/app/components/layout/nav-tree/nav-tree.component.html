@@ -1,0 +1,22 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [style.cursor]="'pointer'">
+                <button mat-button [routerLink]="node.route">
+                    {{ node.label }}
+                </button>
+            </mat-tree-node>
+
+            <mat-tree-node
+                *matTreeNodeDef="let node; when: hasChild"
+                matTreeNodePadding>
+                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.label">
+                    <mat-icon>
+                        {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+                    </mat-icon>
+                </button>
+                {{ node.label }}
+            </mat-tree-node>
+        </mat-tree>
+    </mat-sidenav>
+</mat-sidenav-container>
