@@ -23,8 +23,14 @@
 }
 
 /* header, footer, article, nav, div { */
-header, footer, article, nav, div {
+header, article, nav, div {
     padding: 1.2em;
+    background: white;
+}
+
+footer {
+    padding-top: 0;
+    padding-bottom: 0;
     background: white;
 }
 
