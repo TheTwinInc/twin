@@ -1,11 +1,12 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { IContainedResource } from '@app/interfaces';
-import { LocalStorageService, LoggerService, SolidAuthService } from '@app/services';
+import { LocalStorageService, LoggerService, RdfService, SolidAuthService } from '@app/services';
 import { buildThing, createSolidDataset, getContainedResourceUrlAll, getPodUrlAll, getSolidDataset, getStringNoLocale, getThingAll, isContainer, removeThing, saveSolidDatasetAt, setStringNoLocale, SolidDataset, Thing, Url, UrlString, WithServerResourceInfo, getThing, setThing, createThing, getUrl } from '@inrupt/solid-client';
 import { fetch, ISessionInfo, Session } from '@inrupt/solid-client-authn-browser';
 import { CreateThingOptions } from '@inrupt/solid-client/dist/thing/thing';
 import { FOAF, SCHEMA_INRUPT, VCARD } from '@inrupt/vocab-common-rdf';
 import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
+import { DirectedGraph } from 'graphology';
 
 @Injectable({
     providedIn: 'root'
@@ -17,6 +18,16 @@ export class SolidDataService {
     public containedResources: Observable<IContainedResource[] | null>;
     private thingsSubject: BehaviorSubject<Thing[] | null>;
     public things: Observable<Thing[] | null>;
+    private turtleSubject: BehaviorSubject<Thing[] | null>;
+    public turtle: Observable<Thing[] | null>;
+
+    // private _bags: IBag[] = [];
+    // bags = new BehaviorSubject<IBag[]>(this._bags)
+    private _assets = new DirectedGraph();
+    public assets = new BehaviorSubject<DirectedGraph>(this._assets)
+
+    private assetsGraphSubject: BehaviorSubject<DirectedGraph>;
+    public assetsGraph: Observable<DirectedGraph>;
     // private sessionInfo?: ISessionInfo | null;
     private selectedPod?: string | Url;
     private dataset?: SolidDataset & WithServerResourceInfo;
@@ -24,7 +35,8 @@ export class SolidDataService {
     constructor(
         private logger: LoggerService,
         private solidAuthService: SolidAuthService,
-        private localStorageService: LocalStorageService
+        private localStorageService: LocalStorageService,
+        private rdfService: RdfService
     ) {
         if (undefined != localStorage.getItem('containedResources')) {
             this.localStorageService.removeItem('containedResources');
@@ -32,12 +44,34 @@ export class SolidDataService {
         if (undefined != localStorage.getItem('things')) {
             this.localStorageService.removeItem('things');
         }
+        if (undefined != localStorage.getItem('turtle')) {
+            this.localStorageService.removeItem('turtle');
+        }
 
         this.containedResourcesSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('containedResources')!));
         this.containedResources = this.containedResourcesSubject.asObservable();
         
         this.thingsSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('things')!));
         this.things = this.thingsSubject.asObservable();
+        
+        this.turtleSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('turtle')!));
+        this.turtle = this.thingsSubject.asObservable();
+
+        // private _bags: IBag[] = [];
+        // bags = new BehaviorSubject<IBag[]>(this._bags)
+        this.assetsGraphSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('assetsGraph')!));
+        this.assetsGraph = this.assetsGraphSubject.asObservable();
+
+        this.initAssetsGraph();
+    }
+
+    public get assetsGraphValue() {
+        return this.assetsGraphSubject.value;
+    }
+
+    initAssetsGraph() {
+        const assetsGraph = new DirectedGraph();
+        this.assetsGraphSubject.next(assetsGraph);
     }
 
     // ngOnInit() {
@@ -74,6 +108,12 @@ export class SolidDataService {
             if (this.solidAuthService.isLoggedIn() && undefined != webId) {
                 const pods = await getPodUrlAll(webId, { fetch: fetch });
                 returnPods = pods;   
+            }
+
+            if (this.solidAuthService.isLoggedIn() && undefined != webId) {
+                const linkedPods = await this.rdfService.findMembershipContainers(webId);
+                this.logger.info(`SDS: Linked pods: ${linkedPods}`);
+                returnPods.concat(linkedPods);   
             }
             
         } catch (error) {
@@ -139,24 +179,61 @@ export class SolidDataService {
     }
 
     /*
-    * Get contained resources from dataset
+    * Set contained resources from dataset
     */
     setContainedResources (dataset: SolidDataset & WithServerResourceInfo){
         try {
-            if (this.solidAuthService.isLoggedIn() && undefined != dataset && this.selectedPod) {
-                let baseLength = this.selectedPod.toString().length;
-                let containedResources = getContainedResourceUrlAll(dataset)
-                .sort(this.compareResourceUrls)
-                .map((resourceUrl) => {
-                    let name = resourceUrl.substring(baseLength);
-                    return {"url": resourceUrl, "name": name}
-                });
-                this.logger.info(`Contained resources: ${JSON.stringify(containedResources)}`);
-                this.containedResourcesSubject.next(containedResources);
-            }
+            let containedResources = this.getContainedResources(dataset);
+            this.logger.info(`Contained resources: ${JSON.stringify(containedResources)}`);
+            this.containedResourcesSubject.next(containedResources);
+            // this.setAssetsGraph(containedResources);
         } catch (error) {
             this.logger.error(error);
         }
+    }
+    
+    getContainedResources(dataset: SolidDataset & WithServerResourceInfo): IContainedResource[] {
+        let containedResources: IContainedResource[] = [];
+        if (this.solidAuthService.isLoggedIn() && undefined != dataset && this.selectedPod) {
+            let baseLength = this.selectedPod.toString().length;
+            containedResources = getContainedResourceUrlAll(dataset)
+                .sort(this.compareResourceUrls)
+                .map((resourceUrl) => {
+                    let name = resourceUrl.substring(baseLength);
+                    return { "url": resourceUrl, "name": name };
+                });
+        }
+        return containedResources;
+    }
+
+    // setAssetsGraph(dataset: SolidDataset & WithServerResourceInfo) {
+    // setAssetsGraph(selectedResource: IContainedResource, containedResources: IContainedResource[]) {
+    setAssetsGraph(selectedResource: IContainedResource, containedResources: IContainedResource[]) {
+        try {
+        
+            let assetsGraph = this.assetsGraphValue;
+            if (!assetsGraph.hasNode(selectedResource.url)) {
+                assetsGraph.addNode(selectedResource.url, {name: selectedResource.name, url: selectedResource.url});
+                // assetsGraph.addNode(selectedResource.url, {label: selectedResource.name, route: selectedResource.url, children: []});
+            }
+
+            for (let index = 0; index < containedResources.length; index++) {
+                const element = containedResources[index];
+                if (!assetsGraph.hasNode(element.url)) {
+                    assetsGraph.addNode(element.url, {name: element.name, url: element.url});
+                    // assetsGraph.addNode(element.url, {label: element.name, route: element.url, children: []});
+                    if (undefined != selectedResource) {
+                        assetsGraph.addEdge(selectedResource.url, element.url);
+                    }    
+                }
+            }
+
+            this.logger.info(`SDS: Serialized graph: ${JSON.stringify(assetsGraph.export())}`);
+            this.assetsGraphSubject.next(assetsGraph);
+        } catch (error) {
+            this.logger.error(error);
+        }
+        
     }
 
     /*
@@ -168,7 +245,8 @@ export class SolidDataService {
             if (this.solidAuthService.isLoggedIn() && undefined != dataset) {
                 let things = getThingAll(dataset);
                 this.thingsSubject.next(things);
-                returnThingAll = things; 
+                returnThingAll = things;
+                // this.logger.info(`Things: ${JSON.stringify(things)}`);
             }
         } catch (error) {
             this.logger.error(error);

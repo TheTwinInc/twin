@@ -50,12 +50,12 @@ export class NavComponent {
         }
     }
 
-    async navigateResource(url: string) {
-        this.logger.info(`Navigate url ${url}`);
-        let dataset = await this.solidDataService.getDataset(url);
+    async navigateResource(resource: IContainedResource) {
+        this.logger.info(`Navigate url ${resource.url}`);
+        let dataset = await this.solidDataService.getDataset(resource.url);
         this.solidDataService.getThingAll(dataset);
-        // this.solidDataService.setContainedResources(dataset);
-        // this.logger.debug(`App dataset: ${JSON.stringify(dataset)}`);
+        let containedResources = this.solidDataService.getContainedResources(dataset);
+        this.solidDataService.setAssetsGraph(resource, containedResources);
     }
 }
 

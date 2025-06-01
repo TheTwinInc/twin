@@ -1,12 +1,14 @@
 export interface NavItem {
-    label: string;
-    route?: string;
+    id: string;
+    name: string;
+    url?: string;
     children?: NavItem[];
 }
 
 export interface FlatNavItem {
+    id: string;
     expandable: boolean;
-    label: string;
+    name: string;
     level: number;
-    route?: string;
+    url?: string;
 }

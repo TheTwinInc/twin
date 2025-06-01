@@ -1,22 +1,23 @@
-<mat-sidenav-container>
-    <mat-sidenav mode="side" opened>
-        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [style.cursor]="'pointer'">
-                <button mat-button [routerLink]="node.route">
-                    {{ node.label }}
-                </button>
-            </mat-tree-node>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- Leaf node -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding class="tree-node">
+        <button mat-icon-button disabled></button>
+        <a mat-button (click)="navigateResource(node)">{{ node.name }}</a>
+    </mat-tree-node>
+        
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding class="tree-node">
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.name"
+                (click)="node.isExpanded = !node.isExpanded"
+                [style.visibility]="node.expandable ? 'visible' : 'hidden'">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+        </button>
+        <a mat-button (click)="navigateResource(node)">{{ node.name }}</a>
+    </mat-tree-node>
+</mat-tree>
 
-            <mat-tree-node
-                *matTreeNodeDef="let node; when: hasChild"
-                matTreeNodePadding>
-                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.label">
-                    <mat-icon>
-                        {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
-                    </mat-icon>
-                </button>
-                {{ node.label }}
-            </mat-tree-node>
-        </mat-tree>
-    </mat-sidenav>
-</mat-sidenav-container>
+
+
