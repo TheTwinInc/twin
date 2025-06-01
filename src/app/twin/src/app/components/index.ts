@@ -1,3 +1,4 @@
+export * from './exceptions/alarm/alarm.component';
 export * from './layout/app-home/app-home.component';
 export * from './layout/nav/nav.component';
 export * from './layout/nav-tree/nav-tree.component';
@@ -13,7 +14,6 @@ export * from './account/logout/logout.component';
 export * from './account/register/register.component';
 export * from './account/login-dialog/login-dialog.component';
 export * from './account/identity-provider-dialog/identity-provider-dialog.component';
-export * from './exceptions/alarm/alarm.component';
 export * from './solid/pod-selector/pod-selector.component';
 export * from './solid/profile/profile.component';
 
