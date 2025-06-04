@@ -286,3 +286,4 @@ src/app/twin/.vscode/launch.json
 src/app/twin/.vscode/tasks.json
 
 *.bkp
+sandbox/*
