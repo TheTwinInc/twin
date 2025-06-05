@@ -25,17 +25,7 @@ export class SolidAuthService {
     public clientName: string | undefined;
 
     private session = getDefaultSession();
-    // private dataset?: SolidDataset & WithServerResourceInfo;
-    // private selectedPod?: string | Url;
-    // containedResources?: string[];
-
-    // fechInit = {
-    //     method: 'PATCH',
-    //     headers: {
-    //         'Content-Type': 'application/sparql-update',
-    //     },
-    //     body: '',
-    // };
+    
     constructor(
         private router: Router,
         private alarmService: AlarmService,
@@ -85,7 +75,7 @@ export class SolidAuthService {
         if (undefined != defaultSession.info) {
             isLoggedIn = defaultSession.info.isLoggedIn;
         }
-        this.logger.debug(`HC: Is logged in: ${isLoggedIn}`);
+        // this.logger.debug(`HC: Is logged in: ${isLoggedIn}`);
         return isLoggedIn;
         // return this.session.info.isLoggedIn;
     }
@@ -96,7 +86,7 @@ export class SolidAuthService {
         if (undefined != defaultSession.info.webId) {
             webId = defaultSession.info.webId;
         }
-        this.logger.debug(`HC: Web id: ${webId}`);   
+        // this.logger.debug(`HC: Web id: ${webId}`);
         return webId;
     }
 
@@ -110,7 +100,7 @@ export class SolidAuthService {
         if (!this.isLoggedIn()) {
             if (undefined != this.oidcIssuer && '' != this.oidcIssuer) {
                 let redirectUrl = this.getPathFromUrl(window.location.href);
-                this.logger.info(`SAS: ${redirectUrl}`);
+                // this.logger.info(`SAS: ${redirectUrl}`);
                 await login({
                     // oidcIssuer: oidcIssuer,
                     oidcIssuer: this.oidcIssuer,
@@ -172,10 +162,6 @@ export class SolidAuthService {
     */
     logoutApp = async () => {
         this.logger.debug(`AUTH: Logout`);
-        // let emptyContainedResources: IContainedResource[] = [];
-        // this.containedResourcesSubject.next(emptyContainedResources);
-        // this.localStorageService.removeItem('containedResources');
-        // this.solidDataService.logoutCleanup();
         await logout({ logoutType: 'app' })
             .then( () => {
                 this.logoutCleanup();
