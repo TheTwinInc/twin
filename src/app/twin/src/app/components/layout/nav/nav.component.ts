@@ -51,7 +51,7 @@ export class NavComponent {
     }
 
     async navigateResource(resource: IContainedResource) {
-        this.logger.info(`Navigate url ${resource.url}`);
+        // this.logger.info(`Navigate url ${resource.url}`);
         let dataset = await this.solidDataService.getDataset(resource.url);
         this.solidDataService.getThingAll(dataset);
         let containedResources = this.solidDataService.getContainedResources(dataset);
