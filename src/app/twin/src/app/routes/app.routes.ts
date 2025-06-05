@@ -25,5 +25,5 @@ export const APP_ROUTES: Routes = [
     { path: 'solid/profile', component: ProfileComponent },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: 'solid/profile' }
 ];
