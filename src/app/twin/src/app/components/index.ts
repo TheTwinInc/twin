@@ -15,5 +15,5 @@ export * from './account/register/register.component';
 export * from './account/login-dialog/login-dialog.component';
 export * from './account/identity-provider-dialog/identity-provider-dialog.component';
 export * from './solid/pod-selector/pod-selector.component';
-export * from './solid/profile/profile.component';
+export * from './profile/profile-home/profile-home.component';
 

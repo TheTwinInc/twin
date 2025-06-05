@@ -10,8 +10,8 @@ import { Subject, takeUntil } from 'rxjs';
     selector: 'app-profile',
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './profile.component.html',
-    styleUrl: './profile.component.css'
+    templateUrl: './profile-home.component.html',
+    styleUrl: './profile-home.component.css'
 })
 export class ProfileComponent {
     @ViewChild('canvas', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
