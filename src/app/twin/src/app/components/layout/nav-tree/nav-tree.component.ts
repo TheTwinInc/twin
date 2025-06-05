@@ -73,15 +73,15 @@ export class NavTreeComponent implements OnInit, OnDestroy{
             .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(x => {
                 this.containedResources = x;
-                this.logger.debug(`NAV: Update contained resources`);
+                // this.logger.debug(`NAV: Update contained resources`);
             });
         this.solidDataService.assetsGraph
             .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(x => {
                 this.assetsGraph = x;
-                this.logger.debug(`NAV: Update assets: ${JSON.stringify(x)}`);
+                // this.logger.debug(`NAV: Update assets: ${JSON.stringify(x)}`);
                 let navTree: NavItem[] | undefined = this.graphToNavForest(x);
-                this.logger.debug(`NAV: Nav tree: ${JSON.stringify(navTree)}`);
+                // this.logger.debug(`NAV: Nav tree: ${JSON.stringify(navTree)}`);
                 this.updateNodeTree(navTree);
             });
         
@@ -95,7 +95,7 @@ export class NavTreeComponent implements OnInit, OnDestroy{
                     .map(node => node.id)
             );
             this.dataSource.data = navTree ? navTree : this.emptyNavItem;
-            this.logger.info(`NAVT: Node tree: ${JSON.stringify(navTree)}`);
+            // this.logger.info(`NAVT: Node tree: ${JSON.stringify(navTree)}`);
 
             setTimeout(() => {
                 this.treeControl.dataNodes.forEach(node => {
@@ -132,13 +132,11 @@ export class NavTreeComponent implements OnInit, OnDestroy{
 
     // async navigateResource(url: string) {
     async navigateResource(node: any) {
-
-    // async navigateResource(resource: IContainedResource) {
-        this.logger.info(`Navigate node: ${JSON.stringify(node)}`);
+        // this.logger.info(`Navigate node: ${JSON.stringify(node)}`);
         let dataset = await this.solidDataService.getDataset(node.id);
-        this.solidDataService.getThingAll(dataset);
         const containedResources = this.solidDataService.getContainedResources(dataset);
         this.solidDataService.setAssetsGraph(node, containedResources);
+        // this.solidDataService.getThingAll(dataset);
     }
 
     // graphToNavForest(graph: Graph): NavItem[] {
