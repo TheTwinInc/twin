@@ -23,5 +23,5 @@ export interface IAppSettings {
     bags: {
         uri: string;
     };
-    
+    apiUrl: string;
 }
