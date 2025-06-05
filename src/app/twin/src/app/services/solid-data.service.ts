@@ -57,8 +57,6 @@ export class SolidDataService {
         this.turtleSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('turtle')!));
         this.turtle = this.thingsSubject.asObservable();
 
-        // private _bags: IBag[] = [];
-        // bags = new BehaviorSubject<IBag[]>(this._bags)
         this.assetsGraphSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('assetsGraph')!));
         this.assetsGraph = this.assetsGraphSubject.asObservable();
 
@@ -106,16 +104,10 @@ export class SolidDataService {
         let returnPods = [{}];
         try {
             if (this.solidAuthService.isLoggedIn() && undefined != webId) {
-                const pods = await getPodUrlAll(webId, { fetch: fetch });
-                returnPods = pods;   
+                // this.rdfService.listAllTriples(webId);
+                const pods = await this.rdfService.findMembershipContainers(webId);
+                returnPods = pods;
             }
-
-            if (this.solidAuthService.isLoggedIn() && undefined != webId) {
-                const linkedPods = await this.rdfService.findMembershipContainers(webId);
-                this.logger.info(`SDS: Linked pods: ${linkedPods}`);
-                returnPods.concat(linkedPods);   
-            }
-            
         } catch (error) {
             this.logger.error(error);
         }
@@ -143,6 +135,9 @@ export class SolidDataService {
         return returnDataset; 
     }
 
+    /*
+    * Get Solid dataset as turtle
+    */
     async solidDataSetAsTurtle (dataset: SolidDataset & WithServerResourceInfo) {
         try {
             if (this.solidAuthService.isLoggedIn() && undefined != dataset ) {
@@ -184,7 +179,7 @@ export class SolidDataService {
     setContainedResources (dataset: SolidDataset & WithServerResourceInfo){
         try {
             let containedResources = this.getContainedResources(dataset);
-            this.logger.info(`Contained resources: ${JSON.stringify(containedResources)}`);
+            // this.logger.info(`Contained resources: ${JSON.stringify(containedResources)}`);
             this.containedResourcesSubject.next(containedResources);
             // this.setAssetsGraph(containedResources);
         } catch (error) {
@@ -456,4 +451,6 @@ export class SolidDataService {
         };
         return storage;
     }
+
+    
 }

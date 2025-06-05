@@ -21,18 +21,18 @@ import { Subject, takeUntil } from 'rxjs';
     ],
     templateUrl: './pod-selector.component.html',
     styleUrl: './pod-selector.component.css',
-        providers: [
-            {
-                provide: NG_VALUE_ACCESSOR,
-                useExisting: forwardRef(() => PodSelectorComponent),
-                multi: true
-            },
-            {
-                provide: NG_VALIDATORS,
-                useExisting: forwardRef(() => PodSelectorComponent),
-                multi: true
-            }
-        ]
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => PodSelectorComponent),
+            multi: true
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => PodSelectorComponent),
+            multi: true
+        }
+    ]
 })
 export class PodSelectorComponent implements OnInit, OnDestroy {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();
@@ -56,7 +56,6 @@ export class PodSelectorComponent implements OnInit, OnDestroy {
                 this.sessionInfo = x;
                 this.onSessionChange(this.sessionInfo);
             });
-        this.solidAuthService.handleSessionRestore();
         this.formGroup = this.fb.group({
             podSelector: [null],
         });
@@ -73,11 +72,12 @@ export class PodSelectorComponent implements OnInit, OnDestroy {
         }
     }
 
-     async getDataset() {
+    async getDataset() {
         try {
             if (undefined != this.selectedPod) {
                 let solidDataset = await this.solidDataService.getDataset(`${this.selectedPod}`);
                 this.solidDataService.setContainedResources(solidDataset);
+                
             }
         } catch (error) {
             this.logger.error(error);
@@ -89,9 +89,7 @@ export class PodSelectorComponent implements OnInit, OnDestroy {
             if (undefined != this.selectedPod) {
                 let solidDataset = await this.solidDataService.getDataset(`${this.selectedPod}`);
                 this.solidDataService.setContainedResources(solidDataset);
-                
-                // solidDataset =  this.solidDataService.solidDataSetAsTurtle(solidDataset);
-                // this.dataset = solidDataset;
+                // this.solidDataService.getThingAll(solidDataset);
             }
         } catch (error) {
             this.logger.error(error);
@@ -99,6 +97,32 @@ export class PodSelectorComponent implements OnInit, OnDestroy {
     }
 
     async setPodContainedResources(pod: any) {
-        await this.getDataset();
+        
+        
+        // let solidDataset = await this.solidDataService.getDataset(`${pod}`);
+        // const containedResources = this.solidDataService.getContainedResources(solidDataset);
+        // const rootResource: IContainedResource = {
+        //     url: sessionInfo.webId,
+        //     name: 'root'
+        // }
+        // this.solidDataService.setAssetsGraph(rootResource, containedResources);
+        try {
+            this.selectedPod = pod;
+            // this.logger.info(`PS: Selected Pod: ${JSON.stringify(pod)}`);
+            if (this.sessionInfo?.isLoggedIn && undefined != this.sessionInfo.webId && undefined != this.selectedPod) {
+                let solidDataset = await this.solidDataService.getDataset(`${this.selectedPod}`);
+                const containedResources = this.solidDataService.getContainedResources(solidDataset);
+                const rootResource: IContainedResource = {
+                    url: this.sessionInfo.webId,
+                    name: 'root'
+                }
+                this.solidDataService.setAssetsGraph(rootResource, containedResources);
+                this.solidDataService.setContainedResources(solidDataset);
+                
+            }
+        } catch (error) {
+            this.logger.error(error);
+        }
+        // await this.getDataset();
     }
 }
