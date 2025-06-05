@@ -1,10 +1,21 @@
 
-@if (!editing) {
-    <h2>Your Profile</h2>
-    <p><strong>Name:</strong> {{ form.value.name }}</p>
-    <p><strong>Email:</strong> {{ form.value.email }}</p>
-    <button (click)="editing = true">Edit</button>
-} @else {
+@if (!editing && !editingPicture) {
+    <div class="profile-card">
+        <h2>Your Profile</h2>
+        <img *ngIf="form.value.photo" [src]="form.value.photo" alt="Profile photo" class="profile-photo" />
+        <p><strong>Name:</strong> {{ form.value.name }}</p>
+        <p><strong>Email:</strong> {{ form.value.email }}</p>
+        <p *ngIf="form.value.photo"><strong>Photo:</strong> {{ form.value.photo }}</p>
+        <!-- <p *ngIf="form.value.role"><strong>Role:</strong> {{ form.value.role }}</p> -->
+        
+        <canvas #canvas hidden></canvas>
+        <button (click)="editing = true">Edit</button>
+        <button (click)="editingPicture = true">Add Picture</button>
+        <button (click)="reloadProfile()">Reload</button>
+    </div>
+    
+} 
+@if (editing) {
     <h2>Edit Profile</h2>
     <form [formGroup]="form" (ngSubmit)="save()">
         <label>
@@ -15,7 +26,17 @@
             Email:
             <input formControlName="email" type="email" />
         </label>
+        <label>
+            Profile Picture:
+            <input formControlName="photo" />
+        </label>
+        
         <button type="submit">Save</button>
         <button type="button" (click)="editing = false">Cancel</button>
     </form>
+}
+
+@if (editingPicture) {
+    <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+    <button (click)="deleteProfileImage()">Delete</button>
 }
