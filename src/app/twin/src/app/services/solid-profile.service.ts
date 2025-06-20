@@ -1,20 +1,6 @@
 import { Injectable } from '@angular/core';
-// import {
-//     getSolidDataset,
-//     getThing,
-//     getStringNoLocale,
-//     setThing,
-//     saveSolidDatasetAt,
-//     createThing,
-//     addStringNoLocale,
-//     getPodUrlAll,
-//     buildThing,
-//     setStringNoLocale,
-//     solidDatasetAsTurtle,
-// } from '@inrupt/solid-client';
 import { LocalStorageService, LoggerService, RdfService, SolidAuthService, SolidDataService } from '@app/services';
 import { FOAF, VCARD } from '@inrupt/vocab-common-rdf';
-// import { getDefaultSession } from '@inrupt/solid-client-authn-browser';
 import { RdfProfile } from '@app/interfaces';
 
 @Injectable({
@@ -31,7 +17,6 @@ export class SolidProfileService {
             private localStorageService: LocalStorageService
     ) { }
     
-
     getProfileUrl(webId: string): string {
         let profileUrl = '';
         profileUrl = this.rdfService.getProfileUrl(webId);
@@ -46,8 +31,9 @@ export class SolidProfileService {
             webId: webId,
             name: '',
             email: '',
-            // role: '',
-            photo: '',
+            role: '',
+            org: '',
+            img: '',
         }
         
         this.logger.info(`SDS: Reading profile logged in: ${loggedIn} ${webId}`);
@@ -58,16 +44,15 @@ export class SolidProfileService {
                 const ownerWebid = this.rdfService.getOwnerWebId(profileUrl);
                 rdfProfile.name = this.rdfService.getValue(ownerWebid, FOAF.name) ?? '';
                 rdfProfile.email = this.rdfService.getValue(ownerWebid, VCARD.hasEmail) ?? '';
-                // rdfProfile.role = this.rdfService.getValue(ownerWebid, VCARD.role) ?? '';
-                rdfProfile.photo = await this.rdfService.getProfileImageUrlsContaining(webId, '/public/images/profile-picture') ?? '';
+                rdfProfile.role = this.rdfService.getValue(ownerWebid, VCARD.role) ?? '';
+                rdfProfile.org = this.rdfService.getValue(ownerWebid, VCARD.organization_name) ?? '';
+                rdfProfile.img = await this.rdfService.getProfileImageUrlsContaining(webId, '/public/images/profile-picture') ?? '';
                 // rdfProfile.photo = (this.rdfService.getLiteral(profileUrl, FOAF.img) || this.rdfService.getLiteral(profileUrl, VCARD.photo)) ?? '';
             }
-            this.logger.info(`SDS: Name, email, photo: ${rdfProfile.name}, ${rdfProfile.email}, ${rdfProfile.photo}`);
+            this.logger.info(`SDS: Name, email, photo: ${rdfProfile.name}, ${rdfProfile.email}, ${rdfProfile.img}`);
         }
         return rdfProfile;
     }
-
-    
 
     async updateProfile(profile: RdfProfile): Promise<void> {
         const session = this.solidAuthService.getDefaultSession();
@@ -76,7 +61,7 @@ export class SolidProfileService {
         const name = profile.name ?? '';
         const email = `mailto:${profile.email}`;
         // const role = profile.role ?? '';
-        const photo = profile.photo ?? '';
+        const photo = profile.img ?? '';
         // const storageRoot = await this.solidDataService.getStorageRoot(session);
         // const resourceUrl = `${storageRoot}private/thetwin.ttl`;
         if ( loggedIn && undefined != session && '' != webId) {
@@ -102,7 +87,7 @@ export class SolidProfileService {
         const session = this.solidAuthService.getDefaultSession();
         const webId = this.solidAuthService.getWebId();
         const loggedIn = this.solidAuthService.isLoggedIn();
-        const photo = profile.photo ?? '';
+        const photo = profile.img ?? '';
         if ( loggedIn && undefined != session && '' != webId) {
             
             let profileUrl = this.rdfService.getProfileUrl(webId) ?? '';

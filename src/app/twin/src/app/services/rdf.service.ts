@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RdfUpdate } from '@app/interfaces';
+import { FriendProfile, ProfileData, RdfProfile, RdfUpdate } from '@app/interfaces';
 import { LoggerService, SolidAuthService } from '@app/services';
 import { getWebIdDataset } from '@inrupt/solid-client';
 import { Session } from '@inrupt/solid-client-authn-browser';
@@ -7,7 +7,7 @@ import { Session } from '@inrupt/solid-client-authn-browser';
 
 // import rdfParser from 'rdf-parse';
 import * as $rdf from 'rdflib';
-import { Term } from 'rdflib/lib/tf-types';
+import { NamedNode, Quad_Object, Term } from 'rdflib/lib/tf-types';
 const LDP = $rdf.Namespace('http://www.w3.org/ns/ldp#>');
 const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
 const XSD  = $rdf.Namespace('http://www.w3.org/2001/XMLSchema#');
@@ -37,9 +37,10 @@ export class RdfService {
         // const fetchWithAuth = this.solidAuthService.getSession().fetch;
         this.store = this.createStore();
         // const fetchWithAuth = this.solidAuthService.getDefaultSession().fetch;
-        this.fetcher = this.createFetcher();
+        
         this.updater = this.createUpdater();
-        this.hyperFetcher = this.createHyperFetcher();
+        // this.fetcher = this.createFetcher();
+        this.fetcher = this.createHyperFetcher();
     }
 
     isLoggedIn(): boolean {
@@ -52,8 +53,6 @@ export class RdfService {
     }
 
     createHyperFetcher() {
-        // const hyperFetch = (input: string | URL | globalThis.Request, init?: RequestInit) => {
-        // const hyperFetch = (input: string | URL | globalThis.Request, init?: any): Promise<Response> => {
         const hyperFetch = (input: string | URL | globalThis.Request, init?: any) => {
             if (!init) {
                 init = {};
@@ -63,7 +62,6 @@ export class RdfService {
             }
             init.headers.hypergraph = 'U2FsdGVkX1/S0rANmPZVe3xCIXvlGoGnGudwlp4wFSMFtte++kYYPt0l4B4407c+'
             const session = this.solidAuthService.getDefaultSession();
-            // return new $rdf.Fetcher(this.store, { fetch: fetchWithAuth });
             return session.fetch(input, init);
         }
 
@@ -82,14 +80,14 @@ export class RdfService {
     /**
      * Load RDF resource into store
      */
-    async loadResource(resourceUrl: string): Promise<void> {
+    async loadResource(resourceUrl: string | NamedNode): Promise<void> {
         await this.fetcher.load(resourceUrl);
     }
 
     async listAllTriples(webId: string) {
         // List all triples
         const webIdDoc = webId.split('#')[0];
-        await this.fetcher.load(webIdDoc);
+        await this.loadResource(webIdDoc);
         const allTriples = this.store.statementsMatching(null, null, null);
 
         allTriples.forEach(triple => {
@@ -100,7 +98,7 @@ export class RdfService {
     async listAllTriplesAsTurtle (webId: string) {
         // List all triples
         const webIdDoc = webId.split('#')[0];
-        await this.fetcher.load(webIdDoc);
+        await this.loadResource(webIdDoc);
 
         const triples = this.store.statementsMatching(null, null, null);
         triples.forEach(triple => {
@@ -113,7 +111,7 @@ export class RdfService {
         // const store = this.createStore();
         // const fetcher = this.createFetcher(store);
 
-        this.fetcher.load(folder).then(() => {
+        this.loadResource(folder).then(() => {
             let files = this.store.any(folder, LDP('contains'));
             this.logger.info(`Files ${files}`)
         });
@@ -124,7 +122,7 @@ export class RdfService {
         // const store = this.createStore();
         // const fetcher = this.createFetcher(store);
 
-        this.fetcher.load(folder).then(() => {
+        this.loadResource(folder).then(() => {
             let files = this.store.any(folder, LDP('contains'));
             this.logger.info(`Files ${files}`)
         });
@@ -179,7 +177,7 @@ export class RdfService {
             // this.fetcher = new $rdf.Fetcher(this.store, { fetch: fetchWithAuth });
             // this.updater = new $rdf.UpdateManager(this.store);
 
-            await this.fetcher.load(docUrl);
+            await this.loadResource(docUrl);
             return this.store;
         }
     }
@@ -260,7 +258,7 @@ export class RdfService {
         try {
             // 1. Load the profile document of the WebID
             const webIdDoc = webId.split('#')[0];
-            await this.fetcher.load(webIdDoc);
+            await this.loadResource(webIdDoc);
 
             // 2. Look for inverse membership (you being a member of a group/container)
             const me = $rdf.sym(webId);
@@ -299,7 +297,6 @@ export class RdfService {
         if (triples.length > 0) {
             returnOwner = triples[0].object.value;
         }
-
         return returnOwner;
     }
 
@@ -365,21 +362,15 @@ export class RdfService {
         });
     }
 
-    async setValues(
-        profileDocUrl: string,
-        subjectUri: string,
-        updates: RdfUpdate[]
-    ): Promise<void> {
-        await this.fetcher.load(profileDocUrl);
+    async setValues(profileDocUrl: string, subjectUri: string, updates: RdfUpdate[]): Promise<void> {
+        await this.loadResource(profileDocUrl);
 
         const subject = $rdf.sym(subjectUri);
         const doc = $rdf.sym(profileDocUrl);
 
         const deletions: $rdf.Statement[] = [];
         const insertions: $rdf.Statement[] = [];
-        // const insertions: $rdf.Statement[] = [
-        //     $rdf.st(subject, predicate, object, doc),
-        // ];
+        
 
         for (const { predicate, value, isLiteral = true, lang } of updates) {
             const predNode = $rdf.sym(predicate);
@@ -441,6 +432,27 @@ export class RdfService {
         return uploadResult;
     }
 
+    async setProfileImage(profileDocUrl: string, imageUrl: string): Promise<void> {
+        // const profileDoc = webId.split('#')[0];
+        const subjectUri = this.getProfileUrl(profileDocUrl);
+        const subject = $rdf.sym(subjectUri);
+        // const me = $rdf.sym(webId);
+        const doc = $rdf.sym(profileDocUrl);
+        const predicate = FOAF('img');
+
+        await this.loadResource(profileDocUrl);
+
+        const existing = this.store.match(subject, predicate, null, doc) as $rdf.Statement[];
+        const newStmt = $rdf.st(subject, predicate, $rdf.sym(imageUrl), doc);
+
+        await new Promise<void>((resolve, reject) => {
+            this.updater.update(existing, [newStmt], (uri, ok, msg) => {
+            if (ok) resolve();
+            else reject(new Error(msg));
+            });
+        });
+    }
+
     /**
      * Removes the foaf:img triple from the user's profile RDF.
      */
@@ -491,5 +503,262 @@ export class RdfService {
         return profileImageUrl;
     }
 
+    /**
+     * List images in folder.
+     */
+    async listImagesInFolder(folderUrl: string): Promise<string[]> {
+        const LDP = $rdf.Namespace('http://www.w3.org/ns/ldp#');
+        await this.loadResource(folderUrl);
 
+        const folder = $rdf.sym(folderUrl);
+        const contents = this.store.match(folder, LDP('contains'), null, folder);
+
+        return contents
+            .map(st => st.object.value)
+            .filter(url => /\.(jpg|jpeg|png|gif)$/i.test(url));
+    }
+
+    /**
+     * Add knows relations.
+     */
+    async addKnowsRelation(profileDocUrl: string, knownWebId: string): Promise<void> {
+        const subjectUri = this.getProfileUrl(profileDocUrl);
+        const subject = $rdf.sym(subjectUri);
+        const doc = $rdf.sym(profileDocUrl);
+        const predicate = FOAF('knows');
+        const newFriend = $rdf.sym(knownWebId);
+
+        await this.loadResource(profileDocUrl);
+
+        const stmt = $rdf.st(subject, predicate, newFriend, doc);
+
+        await new Promise<void>((resolve, reject) => {
+            this.updater.update([], [stmt], (uri, ok, msg) => {
+                if (ok) resolve();
+                else reject(new Error(msg));
+            });
+        });
+    }
+
+    async getContacts(profileDocUrl: string): Promise<FriendProfile[]> {
+        const subject = this.extractSubjectFromProfileDocurl(profileDocUrl);
+        const doc = $rdf.sym(profileDocUrl);
+        const predicate = FOAF('knows');
+        
+        await this.loadResource(profileDocUrl);
+
+        const knowsNodes = this.store.each(subject, predicate, null, doc);
+
+        const knownPeople = knowsNodes.filter(this.isNamedNode);
+
+        return Promise.all(
+            knownPeople.map(async (person) => {
+                // let name = 'Unknown';
+                // let email = '';
+                // let org = '';
+                // let role = '';
+                // let img = null;
+                let personProfile: FriendProfile = {
+                    webId : '',
+                    name : 'Unknown',
+                    email : '',
+                    org : '',
+                    role : '',
+                    img : '',
+                };
+                try {
+                    if ($rdf.isNamedNode(person)) {
+                        // await this.loadResource(person.doc());
+                        await this.loadResource(person);
+                        personProfile.webId = person.value;
+                        personProfile.name =
+                            this.getLiteralValue(person, FOAF('name')) ??
+                            this.getLiteralValue(person, VCARD('fn')) ??
+                            'Unknown';
+                        personProfile.email = this.getUriValue(person, VCARD('hasEmail')) ?? '';
+                        personProfile.org = this.getUriValue(person, VCARD('organization-name')) ?? '';
+                        personProfile.role = this.getUriValue(person, VCARD('role')) ?? '';
+                        personProfile.img =
+                            this.getUriValue(person, FOAF('img')) ??
+                            this.getUriValue(person, VCARD('photo')) ?? '';
+                        // personProfile.name = name;
+
+                    }
+                    // return { webId: person.value, name, img };
+                    // return { webId: person.value, name, img };
+
+                    
+                } catch (error) {
+                    this.logger.error(`RDFS: Error mapping contact: ${error}`)
+                    // return { webId: person.value, name: 'Unknown', img: null };
+                } finally {
+                    return personProfile
+                }
+            })
+        );
+    }
+
+    private extractSubjectFromProfileDocurl(profileDocUrl: string): NamedNode | null {
+        let subject = null;
+        this.logger.info(`RDF: Profile doc url: ${profileDocUrl}`);
+        const subjectUri = this.getProfileUrl(profileDocUrl);
+        this.logger.info(`RDF: Subject url: ${subjectUri}`);
+        if ('' != subjectUri) {
+            subject = $rdf.sym(subjectUri);
+        }
+        return subject;
+    }
+
+    /** Check if a node is a NamedNode (IRI) */
+    private isNamedNode(node: Term | null): node is NamedNode {
+        return !!node && node.termType === 'NamedNode';
+    }
+
+    /** Return literal string value for a given subject + predicate */
+    private getLiteralValue(subject: NamedNode, predicate: NamedNode): string | null {
+        const value = this.store.any(subject, predicate);
+        return value?.termType === 'Literal' ? value.value : null;
+    }
+
+    /** Return URI value for a given subject + predicate */
+    private getUriValue(subject: NamedNode, predicate: NamedNode): string | null {
+        const value = this.store.any(subject, predicate);
+        return value?.termType === 'NamedNode' ? value.value : null;
+    }
+
+    async getProfileData(webId: string): Promise<RdfProfile> {
+        const subject = $rdf.sym(webId);
+        await this.loadResource(subject.doc());
+
+        const profileData: RdfProfile = {
+            webId: webId,
+            name:
+                this.store.any(subject, FOAF('name'))?.value ||
+                this.store.any(subject, VCARD('fn'))?.value ||
+                'Unknown',
+            img: await this.getProfileImageUrlsContaining(webId, '/public/images/profile-picture') ?? null,
+            org: this.store.any(subject, VCARD('organization-name'))?.value || '',
+            role: this.store.any(subject, VCARD('role'))?.value || '',
+        }
+
+        return profileData;
+    }
+
+    async getVCardString(webId: string): Promise<string> {
+        const subject = $rdf.sym(webId);
+        const profile = await this.readProfile(webId);
+
+        const vCardInfo = `BEGIN:VCARD
+        VERSION:3.0
+        FN:${profile?.name}
+        ORG:${profile?.org}
+        TITLE:${profile?.role}
+        EMAIL:${profile?.email}
+        TEL:${profile?.phone}
+        URL:${webId}
+        END:VCARD`;
+        // return this.loadResource(subject.doc()).then(() => {
+        //     // const fn =
+        //     // this.store.any(subject, VCARD('fn'))?.value ||
+        //     // this.store.any(subject, FOAF('name'))?.value ||
+        //     // 'Unknown';
+
+        //     // const org = this.store.any(subject, VCARD('organization-name'))?.value || '';
+        //     // const title = this.store.any(subject, VCARD('role'))?.value || '';
+        //     // const email = this.store.any(subject, VCARD('email'))?.value?.replace('mailto:', '') || '';
+        //     // const phone = this.store.any(subject, VCARD('hasTelephone'))?.value?.replace('tel:', '') || '';
+            
+            
+        // });
+        return vCardInfo;
+    }
+
+    // async readProfile(): Promise<RdfProfile | null> {
+    async readProfile(profileDocUrl: string): Promise<RdfProfile | null> {
+        // const session = this.solidAuthService.getDefaultSession();
+        // const webId = this.solidAuthService.getWebId();
+        // const loggedIn = this.solidAuthService.isLoggedIn();
+        const subjectUri = this.getProfileUrl(profileDocUrl);
+        const subject = $rdf.sym(subjectUri);
+        const doc = $rdf.sym(profileDocUrl);
+        const webId = profileDocUrl;
+        
+        let rdfProfile: RdfProfile = {
+            webId: webId,
+            name: '',
+            email: '',
+            role: '',
+            img: '',
+        }
+
+        await this.loadResource(profileDocUrl);
+
+        let profileUrl = this.getProfileUrl(webId) ?? '';
+        if ('' != profileUrl) {
+            const ownerWebid = this.getOwnerWebId(profileUrl);
+            rdfProfile.name = this.store.any(subject, FOAF('name'))?.value ?? '';
+            rdfProfile.email = this.store.any(subject, VCARD('hasEmail'))?.value ?? '';
+            rdfProfile.role = this.store.any(subject, VCARD('role'))?.value ?? '';
+            rdfProfile.org = this.store.any(subject, VCARD('organization_name'))?.value ?? '';
+            rdfProfile.img = await this.getProfileImageUrlsContaining(webId, '/public/images/profile-picture') ?? '';
+            // rdfProfile.photo = (this.rdfService.getLiteral(profileUrl, FOAF.img) || this.rdfService.getLiteral(profileUrl, VCARD.photo)) ?? '';
+        }
+        this.logger.info(`SDS: Name, email, photo: ${rdfProfile.name}, ${rdfProfile.email}, ${rdfProfile.img}`);
+        return rdfProfile;
+    }
+    
+    // fetchSolidProfile(profileUrl: string): Observable<any> {
+    //     const headers = new HttpHeaders({
+    //     'Accept': 'text/turtle,application/rdf+xml' // Request RDF formats
+    //     });
+
+    //     return from(this.loadResource(profileUrl)).pipe(
+    //     map(() => {
+    //         try {
+    //         // Extract data from the RDF store
+    //         const person = $rdf.sym(profileUrl);
+    //         const foaf = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
+            
+    //         // Get name (foaf:name)
+    //         const name = this.store.any(person, foaf('name'))?.value || 'No name found';
+            
+    //         // Get friends (foaf:knows)
+    //         const friends = this.store.match(person, foaf('knows')).map(triple => triple.object.value);
+
+    //         return { name, friends };
+    //         } catch (error) {
+    //         console.error('Error processing RDF:', error);
+    //         throw error;
+    //         }
+    //     })
+    //     );
+    // }
+
+    // getProfileData(profileUrl: string): Observable<any> {
+    //     const headers = new HttpHeaders({
+    //         'Accept': 'text/turtle, application/rdf+xml, application/ld+json'
+    //     });
+
+    //     return this.http.get(profileUrl, { headers, responseType: 'text' }).pipe(
+    //         map(data => this.parseRdfData(data, profileUrl)),
+    //         catchError(this.handleError<any>('getProfileData', {}))
+    //     );
+    // }
+
+    // private extractProfileData(profileUri: string): any {
+    //     const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
+    //     const SCHEMA = $rdf.Namespace('http://schema.org/');
+    //     const GMX = $rdf.Namespace('http://graphmetrix.com/ontology#'); // Hypothetical custom namespace
+    //     const person = $rdf.sym(profileUri);
+
+    //     const name = this.store.any(person, FOAF('name')) || this.store.any(person, SCHEMA('name'));
+    //     const friends = this.store.each(person, FOAF('knows'));
+    //     const projects = this.store.each(person, GMX('hasProject')); // Custom property example
+
+    //     return {
+    //         name: name?.value || 'Unknown',
+    //         friends: friends.map(friend => friend.value),
+    //         projects: projects.map(project => project.value)
+    //     };
+    // }
 }
