@@ -15,5 +15,12 @@ export * from './account/register/register.component';
 export * from './account/login-dialog/login-dialog.component';
 export * from './account/identity-provider-dialog/identity-provider-dialog.component';
 export * from './solid/pod-selector/pod-selector.component';
+export * from './helpers/qrcode/qrcode.component';
+export * from './profile/profile-knows-editor/profile-knows-editor.component';
+export * from './profile/profile-knows-list/profile-knows-list.component';
+export * from './profile/profile-thumbnail-picker/profile-thumbnail-picker.component';
+export * from './profile/profile-card/profile-card.component';
 export * from './profile/profile-home/profile-home.component';
+
+
 
