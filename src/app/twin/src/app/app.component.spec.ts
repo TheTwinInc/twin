@@ -1,25 +1,28 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from './app.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [AppComponent, HttpClientTestingModule],
-            providers: [
-                {
-                    provide: ActivatedRoute,
-                    useValue: {
-                        snapshot: {
-                            params: {
-                                id: 1,
-                            },
-                        },
+    imports: [AppComponent],
+    providers: [
+        {
+            provide: ActivatedRoute,
+            useValue: {
+                snapshot: {
+                    params: {
+                        id: 1,
                     },
                 },
-            ]
-        }).compileComponents();
+            },
+        },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+    ]
+}).compileComponents();
     });
 
     it('should create the app', () => {

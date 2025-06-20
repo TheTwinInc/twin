@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { HeaderComponent } from './header.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
@@ -12,20 +13,22 @@ describe('HeaderComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [HeaderComponent, HttpClientTestingModule],
-            providers: [
-                {
-                    provide: ActivatedRoute,
-                    useValue: {
-                        snapshot: {
-                            params: {
-                                id: 1,
-                            },
-                        },
+    imports: [HeaderComponent],
+    providers: [
+        {
+            provide: ActivatedRoute,
+            useValue: {
+                snapshot: {
+                    params: {
+                        id: 1,
                     },
                 },
-            ]
-        })
+            },
+        },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+    ]
+})
         .compileComponents();
         
         fixture = TestBed.createComponent(HeaderComponent);

@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { UsersListComponent } from './users-list.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('UsersListComponent', () => {
     let component: UsersListComponent;
@@ -10,20 +11,22 @@ describe('UsersListComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [UsersListComponent, HttpClientTestingModule],
-            providers: [
-                {
-                    provide: ActivatedRoute,
-                    useValue: {
-                        snapshot: {
-                            params: {
-                                id: 1,
-                            },
-                        },
+    imports: [UsersListComponent],
+    providers: [
+        {
+            provide: ActivatedRoute,
+            useValue: {
+                snapshot: {
+                    params: {
+                        id: 1,
                     },
                 },
-            ]
-        })
+            },
+        },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+    ]
+})
         .compileComponents();
         
         fixture = TestBed.createComponent(UsersListComponent);
