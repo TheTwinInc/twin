@@ -9,7 +9,7 @@ import { Subject, takeUntil } from 'rxjs';
     imports: [NgFor],
     templateUrl: './profile-thumbnail-picker.component.html',
     styleUrl: './profile-thumbnail-picker.component.css',
-    standalone: true,
+    standalone: true
 })
 export class ProfileThumbnailPickerComponent implements OnInit, OnDestroy {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();
