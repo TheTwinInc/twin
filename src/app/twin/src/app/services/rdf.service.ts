@@ -40,7 +40,7 @@ export class RdfService {
         
         this.updater = this.createUpdater();
         // this.fetcher = this.createFetcher();
-        this.fetcher = this.createHyperFetcher();
+        this.fetcher = this.createHyperFetcher(this.store);
     }
 
     isLoggedIn(): boolean {
@@ -52,7 +52,8 @@ export class RdfService {
         return store;
     }
 
-    createHyperFetcher() {
+    // createHyperFetcher() {
+    createHyperFetcher(store: $rdf.Store) {
         const hyperFetch = (input: string | URL | globalThis.Request, init?: any) => {
             if (!init) {
                 init = {};
@@ -65,7 +66,8 @@ export class RdfService {
             return session.fetch(input, init);
         }
 
-        return new $rdf.Fetcher(this.store, { fetch: hyperFetch });
+        return new $rdf.Fetcher(store, { fetch: hyperFetch });
+        // return new $rdf.Fetcher(this.store, { fetch: hyperFetch });
     }
 
     createFetcher() {
@@ -649,27 +651,15 @@ export class RdfService {
         const profile = await this.readProfile(webId);
 
         const vCardInfo = `BEGIN:VCARD
-        VERSION:3.0
-        FN:${profile?.name}
-        ORG:${profile?.org}
-        TITLE:${profile?.role}
-        EMAIL:${profile?.email}
-        TEL:${profile?.phone}
-        URL:${webId}
-        END:VCARD`;
-        // return this.loadResource(subject.doc()).then(() => {
-        //     // const fn =
-        //     // this.store.any(subject, VCARD('fn'))?.value ||
-        //     // this.store.any(subject, FOAF('name'))?.value ||
-        //     // 'Unknown';
+            VERSION:3.0
+            FN:${profile?.name}
+            ORG:${profile?.org}
+            TITLE:${profile?.role}
+            EMAIL:${profile?.email}
+            TEL:${profile?.phone}
+            URL:${webId}
+            END:VCARD`;
 
-        //     // const org = this.store.any(subject, VCARD('organization-name'))?.value || '';
-        //     // const title = this.store.any(subject, VCARD('role'))?.value || '';
-        //     // const email = this.store.any(subject, VCARD('email'))?.value?.replace('mailto:', '') || '';
-        //     // const phone = this.store.any(subject, VCARD('hasTelephone'))?.value?.replace('tel:', '') || '';
-            
-            
-        // });
         return vCardInfo;
     }
 
