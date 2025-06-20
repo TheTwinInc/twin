@@ -1,0 +1,10 @@
+<div class="knows-form">
+    <label for="friendWebId">Add a friend (WebID):</label>
+    <!-- <input id="friendWebId" [(ngModel)]="newFriendWebId" placeholder="https://otheruser.solidpod.org/profile/card#me" /> -->
+    <input id="friendWebId" [(ngModel)]="newFriendWebId" placeholder="https://otheruser.stage.graphmetrix.net/i" />
+    <button (click)="addFriend()">Add</button>
+</div>
+
+<ul>
+    <li *ngFor="let friend of knownPeople">{{ friend }}</li>
+</ul>

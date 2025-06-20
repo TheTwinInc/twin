@@ -1,19 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LoggerService, SolidAuthService, SolidDataService, SolidProfileService } from '@app/services';
 import { ISessionInfo, Session } from '@inrupt/solid-client-authn-browser';
 import { FOAF } from '@inrupt/vocab-common-rdf';
 import { Subject, takeUntil } from 'rxjs';
+import { ProfileThumbnailPickerComponent, ProfileKnowsEditorComponent, ProfileKnowsListComponent, ProfileCardComponent } from "@app/components";
 
 @Component({
     selector: 'app-profile',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [CommonModule, ReactiveFormsModule, ProfileThumbnailPickerComponent, ProfileKnowsEditorComponent, ProfileKnowsListComponent, ProfileCardComponent],
     templateUrl: './profile-home.component.html',
     styleUrl: './profile-home.component.css'
 })
-export class ProfileComponent {
+export class ProfileHomeComponent implements OnInit, OnDestroy {
     @ViewChild('canvas', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();
     
@@ -35,8 +36,9 @@ export class ProfileComponent {
             webId: [''],
             name: [''],
             email: [''],
-            // role: [''],
-            photo: [''],
+            role: [''],
+            org: [''],
+            img: [''],
         });
     }
 
@@ -58,6 +60,7 @@ export class ProfileComponent {
     async onSessionChange (sessionInfo: any) {
         if (sessionInfo?.isLoggedIn) {
             await this.reloadProfile();
+            this.exitEditing();
         }
     }
 
@@ -77,7 +80,7 @@ export class ProfileComponent {
     async save() {
         const profile = this.form.value;
         await this.solidProfileService.updateProfile(profile);
-        this.editing = false;
+        this.exitEditing();
     }
 
     async onFileSelected(event: Event) {
@@ -106,6 +109,7 @@ export class ProfileComponent {
                 // await this.solid.updateProfile(this.profileDoc, this.webId, [
                 // await this.solidProfileService.updateProfileImage(profile);
             }
+            this.editing = false;
             // const uploadUrl = profileUrl.replace('/profile/card', `/home/images/oppstartshorn.JPG`);
             // profile.photo = uploadUrl;
             // await this.solidProfileService.updateProfilePicture(profile);
@@ -115,5 +119,10 @@ export class ProfileComponent {
         if (data) {
             this.form.setValue(data);
         }
+        this.exitEditing();
+    }
+
+    exitEditing() {
+        this.editing = false;
     }
 }

@@ -2,17 +2,22 @@
 @if (!editing && !editingPicture) {
     <div class="profile-card">
         <h2>Your Profile</h2>
-        <img *ngIf="form.value.photo" [src]="form.value.photo" alt="Profile photo" class="profile-photo" />
+        <img *ngIf="form.value.img" [src]="form.value.img" alt="Profile photo" class="profile-photo" />
         <p><strong>Name:</strong> {{ form.value.name }}</p>
         <p><strong>Email:</strong> {{ form.value.email }}</p>
-        <p *ngIf="form.value.photo"><strong>Photo:</strong> {{ form.value.photo }}</p>
-        <!-- <p *ngIf="form.value.role"><strong>Role:</strong> {{ form.value.role }}</p> -->
+        <p *ngIf="form.value.role"><strong>Title:</strong> {{ form.value.title }}</p>
+        <p *ngIf="form.value.org"><strong>Org:</strong> {{ form.value.org }}</p>
+        <!-- <p *ngIf="form.value.photo"><strong>Photo:</strong> {{ form.value.photo }}</p> -->
         
         <canvas #canvas hidden></canvas>
         <button (click)="editing = true">Edit</button>
-        <button (click)="editingPicture = true">Add Picture</button>
         <button (click)="reloadProfile()">Reload</button>
+        <button (click)="editingPicture = true">Edit Picture</button>
+        
     </div>
+    <!-- <app-profile-knows-editor></app-profile-knows-editor> -->
+    <!-- <app-profile-knows-list></app-profile-knows-list> -->
+    <!-- <app-profile-card></app-profile-card> -->
     
 } 
 @if (editing) {
@@ -26,9 +31,13 @@
             Email:
             <input formControlName="email" type="email" />
         </label>
+        <label *ngIf="form.value.role">
+            Title:
+            <input formControlName="role" type="role" />
+        </label>
         <label>
             Profile Picture:
-            <input formControlName="photo" />
+            <input formControlName="img" />
         </label>
         
         <button type="submit">Save</button>
@@ -38,5 +47,6 @@
 
 @if (editingPicture) {
     <input type="file" accept="image/*" (change)="onFileSelected($event)" />
-    <button (click)="deleteProfileImage()">Delete</button>
+    <!-- <button (click)="deleteProfileImage()">Delete</button> -->
+     <app-profile-thumbnail-picker></app-profile-thumbnail-picker>
 }

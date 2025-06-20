@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileHomeComponent } from './profile-home.component';
+import { ProfileKnowsListComponent } from './profile-knows-list.component';
 
-describe('ProfileComponent', () => {
-  let component: ProfileHomeComponent;
-  let fixture: ComponentFixture<ProfileHomeComponent>;
+describe('ProfileKnowsListComponent', () => {
+  let component: ProfileKnowsListComponent;
+  let fixture: ComponentFixture<ProfileKnowsListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProfileHomeComponent]
+      imports: [ProfileKnowsListComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ProfileHomeComponent);
+    fixture = TestBed.createComponent(ProfileKnowsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

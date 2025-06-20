@@ -1,0 +1,18 @@
+<div class="container">
+    <app-profile-knows-editor></app-profile-knows-editor>
+    <h2>People You Know</h2>
+
+    <!-- <input [(ngModel)]="webId" placeholder="Enter your WebID" class="input" />
+    <button (click)="loadFriends()">Load Friends</button> -->
+
+    <div *ngIf="loading">Loading...</div>
+
+    <div class="card" *ngFor="let person of peopleIKnow">
+        <img *ngIf="person.img" [src]="person.img" alt="Photo" />
+        <div>
+        <strong>{{ person.name }}</strong><br />
+        <strong>{{ person.email }}</strong><br />
+        <small>{{ person.webId }}</small>
+        </div>
+    </div>
+</div>
