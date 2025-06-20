@@ -3,7 +3,7 @@ import { IContainedResource } from '@app/interfaces';
 import { LocalStorageService, LoggerService, RdfService, SolidAuthService } from '@app/services';
 import { buildThing, createSolidDataset, getContainedResourceUrlAll, getPodUrlAll, getSolidDataset, getStringNoLocale, getThingAll, isContainer, removeThing, saveSolidDatasetAt, setStringNoLocale, SolidDataset, Thing, Url, UrlString, WithServerResourceInfo, getThing, setThing, createThing, getUrl } from '@inrupt/solid-client';
 import { fetch, ISessionInfo, Session } from '@inrupt/solid-client-authn-browser';
-import { CreateThingOptions } from '@inrupt/solid-client/dist/thing/thing';
+// import { CreateThingOptions } from '@inrupt/solid-client/dist/thing/thing';
 import { FOAF, SCHEMA_INRUPT, VCARD } from '@inrupt/vocab-common-rdf';
 import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
 import { DirectedGraph } from 'graphology';
@@ -252,20 +252,20 @@ export class SolidDataService {
     /*
     * Create thing dataset
     */
-    createThing (options?: CreateThingOptions): SolidDataset | any {
-        let returnThing = {};
-        try {
-            // let defaultSession = getDefaultSession();
-            // let webId = defaultSession.info.webId;
-            if (this.solidAuthService.isLoggedIn()) {
-                returnThing = createThing(options);    
-            }
+    // createThing (options?: CreateThingOptions): SolidDataset | any {
+    //     let returnThing = {};
+    //     try {
+    //         // let defaultSession = getDefaultSession();
+    //         // let webId = defaultSession.info.webId;
+    //         if (this.solidAuthService.isLoggedIn()) {
+    //             returnThing = createThing(options);    
+    //         }
             
-        } catch (error) {
-            this.logger.error(error);
-        }
-        return returnThing; 
-    }
+    //     } catch (error) {
+    //         this.logger.error(error);
+    //     }
+    //     return returnThing; 
+    // }
 
     /*
     * Add thing to dataset
