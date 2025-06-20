@@ -2,7 +2,7 @@ import { Routes } from "@angular/router";
 
 // import { AppHomeComponent } from './home';
 // import { AppHomeComponent, LoginComponent, LogoutComponents, RegisterComponent, CallbackComponent } from '../components';
-import { AppHomeComponent, LoginComponent, LogoutComponent, RegisterComponent, CallbackComponent, OnboardingComponent, PodSelectorComponent, ProfileComponent } from '@app/components';
+import { AppHomeComponent, LoginComponent, LogoutComponent, RegisterComponent, CallbackComponent, OnboardingComponent, PodSelectorComponent, ProfileHomeComponent, ProfileCardComponent, ProfileKnowsListComponent } from '@app/components';
 import { authGuard } from '../helpers';
 import { authGuardService } from '@app/services';
 import { SandboxComponent } from "@app/components/sandbox/sandbox.component";
@@ -22,7 +22,9 @@ export const APP_ROUTES: Routes = [
     { path: 'account/logout', component: LogoutComponent },
     { path: 'account/register', component: RegisterComponent },
     { path: 'account/callback', component: CallbackComponent },
-    { path: 'solid/profile', component: ProfileComponent },
+    { path: 'profile', component: ProfileHomeComponent },
+    { path: 'profile/contacts', component: ProfileKnowsListComponent },
+    { path: 'profile/card', component: ProfileCardComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: 'solid/profile' }
