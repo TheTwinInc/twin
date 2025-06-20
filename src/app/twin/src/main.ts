@@ -22,7 +22,8 @@ bootstrapApplication(AppComponent, {
                 fakeBackendInterceptor
             ])
         ),
-        provideAnimations()
+        provideAnimations(),
+        // provideForms()
     ]
 });
 // import { enableProdMode } from '@angular/core';
