@@ -1,18 +1,3 @@
-
-<mat-card>
-    <mat-card-title>
-        <h1>CONTENTS SANDBOX</h1>
-    </mat-card-title>
-    <mat-card-content>
-        @for (thing of things; track thing) {
-            <mat-card color="primary">
-                <mat-card-content color="primary">
-                    {{thingToString(thing)}}
-                </mat-card-content>
-            </mat-card>
-        }
-    </mat-card-content>
-</mat-card>
 <mat-card>
     <mat-card-title>
         <h1>RESOURCES SANDBOX</h1>
@@ -27,6 +12,21 @@
         }
     </mat-card-content>
 </mat-card>
+<mat-card>
+    <mat-card-title>
+        <h1>CONTENTS SANDBOX</h1>
+    </mat-card-title>
+    <mat-card-content>
+        @for (thing of things; track thing) {
+            <mat-card color="primary">
+                <mat-card-content color="primary">
+                    {{thingToString(thing)}}
+                </mat-card-content>
+            </mat-card>
+        }
+    </mat-card-content>
+</mat-card>
+
 <!-- <mat-card>
     <mat-card-title>
         <h1>POD SANDBOX</h1>

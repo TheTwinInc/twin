@@ -14,7 +14,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 
 import { AlarmService, SolidAuthService, LoggerService, RdfService, HighlightService, SolidDataService } from '@app/services';
-import { SolidDataset, Thing, UrlString, WithServerResourceInfo } from '@inrupt/solid-client';
+import { SolidDataset, solidDatasetAsTurtle, Thing, UrlString, WithServerResourceInfo } from '@inrupt/solid-client';
 import { IContainedResource } from '@app/interfaces';
 import { PodSelectorComponent } from '@app/components';
 
@@ -33,7 +33,7 @@ import { PodSelectorComponent } from '@app/components';
         MatButtonModule,
         MatDividerModule,
         MatListModule,
-        PodSelectorComponent
+        // PodSelectorComponent
     ],
     templateUrl: './sandbox.component.html',
     styleUrl: './sandbox.component.css',
@@ -90,7 +90,6 @@ export class SandboxComponent {
             .subscribe(x => {
                 this.things = x;
             });
-        this.solidAuthService.handleSessionRestore();
         this.dataItems = [];
     }
 
@@ -261,7 +260,7 @@ export class SandboxComponent {
     // }
     
     async getPods() {
-        this.logger.info('Get Pods');
+        this.logger.info('Get Pods sandbox');
     }
 
     updateSandbox (text:string) {
@@ -274,7 +273,7 @@ export class SandboxComponent {
     }
 
     navigateResource(url: string) {
-        this.logger.info(`Navigate url ${url}`);
+        this.logger.info(`Navigate url ${url} sandbox`);
     }
 
     thingToString(thing: Thing):string {
