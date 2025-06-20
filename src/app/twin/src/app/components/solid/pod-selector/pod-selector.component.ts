@@ -11,7 +11,6 @@ import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'app-pod-selector',
-    standalone: true,
     imports: [
         FormsModule,
         ReactiveFormsModule,
@@ -21,6 +20,7 @@ import { Subject, takeUntil } from 'rxjs';
     ],
     templateUrl: './pod-selector.component.html',
     styleUrl: './pod-selector.component.css',
+    standalone: true,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

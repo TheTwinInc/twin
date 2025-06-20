@@ -6,10 +6,10 @@ import { AlarmService } from '@app/services';
 
 @Component({
     selector: 'app-alarm',
-    standalone: true,
     imports: [NgIf, NgClass],
     templateUrl: './alarm.component.html',
-    styleUrl: './alarm.component.css'
+    styleUrl: './alarm.component.css',
+    standalone: true
 })
 export class AlarmComponent implements OnInit, OnDestroy {
     private subscription!: Subscription;

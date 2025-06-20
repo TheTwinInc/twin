@@ -9,10 +9,10 @@ import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'app-onboarding',
-    standalone: true,
     imports: [CommonModule, ReactiveFormsModule],
     templateUrl: './onboarding.component.html',
-    styleUrl: './onboarding.component.css'
+    styleUrl: './onboarding.component.css',
+    standalone: true
 })
 export class OnboardingComponent implements OnInit {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();

@@ -7,10 +7,10 @@ import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'app-nav',
-    standalone: true,
-    imports: [ MatSidenavModule ],
+    imports: [MatSidenavModule],
     templateUrl: './nav.component.html',
-    styleUrl: './nav.component.css'
+    styleUrl: './nav.component.css',
+    standalone: true
 })
 export class NavComponent {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();

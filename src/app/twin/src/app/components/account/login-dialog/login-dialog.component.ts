@@ -9,17 +9,17 @@ import { first } from 'rxjs/operators';
 
 @Component({
     selector: 'app-login-dialog',
-    standalone: true,
     imports: [
         ReactiveFormsModule,
-        NgClass, 
-        NgIf, 
-        RouterLink,
+        // NgClass,
+        // NgIf,
+        // RouterLink,
         MatDialogModule,
         MatFormFieldModule,
     ],
     templateUrl: './login-dialog.component.html',
-    styleUrl: './login-dialog.component.css'
+    styleUrl: './login-dialog.component.css',
+    standalone: true
 })
 export class LoginDialogComponent {
     form!: FormGroup;

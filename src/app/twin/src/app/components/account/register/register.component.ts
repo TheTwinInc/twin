@@ -7,11 +7,11 @@ import { first } from 'rxjs/operators';
 import { AccountService, AlarmService } from '@app/services';
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
-  imports: [ReactiveFormsModule, NgClass, NgIf, RouterLink],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+    selector: 'app-register',
+    imports: [ReactiveFormsModule, NgClass, NgIf, RouterLink],
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.css',
+    standalone: true
 })
 export class RegisterComponent {
     form!: FormGroup;

@@ -5,10 +5,10 @@ import { LoggerService } from '@app/services';
 
 @Component({
     selector: 'app-qrcode',
-    standalone: true,
     imports: [NgIf],
     templateUrl: './qrcode.component.html',
-    styleUrl: './qrcode.component.css'
+    styleUrl: './qrcode.component.css',
+    standalone: true
 })
 export class QrcodeComponent {
     @Input({ required: true }) webId!: string;

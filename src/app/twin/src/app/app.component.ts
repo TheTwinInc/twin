@@ -3,10 +3,10 @@ import { AppHomeComponent } from "@app/components";
 
 @Component({
     selector: 'app-root',
-    standalone: true,
     imports: [AppHomeComponent],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+    styleUrl: './app.component.css',
+    standalone: true
 })
 export class AppComponent {
     title = 'twin-app';

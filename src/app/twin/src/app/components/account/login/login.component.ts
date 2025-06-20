@@ -10,10 +10,10 @@ import { MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-login',
-    standalone: true,
     imports: [ReactiveFormsModule, NgClass, NgIf, RouterLink],
     templateUrl: './login.component.html',
-    styleUrl: './login.component.css'
+    styleUrl: './login.component.css',
+    standalone: true
 })
 export class LoginComponent implements OnInit {
     form!: FormGroup;

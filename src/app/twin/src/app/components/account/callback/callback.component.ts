@@ -9,10 +9,10 @@ import { AlarmService, SolidAuthService, LoggerService } from '@app/services';
 
 @Component({
     selector: 'app-callback',
-    standalone: true,
     imports: [],
     templateUrl: './callback.component.html',
-    styleUrl: './callback.component.css'
+    styleUrl: './callback.component.css',
+    standalone: true
 })
 export class CallbackComponent implements OnInit, OnDestroy {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();

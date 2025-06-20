@@ -8,10 +8,10 @@ import { QrcodeComponent } from "../../helpers/qrcode/qrcode.component";
 
 @Component({
     selector: 'app-profile-card',
-    standalone: true,
     imports: [NgIf, QrcodeComponent],
     templateUrl: './profile-card.component.html',
-    styleUrl: './profile-card.component.css'
+    styleUrl: './profile-card.component.css',
+    standalone: true
 })
 export class ProfileCardComponent {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();

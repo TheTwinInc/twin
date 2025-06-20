@@ -7,7 +7,6 @@ import { SolidAuthService } from '@app/services';
 
 @Component({
     selector: 'app-identity-provider-dialog',
-    standalone: true,
     imports: [
         ReactiveFormsModule,
         MatDialogModule,
@@ -15,7 +14,8 @@ import { SolidAuthService } from '@app/services';
         MatSelectModule
     ],
     templateUrl: './identity-provider-dialog.component.html',
-    styleUrl: './identity-provider-dialog.component.css'
+    styleUrl: './identity-provider-dialog.component.css',
+    standalone: true
 })
 export class IdentityProviderDialogComponent {
     form!: FormGroup;

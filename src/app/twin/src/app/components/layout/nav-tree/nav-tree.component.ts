@@ -17,17 +17,17 @@ import { DirectedGraph } from 'graphology';
 
 @Component({
     selector: 'app-nav-tree',
-    standalone: true,
     imports: [
         RouterModule,
-        MatTreeModule, 
-        MatButtonModule, 
+        MatTreeModule,
+        MatButtonModule,
         MatIconModule,
         MatProgressBarModule,
         MatSidenavModule
     ],
     templateUrl: './nav-tree.component.html',
-    styleUrl: './nav-tree.component.css'
+    styleUrl: './nav-tree.component.css',
+    standalone: true
 })
 export class NavTreeComponent implements OnInit, OnDestroy{
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();

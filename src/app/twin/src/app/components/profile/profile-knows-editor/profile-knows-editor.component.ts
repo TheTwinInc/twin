@@ -8,15 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-profile-knows-editor',
-    standalone: true,
     imports: [
-        NgFor, 
-        FormsModule, 
+        NgFor,
+        FormsModule,
         // ReactiveFormsModule,
     ],
     // imports: [NgFor],
     templateUrl: './profile-knows-editor.component.html',
-    styleUrl: './profile-knows-editor.component.css'
+    styleUrl: './profile-knows-editor.component.css',
+    standalone: true
 })
 export class ProfileKnowsEditorComponent implements OnInit, OnDestroy {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();

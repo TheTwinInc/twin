@@ -13,7 +13,6 @@ import { AppSidebarComponent, FooterComponent, HeaderComponent, NavTreeComponent
 
 @Component({
     selector: 'app-home',
-    standalone: true,
     imports: [
         RouterOutlet,
         HeaderComponent,
@@ -22,7 +21,8 @@ import { AppSidebarComponent, FooterComponent, HeaderComponent, NavTreeComponent
         NavTreeComponent,
     ],
     templateUrl: './app-home.component.html',
-    styleUrl: './app-home.component.css'
+    styleUrl: './app-home.component.css',
+    standalone: true
 })
 export class AppHomeComponent implements OnInit, OnDestroy {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();

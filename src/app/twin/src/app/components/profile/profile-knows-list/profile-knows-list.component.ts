@@ -9,10 +9,10 @@ import { FriendProfile } from '@app/interfaces';
 
 @Component({
     selector: 'app-profile-knows-list',
-    standalone: true,
     imports: [CommonModule, FormsModule, ProfileKnowsEditorComponent],
     templateUrl: './profile-knows-list.component.html',
-    styleUrl: './profile-knows-list.component.css'
+    styleUrl: './profile-knows-list.component.css',
+    standalone: true
 })
 export class ProfileKnowsListComponent implements OnInit, OnDestroy {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();

@@ -21,7 +21,6 @@ import { PodSelectorComponent } from '@app/components';
 
 @Component({
     selector: 'app-sandbox',
-    standalone: true,
     imports: [
         MatCardModule,
         MatIconModule,
@@ -37,6 +36,7 @@ import { PodSelectorComponent } from '@app/components';
     ],
     templateUrl: './sandbox.component.html',
     styleUrl: './sandbox.component.css',
+    standalone: true,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

@@ -9,10 +9,11 @@ import { ProfileThumbnailPickerComponent, ProfileKnowsEditorComponent, ProfileKn
 
 @Component({
     selector: 'app-profile',
-    standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, ProfileThumbnailPickerComponent, ProfileKnowsEditorComponent, ProfileKnowsListComponent, ProfileCardComponent],
+    imports: [CommonModule, ReactiveFormsModule, ProfileThumbnailPickerComponent],
+    // imports: [CommonModule, ReactiveFormsModule, ProfileThumbnailPickerComponent, ProfileKnowsEditorComponent, ProfileKnowsListComponent, ProfileCardComponent],
     templateUrl: './profile-home.component.html',
-    styleUrl: './profile-home.component.css'
+    styleUrl: './profile-home.component.css',
+    standalone: true
 })
 export class ProfileHomeComponent implements OnInit, OnDestroy {
     @ViewChild('canvas', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;

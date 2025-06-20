@@ -8,9 +8,9 @@ import { AccountService, AlarmService } from '@app/services';
 
 @Component({
     selector: 'app-user',
-    standalone: true,
     imports: [NgIf, ReactiveFormsModule, NgClass, RouterLink],
     templateUrl: './user.component.html',
+    standalone: true,
     styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {

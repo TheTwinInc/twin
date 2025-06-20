@@ -22,8 +22,7 @@ import { PodSelectorComponent } from "../../solid/pod-selector/pod-selector.comp
 
 @Component({
     selector: 'app-header',
-    standalone: true,
-        imports: [
+    imports: [
         RouterLink,
         RouterLinkActive,
         MatToolbarModule,
@@ -42,6 +41,7 @@ import { PodSelectorComponent } from "../../solid/pod-selector/pod-selector.comp
     ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css',
+    standalone: true,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

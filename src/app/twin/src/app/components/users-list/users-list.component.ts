@@ -8,9 +8,9 @@ import { AccountService } from '@app/services';
 
 @Component({
     selector: 'app-users-list',
-    standalone: true,
     imports: [RouterLink, NgFor, NgIf],
     templateUrl: './users-list.component.html',
+    standalone : true,
     styleUrl: './users-list.component.css'
 })
 export class UsersListComponent implements OnInit {
