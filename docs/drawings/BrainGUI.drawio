@@ -1,9 +1,48 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15" version="28.0.9">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15" version="28.2.4">
   <diagram name="Page-1" id="2j7EfIFrd0DjGW1DXlMu">
-    <mxGraphModel>
+    <mxGraphModel dx="1936" dy="1273" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="8R20_PbephGAGo4m2i8n-1" value="&lt;div&gt;DISCOVER&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;Brain Discussion&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Book Lists&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Search&lt;/div&gt;&lt;div&gt;Ontology&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="79" width="90" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-2" value="CONTENT&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Book&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Suggested Specs by Brain&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="80" width="90" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-3" value="USER&lt;div&gt;Specs&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="90" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-4" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="200" y="210" as="sourcePoint" />
+            <mxPoint x="250" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-5" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="320" y="210" as="sourcePoint" />
+            <mxPoint x="370" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-6" value="1. Discover" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="20" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-7" value="2. Interact" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="20" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-8" value="3. Make my own" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="342.5" y="20" width="125" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-9" value="Imagine talking to Tom (on left window)&lt;div&gt;Then Tom writes down a suggestion here in 2.&lt;/div&gt;&lt;div&gt;This can be updated until good.&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="280" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-10" value="&lt;div&gt;Here in 3. specs are saved.&lt;/div&gt;&lt;div&gt;The specs can be broght up, edited etc.&lt;/div&gt;&lt;div&gt;Users need their own pod to use this, Can include signing up for pod. Navigating, Searching own pod content, etc.&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="355" y="280" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8R20_PbephGAGo4m2i8n-12" value="&lt;div&gt;All Discovery is here in 1.&lt;/div&gt;&lt;div&gt;Listing books, searching, navigating ontology.&lt;/div&gt;&lt;div&gt;Click to open in 2.&lt;/div&gt;&lt;div&gt;Or all discussion with brain, brain suggested output in 2.&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="280" width="95" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
