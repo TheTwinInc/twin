@@ -1,0 +1,13 @@
+<div class="content-container">
+    <div class="item fill-area content item-grow">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!-- <mat-drawer-container class="container" [hasBackdrop]="hasBackdrop.value"> -->
+<mat-drawer-container class="container" hasBackdrop="false">
+  <mat-drawer #drawer mode="side" position="end">I'm a drawer</mat-drawer>
+  <mat-drawer-content>
+    <button matButton="elevated" (click)="drawer.toggle()">Toggle drawer</button>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,65 @@
+<div class="header-container">
+    <div class="logo-supplier mobileHide">
+        <img ngSrc="assets/img/logo/supplier.svg" alt="Supplier" width="183" height="150" priority >
+    </div>
+    <div class="header-content">
+        <div class="mobileHide">
+            <mat-toolbar-row>
+            <a mat-button routerLink="/profile" routerLinkActive="active">Profile</a>
+            <a mat-button routerLink="/profile/contacts" routerLinkActive="active">Contacts</a>
+            <a mat-button routerLink="/profile/card" routerLinkActive="active">Card</a>
+            <a mat-button routerLink="/nodes/node" routerLinkActive="active">Object</a>
+        </mat-toolbar-row>
+        </div>
+        
+        <div class="mobileShow">
+            <button matIconButton [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/profile" routerLinkActive="active">
+                    <mat-icon>3p</mat-icon>
+                    <span>Profile</span>
+                </button>
+                <button mat-menu-item routerLink="/profile/contacts" routerLinkActive="active">
+                    <mat-icon>import_contacts</mat-icon>
+                    <span>Contacts</span>
+                </button>
+                <button mat-menu-item routerLink="/profile/card" routerLinkActive="active">
+                    <mat-icon>badge</mat-icon>
+                    <span>Card</span>
+                </button>
+                @if(!sessionInfo?.isLoggedIn) {
+                    <button mat-menu-item (click)="loginApp()">
+                        <mat-icon>login</mat-icon>
+                        <span>Login</span>
+                    </button>
+                } @else {
+                    <button mat-menu-item (click)="logoutApp()">
+                        <mat-icon>logout</mat-icon>
+                        <span>Logout</span>
+                    </button>
+                }
+            </mat-menu>
+        </div>
+        
+
+    </div>
+    <div class="header-user mobileHide">
+        <mat-toolbar-row>
+            <!-- <h1>{{user?.firstName}}</h1>
+            <h1>{{sessionInfo?.isLoggedIn}}</h1> -->
+            <!-- <a mat-button routerLink="account/login" *ngIf="!user">Login</a> -->
+            @if (profile) {
+                <p><strong>Name:</strong> {{ profile.name }}</p>
+            }
+            @if(!sessionInfo?.isLoggedIn) {
+                <a mat-button (click)="loginApp()">Login</a>
+            } @else {
+                <a mat-button (click)="logoutApp()">Logout</a>
+            }
+            <!-- <a mat-button (click)="loginApp()" *ngIf='!sessionInfo?.isLoggedIn'>Login</a>
+            <a mat-button (click)="logoutApp()" *ngIf="sessionInfo?.isLoggedIn">Logout</a> -->
+        </mat-toolbar-row>
+    </div>
+</div>
