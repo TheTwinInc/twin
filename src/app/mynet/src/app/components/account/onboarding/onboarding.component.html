@@ -1,0 +1,27 @@
+<!-- @if (!loggedIn) { -->
+@if (!!sessionInfo?.isLoggedIn) {
+    <button (click)="login()">Login with Solid</button>
+} @else {
+
+    @if (profile) {
+        <h2>Your Onboarding Profile</h2>
+        <p><strong>Name:</strong> {{ profile.name }}</p>
+        <p><strong>Email:</strong> {{ profile.email }}</p>
+    } @else {
+        <h2>Onboarding Form</h2>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label>
+            Name:
+            <input formControlName="name" />
+        </label>
+        <label>
+            Email:
+            <input formControlName="email" type="email" />
+        </label>
+        <button type="submit" [disabled]="form.invalid">Save</button>
+        </form>
+        @if (message) {
+        <div>{{ message }}</div>
+        }
+    }
+}
