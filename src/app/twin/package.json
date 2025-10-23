@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --aot --output-hashing none",
+    "build-mobile": "ng build --aot --output-hashing none --output-path=cordova/www",
     "watch": "ng build --watch --configuration development",
     "update": "ncu -u && npm update && npm install",
     "test": "ng test",
