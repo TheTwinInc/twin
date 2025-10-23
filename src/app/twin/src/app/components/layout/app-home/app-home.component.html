@@ -1,9 +1,14 @@
 <div class="container">
-    <div class="item header">
+<!-- <div class="bucket"> -->
+    <div class="item detector">
+        <app-size-detector></app-size-detector>
+    </div>
+    <div  class="item header">
         <app-header></app-header>
     </div>
 
-    <div class="item nav">
+    <!-- <div ngIf="hideMobile" class="item nav"> -->
+    <div class="item nav mobileHide">
          <app-nav-tree></app-nav-tree>
     </div>
 
@@ -11,12 +16,14 @@
         <router-outlet></router-outlet>
     </div>
 
-    <div class="item sidebar">
+    <!-- <div ngIf="hideMobile" class="item sidebar"> -->
+    <div class="item sidebar mobileHide">
         <app-sidebar></app-sidebar>
         
     </div> 
 
-    <div class="item footer">
+    <!-- <div ngIf="hideMobile" class="item footer"> -->
+    <div class="item footer mobileHide">
         <footer></footer>
     </div>
 </div>

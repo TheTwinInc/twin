@@ -6,19 +6,23 @@ import { ISessionInfo } from '@inrupt/solid-client-authn-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
-import { AlarmService, SolidAuthService, LoggerService } from '@app/services';
+import { AlarmService, SolidAuthService, LoggerService, ScreenService } from '@app/services';
 import { SolidDataset } from '@inrupt/solid-client';
 import { RouterOutlet } from '@angular/router';
 import { AppSidebarComponent, FooterComponent, HeaderComponent, NavTreeComponent } from '@app/components';
+import { SCREEN_SIZE } from '@app/config';
+import { SizeDetectorComponent } from "@app/components";
 
 @Component({
     selector: 'app-home',
     imports: [
+        // NgIf,
         RouterOutlet,
         HeaderComponent,
         FooterComponent,
         AppSidebarComponent,
         NavTreeComponent,
+        SizeDetectorComponent
     ],
     templateUrl: './app-home.component.html',
     styleUrl: './app-home.component.css',
@@ -27,10 +31,13 @@ import { AppSidebarComponent, FooterComponent, HeaderComponent, NavTreeComponent
 export class AppHomeComponent implements OnInit, OnDestroy {
     private readonly ngUnsubscribe: Subject<any> = new Subject<any>();
     sessionInfo?: ISessionInfo | null;
+    isMobile?: boolean | null;
     dataItems?: any[];
+    hideMobile: boolean = false;
 
     constructor(
         private solidAuthService: SolidAuthService,
+        private screenService: ScreenService
     ) { }
     
     ngOnInit() {
@@ -39,6 +46,12 @@ export class AppHomeComponent implements OnInit, OnDestroy {
             .subscribe(x => {
                 this.sessionInfo = x;
             });
+        this.screenService.isMobile
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(x => {
+                this.isMobile = x;
+                this.onScreenSizeUpdate();
+            });
         this.solidAuthService.handleSessionRestore();
         this.dataItems = [];
     }
@@ -46,6 +59,15 @@ export class AppHomeComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.ngUnsubscribe.next(null);
         this.ngUnsubscribe.unsubscribe();
+    }
+
+    onScreenSizeUpdate() {
+        if (this.isMobile) {
+            this.hideMobile = true;
+        } else {
+            this.hideMobile = false;
+        }
+        
     }
 }
     

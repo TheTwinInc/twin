@@ -6,6 +6,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AccountService, LoggerService, SolidAuthService, SolidDataService } from '@app/services';
 import { User } from '@app/models';
@@ -18,7 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { SolidDataset, UrlString, WithServerResourceInfo } from '@inrupt/solid-client';
 import { MatDividerModule } from '@angular/material/divider';
-import { PodSelectorComponent } from "../../solid/pod-selector/pod-selector.component";
+import { PodSelectorComponent } from "@app/components";
+
 
 @Component({
     selector: 'app-header',
@@ -27,6 +30,8 @@ import { PodSelectorComponent } from "../../solid/pod-selector/pod-selector.comp
         RouterLinkActive,
         MatToolbarModule,
         MatButtonModule,
+        MatIconModule,
+        MatMenuModule,
         NgOptimizedImage,
         MatCardModule,
         FormsModule,
@@ -34,7 +39,6 @@ import { PodSelectorComponent } from "../../solid/pod-selector/pod-selector.comp
         MatFormFieldModule,
         MatSelectModule,
         MatInputModule,
-        MatButtonModule,
         MatDividerModule,
         MatInputModule,
         PodSelectorComponent

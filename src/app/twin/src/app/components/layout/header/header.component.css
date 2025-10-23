@@ -43,3 +43,40 @@
     /* background-color: rgb(255, 0, 140); */
 }
 
+.mobileHide { display: inline;}
+.mobileShow { display: none;}
+
+@media only screen and (orientation: portrait) and 
+((max-device-width : 480px) or (max-device-width : 700px)) {  
+    .mobileHide { display: none;}
+    .mobileShow { display: inline;}
+    .header-container {
+        /* display: grid | inline-grid; */
+        display: grid;
+        /* grid-template-columns: [first-column] 40px [second-column] auto; */
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: 60px;
+        /* grid-template-rows: 20% 80% 10%; */
+        grid-template-areas: 
+            "content user";
+        /* grid-gap: 40px; */
+        /* grid-row-gap: 10px; */
+        grid-column-gap: 10px;
+        /* height: 97vh;
+        width: 97vw; */
+        margin: 0;
+        /* background: white; */
+        align-items: end;
+    }
+
+    .logo-supplier {
+        grid-area: supplier;
+        /* background-color: yellow; */
+        justify-self: stretch;
+        height: 50%;
+        width: 50%;
+        /* justify-self: left;
+        align-items: center; */
+    }
+}
+

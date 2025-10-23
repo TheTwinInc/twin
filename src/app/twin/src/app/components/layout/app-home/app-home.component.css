@@ -1,7 +1,17 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    
+}
+
 .container {
     /* display: grid | inline-grid; */
     display: grid;
     /* grid-template-columns: [first-column] 40px [second-column] auto; */
+    /* grid-template-columns: 30% 60% 10%; */
+    /* grid-template-columns: 30% 60% 10%; */
     grid-template-columns: 2fr 4fr 1fr;
     grid-template-rows: 160px 1fr 70px;
     /* grid-template-rows: 20% 80% 10%; */
@@ -15,11 +25,11 @@
     /* grid-gap: 40px; */
     grid-row-gap: 10px;
     grid-column-gap: 10px;
-    height: 97vh;
-    /* width: 97vw; */
+    max-width: 100% !important;
+    height: 100vh !important;
+    width: 100vw !important;
     margin: 0;
     background: rgb(229, 245, 218);
-    
 }
 
 /* header, footer, article, nav, div { */
@@ -36,23 +46,33 @@ footer {
 
 .header {
     grid-area: header;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Adjust as needed */
+    z-index: 1000; /* Ensure header stays above content */
 }
 
 .nav {
     grid-area: nav;
+    width: 100%;
 }
 
 .sidebar {
     grid-area: sidebar;
+    width: 100%;
 }
 
 .content {
     grid-area: content;
+    width: 100%;
     /* justify-self: stretch; */
 }
 
 .footer {
     grid-area: footer;
+    width: 100%;
     /* align-items: end; */
 }
 
@@ -67,3 +87,41 @@ footer {
         grid-template-columns: 1fr;
    }
 } */
+
+.mobileHide { display: inline;}
+.detector { display: none;}
+
+@media only screen and (orientation: portrait) and 
+((max-device-width : 480px) or (max-device-width : 700px)) {  
+    .mobileHide { display: none;}
+    .container {
+        display: contents;
+        /* grid-template-columns: 100%;
+        grid-template-rows: 20% 80%;
+        grid-template-areas: 
+            "header"
+            "content";
+        grid-row-gap: 10px;
+        grid-column-gap: 10px; */
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        background: rgb(229, 245, 218);
+    }
+    /* Webkit Browsers (Chrome, Safari, and Opera) */
+    .element::-webkit-scrollbar {
+        display: none; /* Hides the scrollbar */
+    }
+    /* Firefox */
+    .element {
+        overflow: -moz-scrollbars-none; /* Hides the scrollbar */
+    }
+
+    .content {
+        grid-area: content;
+        margin-top: 70px; /* Match header height to avoid overlap */
+        height: calc(100vh - 60px); /* Full viewport height minus header */
+        overflow-y: auto; /* Enable vertical scrolling */
+        /* justify-self: stretch; */
+    }
+}
