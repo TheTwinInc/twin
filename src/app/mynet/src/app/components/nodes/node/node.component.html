@@ -1,0 +1,154 @@
+<div class="card">
+    <h4 class="card-header">Object</h4>
+    <div class="card-body">
+        <form [formGroup]="form">
+        <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
+            <!-- <mat-form-field class="full-width">
+                <mat-label>Web Id</mat-label>
+                <input tabindex="1" matInput type="text" placeholder="WebId" formControlName="webId" [ngClass]="{ 'is-invalid': f.name.errors }" />
+            </mat-form-field> -->
+            <mat-form-field class="full-width">
+                <mat-label>Object</mat-label>
+                <input tabindex="2" matInput type="text" placeholder="Node" formControlName="node" [ngClass]="{ 'is-invalid': f.node.errors }" />
+                <!-- <input tabindex="2" matInput type="text" placeholder="Node" formControlName="node" [ngClass]="{ 'is-invalid': f.role.errors }" /> -->
+            </mat-form-field>
+            <div>
+                <button [disabled]="!form.valid || loading" class="btn btn-primary row-button" [ngClass]="{'button-enabled' : form.valid && sessionInfo, 'button-disabled': !form.valid || !sessionInfo}" (click)="readNode()">
+                    <!-- @if (loading) {
+                        <span class="spinner-border spinner-border-sm me-1"></span>
+                    } -->
+                    Read
+                </button>
+                
+                <button [disabled]="!form.valid || loading" class="btn btn-primary row-button" [ngClass]="{'button-enabled' : form.valid && sessionInfo, 'button-disabled': !form.valid || !sessionInfo}" (click)="deleteNode()">
+                    <!-- @if (loading) {
+                        <span class="spinner-border spinner-border-sm me-1"></span>
+                    } -->
+                    Delete
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card full-width">
+    <div class="card-body">
+        <mat-grid-list cols="2" rowHeight="5:4">
+            <mat-grid-tile>
+                <div class="card full-width">
+                    <h4 class="card-header">ACL User</h4>
+                    <div class="card-body">
+                        
+                        <section class="acl-section" [formGroup]="wacAllowUserForm">
+                            <p><mat-checkbox formControlName="write">Write</mat-checkbox></p>
+                            <p><mat-checkbox formControlName="read" >Read</mat-checkbox></p>
+                            <p><mat-checkbox formControlName="control" >Control</mat-checkbox></p>
+                            <p><mat-checkbox formControlName="append" >Append</mat-checkbox></p>
+                        </section>
+                        <!-- <button class="btn btn-primary row-button" [ngClass]="{'button-enabled' : sessionInfo, 'button-disabled': !sessionInfo}" (click)="updateAcl()">
+                            Save ACL
+                        </button> -->
+                    </div>
+                </div>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="card full-width">
+                    <h4 class="card-header">ACL Public</h4>
+                    <div class="card-body">
+                        <section class="acl-section" [formGroup]="wacAllowPublicForm">
+                            <p><mat-checkbox formControlName="write" >Write</mat-checkbox></p>
+                            <p><mat-checkbox formControlName="read" >Read</mat-checkbox></p>
+                            <p><mat-checkbox formControlName="control" >Control</mat-checkbox></p>
+                            <p><mat-checkbox formControlName="append" >Append</mat-checkbox></p>
+                        </section>
+                        
+                    </div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <div>
+            <button class="btn btn-primary row-button" [ngClass]="{'button-enabled' : sessionInfo, 'button-disabled': !sessionInfo}" (click)="updateAcl()">
+                Update ACL
+            </button>
+            <button class="btn btn-primary row-button" [ngClass]="{'button-enabled' : sessionInfo, 'button-disabled': !sessionInfo}" (click)="deleteAcl()">
+                Delete ACL
+            </button>
+        </div>
+    </div>
+</div>
+
+@if (authorizations.length > 0 ) {
+    <div class="card">
+        <h4 class="card-header">Object Authorizations</h4>
+        <div class="card-body">
+            <ng-container>
+                <article class="table-header">
+                    <mat-form-field appearance="outline">
+                        <input matInput (keyup)="applyFilterAuthorizations($any($event.target).value)" placeholder="Search">
+                    </mat-form-field>
+                </article>
+                <table class="table-content" mat-table [dataSource]="dataSourceAuthorizations" class="mat-elevation-z1" matSort #authorizationsTableSort="matSort">
+                    <ng-container matColumnDef="subject">
+                        <th mat-header-cell *matHeaderCellDef>Subject</th>
+                        <td mat-cell *matCellDef="let t">{{ t.subject }}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="predicate">
+                        <th mat-header-cell *matHeaderCellDef>Predicate</th>
+                        <td mat-cell *matCellDef="let t">{{ t.predicate }}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="object">
+                        <th mat-header-cell *matHeaderCellDef>Object</th>
+                        <td mat-cell *matCellDef="let t">{{ t.object }}</td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </ng-container>
+            <ng-template #loading>
+                <p>Loading Authorizations data...</p>
+            </ng-template>
+        </div>
+    </div>
+}
+
+
+@if (triples.length > 0 ) {
+<div class="card">
+    <h4 class="card-header">Object Triples</h4>
+    <div class="card-body">
+        <ng-container>
+            <article class="table-header">
+                <mat-form-field appearance="outline">
+                    <input matInput (keyup)="applyFilterTriples($any($event.target).value)" placeholder="Search">
+                </mat-form-field>
+            </article>
+            <table class="table-content" mat-table [dataSource]="dataSourceTriples" class="mat-elevation-z1" matSort #triplesTableSort="matSort">
+                <ng-container matColumnDef="subject">
+                    <th mat-header-cell *matHeaderCellDef>Subject</th>
+                    <td mat-cell *matCellDef="let t">{{ t.subject }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="predicate">
+                    <th mat-header-cell *matHeaderCellDef>Predicate</th>
+                    <td mat-cell *matCellDef="let t">{{ t.predicate }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="object">
+                    <th mat-header-cell *matHeaderCellDef>Object</th>
+                    <td mat-cell *matCellDef="let t">{{ t.object }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </ng-container>
+        <ng-template #loading>
+            <p>Loading Triples data...</p>
+        </ng-template>
+    </div>
+</div>
+}
