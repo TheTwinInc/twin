@@ -1,0 +1,131 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/prismjs/plugins/toolbar/prism-toolbar.css";
+@import "../node_modules/prismjs/themes/prism-okaidia.css";
+@import 'font-awesome/css/font-awesome.min.css';
+
+html, body, app-root {
+    height: 100%;
+    width: 100%;
+  
+    margin: 0;
+    padding: 0;
+
+    background-color : #F6F4F0 !important;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mobileHide { display: inline;}
+
+@media only screen and (orientation: portrait) and 
+((max-device-width : 480px) or (max-device-width : 700px)) {  
+    .mobileHide { display: none;}
+    /* Webkit Browsers (Chrome, Safari, and Opera) */
+    .element::-webkit-scrollbar {
+        display: none; /* Hides the scrollbar */
+    }
+    /* Firefox */
+    .element {
+        overflow: -moz-scrollbars-none; /* Hides the scrollbar */
+    }
+}
+
+.action-button-add {
+    background-color : rgb(229, 248, 213) !important;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.action-button-edit {
+    background-color : rgb(229, 248, 213) !important;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.action-button-save {
+    background-color : rgb(213, 227, 248) !important;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.action-button-execute {
+    background-color : rgb(255, 255, 255) !important;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.action-button-reload {
+    background-color : rgb(209, 209, 245) !important;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.action-button-delete {
+    background-color : rgb(245, 209, 209) !important;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.action-button-disabled {
+    background-color: #9b9b9b !important;
+    border: none;
+    color: #fff !important;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
