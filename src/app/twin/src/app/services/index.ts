@@ -9,3 +9,4 @@ export * from './logger.service';
 export * from './rdf.service';
 export * from './highlight.service';
 export * from './local-storage.service';
+export * from './screen.service';

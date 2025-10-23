@@ -1,4 +1,7 @@
-export * from './exceptions/alarm/alarm.component';
+export * from './utils/alarm/alarm.component';
+export * from './utils/qrcode/qrcode.component';
+export * from './utils/size-detector/size-detector.component';
+export * from './utils/pod-selector/pod-selector.component';
 export * from './layout/nav/nav.component';
 export * from './layout/nav-tree/nav-tree.component';
 export * from './layout/app-sidebar/app-sidebar.component';
@@ -14,8 +17,8 @@ export * from './account/logout/logout.component';
 export * from './account/register/register.component';
 export * from './account/login-dialog/login-dialog.component';
 export * from './account/identity-provider-dialog/identity-provider-dialog.component';
-export * from './solid/pod-selector/pod-selector.component';
-export * from './helpers/qrcode/qrcode.component';
+
+
 export * from './profile/profile-knows-editor/profile-knows-editor.component';
 export * from './profile/profile-knows-list/profile-knows-list.component';
 export * from './profile/profile-thumbnail-picker/profile-thumbnail-picker.component';
