@@ -1,0 +1,61 @@
+
+<div>
+    <canvas #canvas hidden></canvas>
+    <button [ngClass]="{'fa fa-pencil' : true, 'action-button-edit': !editing, 'action-button-save': editing, 'action-button-disabled': isReadOnlyUser}" (click)="toggleEditProfile()"></button>
+    <!-- <button (click)="editingPicture = true">Edit Picture</button> -->
+</div>
+
+@if (!editing) {
+    <div class="profile-card">
+        <h2>Your Profile</h2>
+        @if(form.value.img) {
+            <img [src]="form.value.img" alt="Profile photo" class="profile-photo" />
+        }
+        
+        <p><strong>Name:</strong> {{ form.value.name }}</p>
+        <p><strong>Email:</strong> {{ form.value.email }}</p>
+        <p><strong>Title:</strong> {{ form.value.role }}</p>
+        <p><strong>Organization:</strong> {{ form.value.org }}</p>
+        <p><strong>Phone:</strong> {{ form.value.phone }}</p>
+    </div>
+} 
+@if (editing) {
+    <div class="card">
+        <h4 class="card-header">Edit Profile</h4>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="save()">
+                <mat-form-field class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input tabindex="1" matInput type="text" placeholder="Name" formControlName="name" [ngClass]="{ 'is-invalid': saved && f.name.errors }" />
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Title</mat-label>
+                    <input tabindex="2" matInput type="text" placeholder="Title" formControlName="role" [ngClass]="{ 'is-invalid': saved && f.role.errors }" />
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Organization</mat-label>
+                    <input tabindex="3" matInput type="text" placeholder="Organization" formControlName="org" [ngClass]="{ 'is-invalid': saved && f.role.errors }" />
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Phone</mat-label>
+                    <input tabindex="4" matInput type="text" placeholder="Phone" formControlName="phone" [ngClass]="{ 'is-invalid': saved && f.role.errors }" />
+                </mat-form-field>
+                <div>
+                    <button [disabled]="!form.valid || loading" class="btn btn-primary" [ngClass]="{'button-enabled' : form.valid, 'button-disabled': !form.valid}">
+                        @if (loading) {
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                        }
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <h4 class="card-header">Edit Picture</h4>
+        <div class="card-body">
+            <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+            <app-profile-thumbnail-picker></app-profile-thumbnail-picker>
+        </div>
+    </div>
+}

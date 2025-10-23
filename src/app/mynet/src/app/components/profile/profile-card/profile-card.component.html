@@ -1,0 +1,27 @@
+<div class="card">
+    @if (img) {
+        <img [src]="img" alt="{{ name }}" class="avatar" />
+    }
+    
+    <div class="info">
+        <h2>{{ name }}</h2>
+        @if (role) {
+            <p>{{ role }}</p>
+        }
+        @if (org) {
+            <p>{{ org }}</p>
+        }
+        
+        
+        <small>{{ webId }}</small>
+        <p> See my network</p>
+        <p> Save VCARD</p>
+        @if (vCardInfo) {
+            <div>
+                <app-qrcode [webId]=vCardInfo></app-qrcode>
+            </div>
+        }
+        
+        
+    </div>
+</div>
