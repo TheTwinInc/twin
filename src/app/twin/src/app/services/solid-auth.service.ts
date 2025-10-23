@@ -31,14 +31,14 @@ export class SolidAuthService {
         private alarmService: AlarmService,
         private logger: LoggerService,
         private dialog: MatDialog,
-        private localStorageService: LocalStorageService,
+        // private localStorageService: LocalStorageService,
         // private solidDataService: SolidDataService
     ) {
         // TEST
         // this.initSession();
 
         if (undefined != localStorage.getItem('sessionInfo')) {
-            this.localStorageService.removeItem('sessionInfo');
+            // this.localStorageService.removeItem('sessionInfo');
         }
         // if (undefined != localStorage.getItem('containedResources')) {
         //     this.localStorageService.removeItem('containedResources');
@@ -137,7 +137,7 @@ export class SolidAuthService {
             });
 
             if(undefined != sessionInfo) {
-                this.localStorageService.setItem('sessionInfo', sessionInfo);
+                // this.localStorageService.setItem('sessionInfo', sessionInfo);
                 this.alarmService.success(`Logged in with WebID [${sessionInfo?.webId}]`, true);
                 if (sessionInfo) {
                     this.sessionInfoSubject.next(sessionInfo);
@@ -187,7 +187,7 @@ export class SolidAuthService {
 
     private logoutCleanup() {
         this.sessionInfoSubject.next(null);
-        this.localStorageService.removeItem('sessionInfo');
+        // this.localStorageService.removeItem('sessionInfo');
     }
 
     getPathFromUrl(url: string) {
