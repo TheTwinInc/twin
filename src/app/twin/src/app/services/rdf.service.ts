@@ -248,10 +248,10 @@ export class RdfService {
             const newStmt = $rdf.st(subject, pred, newObj, $rdf.sym(docUrl));
 
             return new Promise<void>((resolve, reject) => {
-            this.updater.update([oldStmt], [newStmt], (uri, ok, message) => {
-                    if (ok) resolve();
-                    else reject(new Error(message || 'Failed to update triple.'));
-                });
+                this.updater.update([oldStmt], [newStmt], (uri, ok, message) => {
+                        if (ok) resolve();
+                        else reject(new Error(message || 'Failed to update triple.'));
+                    });
             });
         }
     }
@@ -665,9 +665,6 @@ export class RdfService {
 
     // async readProfile(): Promise<RdfProfile | null> {
     async readProfile(profileDocUrl: string): Promise<RdfProfile | null> {
-        // const session = this.solidAuthService.getDefaultSession();
-        // const webId = this.solidAuthService.getWebId();
-        // const loggedIn = this.solidAuthService.isLoggedIn();
         const subjectUri = this.getProfileUrl(profileDocUrl);
         const subject = $rdf.sym(subjectUri);
         const doc = $rdf.sym(profileDocUrl);
