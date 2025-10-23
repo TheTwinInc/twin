@@ -1,0 +1,26 @@
+{
+    "env": {
+        "name": "PROD"
+    },
+    "logging": {
+        "console": true,
+        "appInsights": true
+    },
+    "wsServer": {
+        "uri": {
+            "thetwin": "wss://app.thetwin.no:8020/thetwin",
+            "mcs": "wss://app.thetwin.no:8020/mcs",
+            "admin": "wss://app.thetwin.no:8020/admin"
+        }
+    },
+    "xdrop": {
+        "uri": "api/xdrop",
+        "uriAttribute": "https://app.thetwin.no/api/xdrop/01/attribute"
+    },
+    "tasks": {
+        "uri" : "https://app.thetwin.no/api/tasks/01/"
+    },
+    "bags": {
+        "uri" : "https://app.thetwin.no/api/bags/01/"
+    }
+}
