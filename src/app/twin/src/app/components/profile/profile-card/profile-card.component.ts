@@ -4,7 +4,7 @@ import { ProfileData, RdfProfile } from '@app/interfaces';
 import { RdfService, SolidAuthService } from '@app/services';
 import { ISessionInfo } from '@inrupt/solid-client-authn-browser';
 import { Subject, takeUntil } from 'rxjs';
-import { QrcodeComponent } from "../../helpers/qrcode/qrcode.component";
+import { QrcodeComponent } from "@app/components";
 
 @Component({
     selector: 'app-profile-card',
