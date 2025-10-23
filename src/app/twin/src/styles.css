@@ -13,3 +13,18 @@ html, body, app-root {
 }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mobileHide { display: inline;}
+
+@media only screen and (orientation: portrait) and 
+((max-device-width : 480px) or (max-device-width : 700px)) {  
+    .mobileHide { display: none;}
+    /* Webkit Browsers (Chrome, Safari, and Opera) */
+    .element::-webkit-scrollbar {
+        display: none; /* Hides the scrollbar */
+    }
+    /* Firefox */
+    .element {
+        overflow: -moz-scrollbars-none; /* Hides the scrollbar */
+    }
+}
