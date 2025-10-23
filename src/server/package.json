@@ -1,0 +1,45 @@
+{
+  "name": "twin.server",
+  "version": "1.0.0",
+  "description": "TWIN server by Uriberg",
+  "author": "Sergio Uribe @Uriberg",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test/**/*.js --timeout 5000",
+    "debug-s7": "set DEBUG=S7Client & node src/server.js"
+  },
+  "private": true,
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "async": "^3.2.2",
+    "bcryptjs": "^2.4.3",
+    "bunyan": "^1.8.15",
+    "chai": "^5.1.1",
+    "chokidar": "^4.0.3",
+    "cors": "^2.8.5",
+    "csv-stringify": "^6.5.1",
+    "date-fns": "^4.1.0",
+    "express": "^4.21.0",
+    "express-jwt": "^8.4.1",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "lodash.random": "^3.2.0",
+    "pg": "^8.7.3",
+    "pg-copy-streams": "^6.0.2",
+    "read-last-lines": "^1.8.0",
+    "sinon": "^19.0.2",
+    "systeminformation": "^5.23.5",
+    "tail": "^2.2.6",
+    "uuid": "^10.0.0",
+    "ws": "^8.18.0"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/tail": "^2.2.3",
+    "debug": "^4.3.3",
+    "mocha": "^10.0.0"
+  }
+}
