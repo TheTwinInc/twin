@@ -1,0 +1,9 @@
+1. Check PLC device and change accordingly
+2. Check IP in PLC properties: Choose IP address is set directly at the device
+3. Change mapping in InputMapping
+4. Check simulator flag in attributes
+5. Change IP in Xdrop/Communication/Xdrop.BroadcastData
+6. Check PLC tags/HardwareInputs [EndPE_1001, EndPE_1002, EndPE_1003, EndPE_1004]
+7. Check PLC tags/HardwareOutputs [Conveyor1001On, Conveyor1002On, Conveyor1003On, Conveyor1004On]
+8. Check IP in xdrop/config
+9. Archive project with date

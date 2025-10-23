@@ -1,0 +1,196 @@
+sudo nano /etc/sysctl.conf
+
+net.ipv4.ip_forward=1
+net.ipv6.conf.all.forwarding=1
+
+sudo sysctl -p
+
+wg_id=wg1
+wg_port=58365
+
+sudo ufw allow $wg_port/udp
+
+# Step 1 – Update your system
+sudo apt update
+sudo apt upgrade -y
+
+# Step 2 – Installing a WireGuard VPN server on Ubuntu 20.04 LTS
+
+sudo apt install -y wireguard
+
+# Step 3 – Configuring WireGuard server
+
+sudo -i
+cd /etc/wireguard/
+
+# Execute the following command:
+umask 077; wg genkey | tee privatekey | wg pubkey > publickey
+
+# To view keys created use the cat command and ls command:
+ls -l privatekey publickey
+cat privatekey
+## Please note down the private key ##
+cat publickey
+## Please note down the public key ##
+
+
+exit
+
+server_privatekey=CI1M5RNJ0EeYcymGgJOhPqa8IcuasMnbC0Yun8QmckE=
+server_publickey=FbBuXgbQAGdh3RJNKGoJ7LHGXlGJTw1DSua57W8nKGY=
+client_privatekey=+LzZ2HDsCkiF33nWw0HBLrAqrcx62/J1ZIXlUMRowlA=
+echo $client_privatekey | wg pubkey
+client_publickey=c5si1ekbdTodoXAnhRNP1ZtOua2gIcA3UaXRzb3s4SY=
+client_ip=172.16.201.2
+
+
+
+# Set Up WireGuard VPN on Ubuntu Linux
+# Set Up WireGuard VPN on Ubuntu by Editing wg0.conf
+
+# Edit or update the /etc/wireguard/wg0.conf file as follows:
+# sudo nano /etc/wireguard/$wg_id.conf
+sudo touch /etc/wireguard/$wg_id.conf
+
+echo "[Interface]" | sudo tee -a /etc/wireguard/$wg_id.conf
+echo "Address = 172.16.201.1/24" | sudo tee -a /etc/wireguard/$wg_id.conf
+echo "ListenPort = 58365" | sudo tee -a /etc/wireguard/$wg_id.conf
+echo "PrivateKey = $server_privatekey" | sudo tee -a /etc/wireguard/$wg_id.conf
+echo -e "\nPostUp = /etc/wireguard/helper/add-nat-routing.$wg_id.sh" | sudo tee -a /etc/wireguard/$wg_id.conf
+echo "PostDown = /etc/wireguard/helper/remove-nat-routing.$wg_id.sh" | sudo tee -a /etc/wireguard/$wg_id.conf
+
+
+echo -e "\n[Peer]" | sudo tee -a /etc/wireguard/$wg_id.conf
+echo "PublicKey = $client_publickey" | sudo tee -a /etc/wireguard/$wg_id.conf
+echo "AllowedIPs = $client_ip/32" | sudo tee -a /etc/wireguard/$wg_id.conf
+# # Append the following config directives:
+# ## Set Up WireGuard VPN on Ubuntu By Editing/Creating wg0.conf File ##
+# [Interface]
+# ## My VPN server private IP address ##
+# Address = 172.16.201.1/24
+# ## My VPN server port ##
+# ListenPort = 58365
+# ## VPN server's private key i.e. /etc/wireguard/privatekey ##
+# PrivateKey = CI1M5RNJ0EeYcymGgJOhPqa8IcuasMnbC0Yun8QmckE=
+## Remove for full VPN type
+# PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
+# PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o ens5 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o ens5 -j MASQUERADE
+# PostUp = /etc/wireguard/helper/add-nat-routing.wg1.sh
+# PostDown = /etc/wireguard/helper/remove-nat-routing.wg1.sh
+
+# [Peer]
+# ## Desktop/client VPN public key ##
+# PublicKey = 
+# ## client VPN IP address (note  the /32 subnet) ##
+# AllowedIPs = 172.16.201.2/32
+# # Save and close the file when using vim text editor.
+
+# Create a new directory using the mkdir command:
+sudo mkdir -v /etc/wireguard/helper/
+
+sudo nano /etc/wireguard/helper/add-nat-routing.wg1.sh
+
+#!/bin/bash
+IPT="/sbin/iptables"
+# IPT6="/sbin/ip6tables"          
+ 
+LAN_FACE="ens5"                   # NIC connected to the LAN
+LAN_NET="172.31.13.153/20"            # LAN IPv4 sub/net aka CIDR
+WG_FACE="wg1"                    # WG NIC 
+WG_NET="172.16.201.0/24"            # WG IPv4 sub/net aka CIDR
+WG_PORT="58365"                  # WG udp port
+# WG_NET_6="fd42:42:42:42::/112"  # WG IPv6 sub/net
+ 
+## IPv4 ##
+$IPT -t nat -I POSTROUTING 1 -s $WG_NET -o $LAN_FACE -j MASQUERADE
+$IPT -t nat -I POSTROUTING 1 -s $LAN_NET -o $WG_FACE -j MASQUERADE
+$IPT -I INPUT 1 -i $WG_FACE -j ACCEPT
+$IPT -I INPUT 1 -i $LAN_FACE -j ACCEPT
+$IPT -I FORWARD 1 -i $LAN_FACE -o $WG_FACE -j ACCEPT
+$IPT -I FORWARD 1 -i $WG_FACE -o $LAN_FACE -j ACCEPT
+$IPT -I FORWARD 1 -i $WG_FACE -o $WG_FACE -j ACCEPT
+ 
+## IPv6 (Uncomment) ##
+## $IPT6 -t nat -I POSTROUTING 1 -s $SUB_NET_6 -o $LAN_FACE -j MASQUERADE
+## $IPT6 -I INPUT 1 -i $WG_FACE -j ACCEPT
+## $IPT6 -I FORWARD 1 -i $LAN_FACE -o $WG_FACE -j ACCEPT
+## $IPT6 -I FORWARD 1 -i $WG_FACE -o $LAN_FACE -j ACCEPT
+
+sudo chown kis-admin: /etc/wireguard/helper/add-nat-routing.wg1.sh
+sudo chmod 744 /etc/wireguard/helper/add-nat-routing.wg1.sh
+
+# AND:
+sudo nano /etc/wireguard/helper/remove-nat-routing.wg1.sh
+
+#!/bin/bash
+IPT="/sbin/iptables"
+# IPT6="/sbin/ip6tables"          
+ 
+IN_FACE="ens5"                   # NIC connected to the internet
+LAN_NET="172.31.13.153/20"            # LAN IPv4 sub/net aka CIDR
+WG_FACE="wg1"                    # WG NIC
+WG_NET="172.16.0.0/24"            # WG IPv4 sub/net aka CIDR
+WG_PORT="58365"                  # WG udp port
+# SUB_NET_6="fd42:42:42:42::/112"  # WG IPv6 sub/net
+ 
+# IPv4 rules #
+$IPT -t nat -D POSTROUTING -s $WG_NET -o $LAN_FACE -j MASQUERADE
+$IPT -t nat -D POSTROUTING -s $LAN_NET -o $WG_FACE -j MASQUERADE
+$IPT -D INPUT -i $WG_FACE -j ACCEPT
+$IPT -D INPUT -i $LAN_FACE -j ACCEPT
+$IPT -D FORWARD -i $LAN_FACE -o $WG_FACE -j ACCEPT
+$IPT -D FORWARD -i $WG_FACE -o $LAN_FACE -j ACCEPT
+$IPT -D FORWARD -i $WG_FACE -o $WG_FACE -j ACCEPT
+ 
+# IPv6 rules (uncomment) #
+## $IPT6 -t nat -D POSTROUTING -s $SUB_NET_6 -o $IN_FACE -j MASQUERADE
+## $IPT6 -D INPUT -i $WG_FACE -j ACCEPT
+## $IPT6 -D FORWARD -i $IN_FACE -o $WG_FACE -j ACCEPT
+## $IPT6 -D FORWARD -i $WG_FACE -o $IN_FACE -j ACCEPT
+
+sudo chown kis-admin: /etc/wireguard/helper/remove-nat-routing.wg1.sh
+sudo chmod 744 /etc/wireguard/helper/remove-nat-routing.wg1.sh
+
+# Step 4 – Set up UFW firewall rules
+sudo ufw allow 58365/udp
+
+# See “How To Configure Firewall with UFW on Ubuntu 20.04 LTS” for more info.
+# Step 5 – Enable and start WireGuard service
+
+# Turn the WireGuard service at boot time using the systemctl command, run:
+sudo systemctl enable wg-quick@wg1
+
+# Start the service, execute:
+sudo systemctl start wg-quick@wg1
+
+# Get the service status, run:
+sudo systemctl status wg-quick@wg1
+
+# Verify that interface named wg0 is up and running on Ubuntu server using the ip command:
+sudo wg
+sudo ip a show wg1
+
+
+# Install clients
+
+sudo mkdir -p /etc/wireguard/clients; wg genkey | sudo tee /etc/wireguard/clients/mobile.key | wg pubkey | sudo tee /etc/wireguard/clients/mobile.key.pub
+
+sudo nano /etc/wireguard/clients/mobile.conf
+
+[Interface]
+PrivateKey = 
+Address = 172.16.0.51/24
+DNS = 1.1.1.1, 1.0.0.1
+
+[Peer]
+PublicKey = FbBuXgbQAGdh3RJNKGoJ7LHGXlGJTw1DSua57W8nKGY=
+AllowedIPs = 0.0.0.0/0
+Endpoint = 16.170.167.137:58365
+
+[Peer]
+## MOB-SU Desktop/client VPN public key ##
+PublicKey = /C1OY6HTOYSiD14tL9mTldRRrIyvQetBTqStYG5UL3E=
+## client VPN IP address (note  the /32 subnet) ##
+AllowedIPs = 0.0.0.0/24
+
+# qrencode -t ansiutf8 /etc/wireguard/clients/mobile.conf

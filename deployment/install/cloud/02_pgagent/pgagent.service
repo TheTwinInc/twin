@@ -1,0 +1,14 @@
+[Unit]
+Description=pgAgent
+After=network.target postgresql.service
+
+[Service]
+Type=forking
+Restart=always
+User=kis-admin
+ExecStart=/usr/bin/pgagent -s /home/kis-admin/xdrop/log/pgagent.log -l 2 hostaddr=127.0.0.1 port=5432 dbname=postgres user=postgres
+StandardOutput=inherit
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Web Server %I
+After=network.target
+
+[Service]
+Environment=NODE_ENV=development
+ExecStart=/usr/bin/node server.js %i
+WorkingDirectory=/home/kis-admin/xdrop
+StandardOutput=inherit
+StandardError=inherit
+RestartSec=5
+Restart=always
+User=kis-admin
+
+[Install]
+WantedBy=multi-user.target
