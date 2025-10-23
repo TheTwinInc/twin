@@ -1,0 +1,12 @@
+.pod-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.sandbox-form{width:100%;}
+.field-full-width{width:100%;}
+.mat-form-field{width:100%;}
+.misc-bottom-padding{margin:8px 0 20px;}
+.misc-bottom-padding mat-label{margin-right:15px;}
+.mat-radio-label{margin:0 15px 0 0;}
+.title-center{margin:0 auto;}
+.mat-raised-button{margin:8px 10px 10px 20px;}
