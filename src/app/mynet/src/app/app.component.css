@@ -1,0 +1,28 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden !important;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.mobileHide { display: inline;}
+
+@media only screen and (orientation: portrait) and 
+((max-device-width : 480px) or (max-device-width : 700px)) {  
+    .mobileHide { display: none;}
+    /* Webkit Browsers (Chrome, Safari, and Opera) */
+    .element::-webkit-scrollbar {
+        display: none; /* Hides the scrollbar */
+    }
+    /* Firefox */
+    .element {
+        overflow: -moz-scrollbars-none; /* Hides the scrollbar */
+    }
+}
