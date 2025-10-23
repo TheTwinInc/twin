@@ -1,0 +1,20 @@
+Handover from Sales
+- [ ] Contract
+- [ ] Requirements Specification
+- [ ] Risk assessment
+- [ ] Budget
+- [ ] Variation order
+
+Startup
+- [ ] Project timeline
+- [ ] Quality plan
+- [ ] Project accounting
+- [ ] Document plan
+- [ ] Templates
+- [ ] Test strategy
+
+Kick-off
+- [ ] MOM
+- [ ] Organization chart
+- [ ] Reports
+- [ ] Actions list

@@ -1,0 +1,9 @@
+Handover to Customer
+- [ ] CAT
+- [ ] Customer Handover Protocol
+
+Close Project Accounting
+- [ ] Economical Reports
+
+Handover to Service
+- [ ] Service Handover Protocol
