@@ -288,3 +288,16 @@ src/app/twin/.vscode/tasks.json
 *.bkp
 sandbox/*
 src/app/twin/src/data/*
+src/app/mynet/src/app/gm-libs/gm.js
+src/app/mynet/src/app/gm-libs/i4.js
+src/app/mynet/src/app/gm-libs/i4.u.js
+src/app/mynet/src/app/gm-libs/i4.ur.js
+src/app/mynet/src/app/gm-libs/index.ts
+src/app/mynet/src/app/gm-libs/ontologies.js
+src/app/mynet/src/app/gm-libs/rdfStore.js
+src/app/mynet/src/app/gm-libs/tt-delete.js
+src/app/mynet/src/app/gm-libs/util-acl.js
+src/app/mynet/src/app/gm-libs/util-c.js
+src/app/mynet/src/app/gm-libs/util-q.js
+src/app/mynet/src/app/gm-libs/util-rdf.js
+src/app/mynet/src/app/gm-libs/util.js
