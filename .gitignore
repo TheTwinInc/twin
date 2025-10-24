@@ -301,3 +301,8 @@ src/app/mynet/src/app/gm-libs/util-c.js
 src/app/mynet/src/app/gm-libs/util-q.js
 src/app/mynet/src/app/gm-libs/util-rdf.js
 src/app/mynet/src/app/gm-libs/util.js
+src/app/mynet/src/data/ns/catalog-v001.xml
+src/app/mynet/src/data/ns/IATA-1R-CL-Ontology.ttl
+src/app/mynet/src/data/ns/IATA-1R-DM-Ontology.ttl
+src/app/mynet/src/data/ns/org.ttl
+src/app/mynet/src/data/ns/vcard.ttl
