@@ -1,0 +1,355 @@
+@base <https://sergio-uribe.stage.graphmetrix.net/profile/card> .
+@prefix as: <https://www.w3.org/ns/activitystreams#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix tl: <http://purl.org/NET/c4dm/timeline.owl#> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix uri4uri: <http://uri4uri.net/vocab#> .
+@prefix tag: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix solid: <http://www.w3.org/ns/solid/terms#> .
+@prefix pico: <http://data.cochrane.org/ontologies/pico/> .
+@prefix pext: <http://www.ontotext.com/proton/protonext#> .
+@prefix ttk-i: <https://ttk-i.stage.graphmetrix.net/node/> .
+@prefix trinity: <https://trinity.graphmetrix.net/node/> .
+@prefix space: <http://www.w3.org/ns/pim/space#> .
+@prefix acl: <http://www.w3.org/ns/auth/acl#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix posix: <https://www.w3.org/ns/posix/stat#> .
+@prefix gmx: <http://graphmetrix.com/node#> .
+@prefix neo: <https://neo.graphmetrix.net/node/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix opmv: <http://purl.org/net/opmv/ns#> .
+@prefix gmxo: <https://ontology.graphmetrix.com/node/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sergio-uribe: <https://sergio-uribe.stage.graphmetrix.net/node/> .
+<https://sergio-uribe.stage.graphmetrix.net/profile/settings/System/> dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> .
+<https://sergio-uribe.stage.graphmetrix.net/apps/> dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> .
+<https://sergio-uribe.stage.graphmetrix.net/profile/settings/preferences> 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    neo:m_last-change sergio-uribe:t_2bb ;
+    a space:PreferencesWorkspace ;
+    rdfs:label "sergio-uribe_preferences"^^xsd:string ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/node/t_8p"^^xsd:string .
+<https://tst-cluster.stage.graphmetrix.net/i> 
+    org:hasMember <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    vcard:hasMember <https://sergio-uribe.stage.graphmetrix.net/i> .
+solid:oidcIssuer rdfs:label "oidcIssuer"@en .
+<https://sergio-uribe.stage.graphmetrix.net/> 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    ldp:contains <https://sergio-uribe.stage.graphmetrix.net/profile/> ;
+    neo:m_last-change sergio-uribe:t_3v9 ;
+    a ldp:BasicContainer , solid:Account ;
+    rdfs:label "Sergio Uribe: Storage"^^xsd:string ;
+    schema:about <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    sio:SIO_000794 "8"^^xsd:integer ;
+    solid:owner <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/node/t_bv"^^xsd:string .
+neo:a_pod-solid 
+    neo:m_last-change neo:t_1qckd ;
+    a neo:a_pod-solid ;
+    rdfs:label "Solid Pod"@en .
+<https://sergio-uribe.stage.graphmetrix.net/profile/settings/publicTypeIndex> 
+    neo:m_last-change sergio-uribe:t_ag ;
+    a solid:ListedDocument ;
+    rdfs:label "Public Type Index"@en ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/node/t_7b"^^xsd:string .
+space:preferencesFile rdfs:label "preferences file"^^xsd:string .
+neo:s_solid-user 
+    neo:m_cid "s_solid-user"^^xsd:string ;
+    neo:m_last-change neo:t_1q7df ;
+    a neo:s_solid-user .
+neo:s_tagged-object 
+    neo:m_last-change neo:t_1qpun ;
+    a neo:s_tagged-object ;
+    rdfs:label "Tagged Object"@en .
+geo:SpatialThing 
+    neo:m_last-change neo:t_1qoj8 ;
+    a geo:SpatialThing ;
+    rdfs:label "Spatial Entity"@en .
+prov:Contributor 
+    a prov:Contributor ;
+    rdfs:label "Contributor"@en .
+sio:SIO_000000 
+    neo:m_last-change neo:t_1qo18 ;
+    a sio:SIO_000135 ;
+    rdfs:label "Entity"@en .
+sio:SIO_000776 
+    neo:m_last-change neo:t_1qoob ;
+    a sio:SIO_000135 ;
+    rdfs:label "Object"@en .
+neo:i_function rdfs:label "function"@en .
+rdfs:label 
+    neo:m_last-change neo:t_1q9o4 ;
+    rdfs:label "Label"@en .
+<http://www.w3.org/2006/vcard/ns#email> a neo:f_function .
+sio:SIO_000148 
+    neo:m_last-change neo:t_1qpx9 ;
+    rdfs:label "document"@en .
+neo:substance 
+    neo:m_last-change neo:t_1qe29 ;
+    rdfs:label "Substance"@en .
+sergio-uribe:t_3v3 
+    neo:i_function tl:at ;
+    neo:o_result "2025-06-04T08:54:16.082030Z"^^xsd:dateTime ;
+    a sio:SIO_000614 .
+sergio-uribe:t_3qd 
+    neo:t_end sergio-uribe:t_3q4 ;
+    neo:t_start sergio-uribe:t_3q4 ;
+    obo:OBI_0000308 sergio-uribe:t_102 ;
+    a event:Event .
+trinity:t_297 
+    a opmv:Artifact ;
+    rdfs:label "solid read"^^xsd:string .
+trinity:t_2bj 
+    a opmv:Artifact ;
+    rdfs:label "delete file"^^xsd:string .
+sergio-uribe:t_3pw dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> .
+<https://sergio-uribe.stage.graphmetrix.net/public/> dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> .
+solid:privateTypeIndex rdfs:label "private type index"@en .
+sergio-uribe:t_m1 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    neo:m_last-change sergio-uribe:t_lj ;
+    a opmv:Artifact ;
+    rdfs:label "http://localhost:4200"^^xsd:string .
+neo:y_artificial-system 
+    neo:m_last-change neo:t_1qpf5 ;
+    a neo:y_artificial-system ;
+    rdfs:label "Artificial System"@en .
+neo:s_ldp-user 
+    neo:m_cid "s_ldp-user"^^xsd:string ;
+    a neo:s_ldp-user .
+neo:a_material-entity 
+    neo:m_last-change neo:t_1qokq ;
+    a neo:a_material-entity ;
+    rdfs:label "Material Entity"@en .
+foaf:primaryTopic rdfs:label "primary topic"^^xsd:string .
+foaf:maker rdfs:label "maker"^^xsd:string .
+neo:e_result 
+    neo:m_last-change neo:t_1qpir ;
+    a sio:SIO_000135 ;
+    rdfs:label "Result"@en .
+sergio-uribe:t_3v9 
+    neo:t_end sergio-uribe:t_3v3 ;
+    neo:t_start sergio-uribe:t_3v3 ;
+    obo:OBI_0000308 sergio-uribe:t_102 ;
+    a event:Event .
+<https://tst-kaiconnector.stage.graphmetrix.net/i> 
+    a neo:y_system ;
+    rdfs:label "Kai Connector"^^xsd:string .
+trinity:t_2as 
+    a opmv:Artifact ;
+    rdfs:label "upload file"^^xsd:string .
+<https://sergio-uribe.stage.graphmetrix.net/home/> dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> .
+<https://sergio-uribe.stage.graphmetrix.net/public/images/profile-photo.png> 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    neo:m_last-change sergio-uribe:t_3qd ;
+    posix:uid <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    a <http://www.w3.org/ns/iana/media-types/image/png#Resource> ;
+    rdfs:label "profile-photo.png"^^xsd:string ;
+    sio:SIO_000794 "1"^^xsd:integer ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/node/t_3q3"^^xsd:string .
+vcard:url rdfs:label "url"@en .
+pext:User 
+    neo:m_last-change neo:t_1q9ed ;
+    a pext:User ;
+    rdfs:label "User"^^xsd:string .
+tag:tag 
+    neo:m_last-change neo:t_1qpun ;
+    rdfs:label "Tag"@en .
+opmv:Artifact a opmv:Artifact .
+foaf:name rdfs:label "Name"@en .
+neo:m_last-change 
+    neo:m_last-change neo:t_1qe29 ;
+    rdfs:label "last change"@en .
+sergio-uribe:t_zg 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    neo:m_last-change sergio-uribe:t_yy ;
+    a opmv:Artifact ;
+    rdfs:label "https://i4technology.ddns.net"^^xsd:string .
+sergio-uribe:t_3m6 
+    neo:i_function tl:at ;
+    neo:o_result "2025-06-04T07:29:48.382391Z"^^xsd:dateTime ;
+    a sio:SIO_000614 .
+<https://sergio-uribe.stage.graphmetrix.net/profile/settings/> dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> .
+sergio-uribe:t_mw 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    neo:m_last-change sergio-uribe:t_me ;
+    a opmv:Artifact ;
+    rdfs:label "https://penny.vincenttunru.com"^^xsd:string .
+solid:publicTypeIndex rdfs:label "public type index"@en .
+trinity:t_4wd 
+    a neo:c_start ;
+    rdfs:label "RDF Spreadsheet Import"^^xsd:string .
+acl:trustedApp 
+    neo:m_cid "m_trusted-app"^^xsd:string ;
+    neo:m_last-change neo:t_1qnvh .
+trinity:t_2df 
+    neo:m_tag "f_add-trusted-app"^^xsd:string ;
+    neo:m_last-change trinity:t_3vw ;
+    a opmv:Artifact ;
+    rdfs:label "add trusted app"^^xsd:string , "add trusted app"@en ;
+    tag:tag "f_add-trusted-app"^^xsd:string .
+<https://sergio-uribe.stage.graphmetrix.net/i> 
+    acl:trustedApp sergio-uribe:t_5a , sergio-uribe:t_18o , sergio-uribe:t_zg , sergio-uribe:t_m1 , sergio-uribe:t_mw , sergio-uribe:t_3n0 ;
+    dcterms:contributor <https://ttk-i.stage.graphmetrix.net/i> , <https://tst-kaiconnector.stage.graphmetrix.net/i> , <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    foaf:name "Sergio Uribe"^^xsd:string ;
+    ldp:inbox <https://sergio-uribe.stage.graphmetrix.net/inbox/> ;
+    neo:m_last-change sergio-uribe:t_3mi ;
+    a neo:a_pod-construction , vcard:WebId , foaf:Person , neo:y_system , neo:a_material-entity , geo:SpatialThing , sio:SIO_000776 , neo:substance , prov:Contributor , pico:Condition , neo:s_solid-user , neo:s_ldp-user , pext:User , foaf:Agent , neo:s_instance , neo:s_element , neo:s_member , pext:Animal , sio:SIO_010000 , neo:y_organic-system , neo:s_tagged-object , neo:a_pod-solid , neo:y_artificial-system , sio:SIO_000000 , opmv:Artifact , neo:e_result ;
+    sio:SIO_000586 trinity:t_28z , trinity:t_2ac , trinity:t_2bj , trinity:t_297 , trinity:t_2as , trinity:t_2df , trinity:t_4wd , trinity:t_2a4 ;
+    sio:SIO_000794 "1"^^xsd:integer ;
+    solid:account <https://sergio-uribe.stage.graphmetrix.net/> ;
+    solid:oidcIssuer <https://stage.graphmetrix.net> ;
+    solid:privateTypeIndex <https://sergio-uribe.stage.graphmetrix.net/profile/settings/privateTypeIndex> ;
+    solid:publicTypeIndex <https://sergio-uribe.stage.graphmetrix.net/profile/settings/publicTypeIndex> ;
+    space:preferencesFile <https://sergio-uribe.stage.graphmetrix.net/profile/settings/preferences> ;
+    space:storage <https://sergio-uribe.stage.graphmetrix.net/> ;
+    tag:tag "sergio-uribe"^^xsd:string ;
+    vcard:hasEmail "sergio@kbgis.no"^^xsd:string ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/i"^^xsd:string .
+foaf:Agent 
+    neo:m_last-change sergio-uribe:t_ag , neo:t_1q7c9 ;
+    a foaf:Agent ;
+    rdfs:label "Agent"@en , "Agent"^^xsd:string .
+neo:a_pod-construction 
+    neo:m_cid "a_pod-construction"^^xsd:string ;
+    a neo:a_pod-construction .
+sio:SIO_000586 
+    neo:m_last-change neo:t_1qcs4 ;
+    rdfs:label "has capability"@en .
+<mailto:sergio@kbgis.no> a neo:e_result .
+<http://xmlns.com/foaf/0.1/img> a neo:f_function .
+neo:s_member 
+    a neo:s_member ;
+    rdfs:label "Member"^^xsd:string .
+<https://sergio-uribe.stage.graphmetrix.net/home/images/oppstartshorn.jpg> a neo:e_result .
+trinity:t_2a4 
+    a opmv:Artifact ;
+    rdfs:label "delete container"^^xsd:string .
+sergio-uribe:t_3mi 
+    neo:t_end sergio-uribe:t_3m6 ;
+    neo:t_start sergio-uribe:t_3m6 ;
+    obo:OBI_0000308 sergio-uribe:t_kx ;
+    a as:Add , event:Event .
+solid:account rdfs:label "account"@en .
+space:storage rdfs:label "storage"^^xsd:string .
+sergio-uribe:t_380 dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> .
+pext:Animal 
+    a pext:Animal ;
+    rdfs:label "Animal"@en .
+sergio-uribe:t_18o 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    neo:m_last-change sergio-uribe:t_186 ;
+    a opmv:Artifact ;
+    rdfs:label "https://noeldemartin.github.io"^^xsd:string .
+vcard:WebId 
+    neo:m_cid "s_webid"^^xsd:string ;
+    neo:m_last-change neo:t_1qch1 ;
+    a vcard:WebId .
+dcterms:contributor rdfs:label "contributor"@en .
+neo:i_attribute neo:m_cid "i_attribute"^^xsd:string .
+event:Event 
+    neo:m_last-change neo:t_1qe29 ;
+    rdfs:label "Event"@en .
+neo:s_element 
+    a neo:s_element ;
+    rdfs:label "Element"@en .
+sergio-uribe:t_5a 
+    neo:m_last-change sergio-uribe:t_ag ;
+    a opmv:Artifact ;
+    rdfs:label "https://stage.graphmetrix.net"^^xsd:string .
+sergio-uribe:t_3n0 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    neo:m_last-change sergio-uribe:t_3mi ;
+    a opmv:Artifact ;
+    rdfs:label "https://solidcommunity.net"^^xsd:string .
+<mailto:sergio@kis.no> a neo:e_result .
+<https://sergio-uribe.stage.graphmetrix.net/profile/> 
+    dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    ldp:contains <https://sergio-uribe.stage.graphmetrix.net/profile/card> ;
+    neo:m_last-change sergio-uribe:t_3qd ;
+    a ldp:BasicContainer ;
+    rdfs:label "Profile"^^xsd:string ;
+    sio:SIO_000794 "2"^^xsd:integer ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/node/t_9e"^^xsd:string .
+<https://sergio-uribe.stage.graphmetrix.net/profile/settings/privateTypeIndex> 
+    neo:m_last-change sergio-uribe:t_ag ;
+    a solid:UnlistedDocument ;
+    rdfs:label "Private Type Index"@en ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/node/t_7h"^^xsd:string .
+ldp:inbox rdfs:label "Inbox"^^xsd:string .
+<https://sergio-uribe.stage.graphmetrix.net/public/images/> dcterms:contributor <https://sergio-uribe.stage.graphmetrix.net/i> .
+neo:y_organic-system 
+    neo:m_last-change neo:t_1qckd ;
+    a neo:y_organic-system ;
+    rdfs:label "Organic System"@en .
+neo:y_system 
+    neo:m_last-change neo:t_1qok2 ;
+    a neo:y_system ;
+    rdfs:label "System"@en .
+<https://sergio-uribe.stage.graphmetrix.net/inbox/> 
+    neo:m_last-change sergio-uribe:t_ag ;
+    a ldp:BasicContainer ;
+    rdfs:label "Inbox"^^xsd:string ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/node/t_8h"^^xsd:string .
+sio:SIO_010000 
+    neo:m_last-change neo:t_1qckd ;
+    a sio:SIO_010000 ;
+    rdfs:label "organism"@en .
+vcard:hasEmail 
+    neo:m_cid "m_email"^^xsd:string ;
+    neo:m_last-change neo:t_1q9ed .
+neo:i_entity rdfs:label "state"@en .
+rdf:type rdfs:label "type"@nl .
+pico:Condition 
+    neo:m_last-change neo:t_1qnx6 ;
+    a pico:Condition ;
+    rdfs:label "Condition"@en .
+neo:s_instance 
+    a neo:s_instance ;
+    rdfs:label "Instance"^^xsd:string .
+trinity:t_28z 
+    a acl:Write , event:Event ;
+    rdfs:label "solid write"^^xsd:string .
+neo:o_result rdfs:label "Result"@en .
+foaf:Person 
+    a foaf:Person ;
+    rdfs:label "Person"^^xsd:string .
+foaf:PersonalProfileDocument 
+    a foaf:PersonalProfileDocument ;
+    rdfs:label "PersonalProfileDocument"^^xsd:string .
+uri4uri:path 
+    neo:m_last-change neo:t_1qpjh ;
+    rdfs:label "path"@en .
+sergio-uribe:t_3q4 
+    neo:i_function tl:at ;
+    neo:o_result "2025-06-04T08:41:26.197577Z"^^xsd:dateTime ;
+    a sio:SIO_000614 .
+<https://stage.graphmetrix.net> a neo:s_oidc-issuer .
+trinity:t_2ac 
+    a opmv:Artifact ;
+    rdfs:label "create container"^^xsd:string .
+<https://ttk-i.stage.graphmetrix.net/i> 
+    neo:m_last-change sergio-uribe:t_ag ;
+    a opmv:Artifact ;
+    rdfs:label "TrinPod™ Server: stage.graphmetrix.net"^^xsd:string .
+<https://sergio-uribe.stage.graphmetrix.net/profile/card> 
+    dcterms:contributor <https://tst-kaiconnector.stage.graphmetrix.net/i> , <https://ttk-i.stage.graphmetrix.net/i> , <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    <http://xmlns.com/foaf/0.1/img> "https://sergio-uribe.stage.graphmetrix.net/home/images/profile-photo.png"^^xsd:string , <https://sergio-uribe.stage.graphmetrix.net/public/images/profile-photo.png> , <https://sergio-uribe.stage.graphmetrix.net/home/images/oppstartshorn.jpg> , "https://sergio-uribe.stage.graphmetrix.net/public/images/profile-photo.png"^^xsd:string ;
+    foaf:maker <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    foaf:name "Sergio Uri"^^xsd:string , "Sergio Uribe"^^xsd:string , "Sergio Uribe"@en , "Sergio Ebiru"@en , "Sergio"^^xsd:string ;
+    foaf:primaryTopic <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    neo:m_last-change sergio-uribe:t_3qd ;
+    a foaf:PersonalProfileDocument ;
+    rdfs:label "sergio-uribe_card"^^xsd:string ;
+    uri4uri:path "/profile/card"^^xsd:string ;
+    <http://www.w3.org/2006/vcard/ns#email> <mailto:sergio@kbgis.no> , <mailto:sergio@kis.no> ;
+    vcard:url "https://sergio-uribe.stage.graphmetrix.net/node/t_87"^^xsd:string .

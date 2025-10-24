@@ -1,0 +1,962 @@
+@base <https://uriser.stage.graphmetrix.net/profile/card> .
+@prefix tl: <http://purl.org/NET/c4dm/timeline.owl#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix uri4uri: <http://uri4uri.net/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix tag: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/> .
+@prefix trinity: <https://trinity.graphmetrix.net/node/> .
+@prefix ttk-i: <https://ttk-i.stage.graphmetrix.net/node/> .
+@prefix schema: <http://schema.org/> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix space: <http://www.w3.org/ns/pim/space#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix acl: <http://www.w3.org/ns/auth/acl#> .
+@prefix solid: <http://www.w3.org/ns/solid/terms#> .
+@prefix posix: <https://www.w3.org/ns/posix/stat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix pico: <http://data.cochrane.org/ontologies/pico/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix pext: <http://www.ontotext.com/proton/protonext#> .
+@prefix gmxo: <https://ontology.graphmetrix.com/node/> .
+@prefix gmx: <http://graphmetrix.com/node#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix opmv: <http://purl.org/net/opmv/ns#> .
+@prefix neo: <https://neo.graphmetrix.net/node/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix uriser: <https://uriser.stage.graphmetrix.net/node/> .
+<https://uriser.stage.graphmetrix.net/apps/> dcterms:contributor <https://uriser.stage.graphmetrix.net/i> .
+<https://uriser.stage.graphmetrix.net/robots.txt> posix:uid <https://uriser.stage.graphmetrix.net/i> .
+<https://uriser.stage.graphmetrix.net/public/> dcterms:contributor <https://uriser.stage.graphmetrix.net/i> .
+uriser:t_2ec 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    neo:m_last-change uriser:t_2du ;
+    a opmv:Artifact ;
+    rdfs:label "https://test.thetwin.no"^^xsd:string .
+uriser:t_2kg 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    neo:m_last-change uriser:t_2jy ;
+    a opmv:Artifact ;
+    rdfs:label "https://i4technology.ddns.net:8080"^^xsd:string .
+uriser:t_j4 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    neo:m_last-change uriser:t_im ;
+    a opmv:Artifact ;
+    rdfs:label "http://localhost:4200"^^xsd:string .
+<https://uriser.stage.graphmetrix.net/> 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    ldp:contains <https://uriser.stage.graphmetrix.net/profile/> ;
+    neo:m_last-change uriser:t_2jy ;
+    a ldp:BasicContainer , solid:Account ;
+    rdfs:label "SERGIO URIBE: Storage"^^xsd:string ;
+    schema:about <https://uriser.stage.graphmetrix.net/i> ;
+    sio:SIO_000794 "8"^^xsd:integer ;
+    solid:owner <https://uriser.stage.graphmetrix.net/i> ;
+    vcard:url "https://uriser.stage.graphmetrix.net/node/t_e6"^^xsd:string .
+uriser:t_2d9 
+    neo:i_attribute uriser:t_2d8 ;
+    neo:i_function acl:trustedApp ;
+    neo:o_result uriser:t_2dh ;
+    a sio:SIO_000614 .
+<https://uriser.stage.graphmetrix.net/profile/settings/publicTypeIndex> 
+    neo:m_last-change uriser:t_co ;
+    a solid:ListedDocument ;
+    rdfs:label "Public Type Index"@en ;
+    vcard:url "https://uriser.stage.graphmetrix.net/node/t_7o"^^xsd:string .
+uriser:t_2cd a neo:s_state .
+<https://espen79.stage.graphmetrix.net/i> 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    neo:m_last-change uriser:t_2bp ;
+    a opmv:Artifact ;
+    rdfs:label "Espen Marthiniussen"^^xsd:string .
+<https://evgruppen79.stage.graphmetrix.net/i> org:hasMember <https://uriser.stage.graphmetrix.net/i> .
+uriser:t_2k8 
+    neo:i_attribute uriser:t_2k7 ;
+    neo:i_function acl:trustedApp ;
+    neo:o_result uriser:t_2kg ;
+    a sio:SIO_000614 .
+uriser:t_2ao 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    neo:m_last-change uriser:t_2a6 ;
+    a opmv:Artifact ;
+    rdfs:label "http://localhost:8000"^^xsd:string .
+uriser:t_kb a neo:s_state .
+<https://uriser.stage.graphmetrix.net/profile/> 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    ldp:contains <https://uriser.stage.graphmetrix.net/profile/card> ;
+    neo:m_last-change uriser:t_2jy ;
+    a ldp:BasicContainer ;
+    rdfs:label "Profile"^^xsd:string ;
+    sio:SIO_000794 "2"^^xsd:integer ;
+    vcard:url "https://uriser.stage.graphmetrix.net/node/t_bm"^^xsd:string .
+uriser:t_2k7 a neo:s_state .
+uriser:t_83 
+    neo:i_attribute uriser:t_82 ;
+    neo:i_function rdf:type ;
+    neo:o_result vcard:WebId ;
+    a sio:SIO_000614 .
+uriser:t_eo a neo:s_state .
+uriser:t_2jw 
+    neo:i_attribute uriser:t_2jr , uriser:t_2jv ;
+    neo:i_function neo:m_last-change ;
+    neo:o_result uriser:t_2jy ;
+    a sio:SIO_000614 .
+uriser:t_iw 
+    neo:i_attribute uriser:t_iv ;
+    neo:i_function acl:trustedApp ;
+    neo:o_result uriser:t_j4 ;
+    a sio:SIO_000614 .
+uriser:t_kk 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    neo:m_last-change uriser:t_k2 ;
+    a opmv:Artifact ;
+    rdfs:label "https://penny.vincenttunru.com"^^xsd:string .
+uriser:t_bn a neo:s_state .
+uriser:t_7u a neo:s_state .
+uriser:t_cx 
+    neo:i_attribute uriser:t_1w , uriser:t_2g ;
+    neo:i_function dcterms:contributor ;
+    neo:o_result <https://ttk-i.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_5i a neo:s_state .
+uriser:t_ep 
+    neo:i_attribute uriser:t_eo ;
+    neo:i_function rdf:type ;
+    neo:o_result foaf:Person ;
+    a sio:SIO_000614 .
+uriser:t_fw a neo:s_state .
+uriser:t_er a neo:s_state .
+uriser:t_2jv a neo:s_state .
+uriser:t_86 
+    neo:i_attribute uriser:t_85 ;
+    neo:i_function vcard:url ;
+    neo:o_result "https://uriser.stage.graphmetrix.net/i"^^xsd:string ;
+    a sio:SIO_000614 .
+uriser:t_kc 
+    neo:i_attribute uriser:t_kb ;
+    neo:i_function acl:trustedApp ;
+    neo:o_result uriser:t_kk ;
+    a sio:SIO_000614 .
+uriser:t_2b6 a neo:s_state .
+uriser:t_2e4 
+    neo:i_attribute uriser:t_2e3 ;
+    neo:i_function acl:trustedApp ;
+    neo:o_result uriser:t_2ec ;
+    a sio:SIO_000614 .
+uriser:t_bp a neo:s_state .
+uriser:t_ff a neo:s_state .
+uriser:t_80 a neo:s_state .
+uriser:t_7e a neo:s_state .
+uriser:t_ed 
+    neo:i_attribute uriser:t_ec ;
+    neo:i_function rdf:type ;
+    neo:o_result neo:a_pod-construction ;
+    a sio:SIO_000614 .
+uriser:t_7v 
+    neo:i_attribute uriser:t_7u ;
+    neo:i_function space:preferencesFile ;
+    neo:o_result uriser:t_ax ;
+    a sio:SIO_000614 .
+uriser:t_7c a neo:s_state .
+uriser:t_2af a neo:s_state .
+uriser:t_d1 a neo:s_state .
+uriser:t_2ba 
+    neo:i_attribute uriser:t_2b0 , uriser:t_2b6 ;
+    neo:i_function dcterms:contributor ;
+    neo:o_result <https://espen79.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_7x 
+    neo:i_attribute uriser:t_7w ;
+    neo:i_function ldp:inbox ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/inbox/> ;
+    a sio:SIO_000614 .
+uriser:t_fn 
+    neo:i_attribute uriser:t_fk ;
+    neo:i_function sio:SIO_000586 ;
+    neo:o_result trinity:t_28z ;
+    a sio:SIO_000614 .
+uriser:t_5j 
+    neo:i_attribute uriser:t_5i ;
+    neo:i_function acl:trustedApp ;
+    neo:o_result uriser:t_5n ;
+    a sio:SIO_000614 .
+uriser:t_e9 
+    neo:i_attribute uriser:t_e8 ;
+    neo:i_function foaf:name ;
+    neo:o_result "SERGIO URIBE"^^xsd:string ;
+    a sio:SIO_000614 .
+uriser:t_es 
+    neo:i_attribute uriser:t_er ;
+    neo:i_function tag:tag ;
+    neo:o_result "uriser"^^xsd:string ;
+    a sio:SIO_000614 .
+uriser:t_eu a neo:s_state .
+uriser:t_ec a neo:s_state .
+uriser:t_fk a neo:s_state .
+uriser:t_2gk a neo:s_state .
+uriser:t_gx 
+    neo:i_attribute uriser:t_gu ;
+    neo:i_function sio:SIO_000586 ;
+    neo:o_result trinity:t_2as ;
+    a sio:SIO_000614 .
+uriser:t_2bq a neo:s_state .
+uriser:t_2jb a neo:s_state .
+uriser:t_i6 
+    neo:i_attribute uriser:t_i3 ;
+    neo:i_function sio:SIO_000586 ;
+    neo:o_result trinity:t_2df ;
+    a sio:SIO_000614 .
+uriser:t_2h3 
+    neo:i_attribute uriser:t_2h2 ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw11.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2jr a neo:s_state .
+uriser:t_81 
+    neo:i_attribute uriser:t_80 ;
+    neo:i_function solid:oidcIssuer ;
+    neo:o_result <https://stage.graphmetrix.net> ;
+    a sio:SIO_000614 .
+uriser:t_2ag 
+    neo:i_attribute uriser:t_2af ;
+    neo:i_function acl:trustedApp ;
+    neo:o_result uriser:t_2ao ;
+    a sio:SIO_000614 .
+uriser:t_2gl 
+    neo:i_attribute uriser:t_2gk ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw09.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2ft a neo:s_state .
+uriser:t_d2 
+    neo:i_attribute uriser:t_d1 ;
+    neo:i_function vcard:hasEmail ;
+    neo:o_result "sergio@thetwin.no"^^xsd:string ;
+    a sio:SIO_000614 .
+uriser:t_2j2 a neo:s_state .
+uriser:t_e8 a neo:s_state .
+uriser:t_2gc 
+    neo:i_attribute uriser:t_2gb ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw08.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_ex 
+    neo:i_attribute uriser:t_eu ;
+    neo:i_function sio:SIO_000586 ;
+    neo:o_result trinity:t_297 ;
+    a sio:SIO_000614 .
+uriser:t_2gu 
+    neo:i_attribute uriser:t_2gt ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw10.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_i3 a neo:s_state .
+uriser:t_101 a neo:s_state .
+uriser:t_ni a neo:s_state .
+uriser:t_2jc 
+    neo:i_attribute uriser:t_2jb ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw20.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2it a neo:s_state .
+uriser:t_2fu 
+    neo:i_attribute uriser:t_2ft ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw06.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2gt a neo:s_state .
+uriser:t_1fd a neo:s_state .
+uriser:t_102 
+    neo:i_attribute uriser:t_101 ;
+    neo:i_function foaf:img ;
+    neo:o_result uriser:t_zr ;
+    a sio:SIO_000614 .
+uriser:t_2ic 
+    neo:i_attribute uriser:t_2ib ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw16.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2g2 a neo:s_state .
+uriser:t_2i3 
+    neo:i_attribute uriser:t_2i2 ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw15.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2g3 
+    neo:i_attribute uriser:t_2g2 ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw07.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2et a neo:s_state .
+uriser:t_2fk a neo:s_state .
+uriser:t_2j3 
+    neo:i_attribute uriser:t_2j2 ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw19.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2i2 a neo:s_state .
+uriser:t_2jl 
+    neo:i_attribute uriser:t_2jk ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw21.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_p3 a neo:s_state .
+uriser:t_fs a neo:s_state .
+uriser:t_2ik a neo:s_state .
+uriser:t_87 a neo:s_state .
+uriser:t_2hk a neo:s_state .
+uriser:t_2eu 
+    neo:i_attribute uriser:t_2et ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw02.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_jl 
+    neo:i_attribute uriser:t_jk ;
+    neo:i_function foaf:img ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/public/images/profile-photo.png> ;
+    a sio:SIO_000614 .
+uriser:t_s0 a neo:s_state .
+uriser:t_1xk a neo:s_state .
+uriser:t_1gv a neo:s_state .
+<https://uriser.stage.graphmetrix.net/i> 
+    acl:trustedApp uriser:t_5n , uriser:t_2ao , uriser:t_2ec , uriser:t_j4 , uriser:t_2cm , uriser:t_kk , uriser:t_2kg , uriser:t_2dh ;
+    dcterms:contributor <https://espen79.stage.graphmetrix.net/i> , <https://ttk-i.stage.graphmetrix.net/i> , <https://uriser.stage.graphmetrix.net/i> ;
+    foaf:name "SERGIO URIBE"^^xsd:string ;
+    neo:i_entity uriser:t_i3 , uriser:t_fk , uriser:t_gu , uriser:t_ff , uriser:t_eu , uriser:t_ec , uriser:t_7w , uriser:t_bp , uriser:t_e8 , uriser:t_er , uriser:t_7c , uriser:t_85 , uriser:t_d1 , uriser:t_5i , uriser:t_7e , uriser:t_bn , uriser:t_2af , uriser:t_7u , uriser:t_2e3 , uriser:t_iv , uriser:t_80 , uriser:t_2jv , uriser:t_fw , uriser:t_82 , uriser:t_2b6 , uriser:t_eo , uriser:t_2g , uriser:t_2cd , uriser:t_kb , uriser:t_2k7 , uriser:t_2d8 ;
+    ldp:inbox <https://uriser.stage.graphmetrix.net/inbox/> ;
+    neo:m_last-change uriser:t_2jy ;
+    a gmxo:t_ , sio:SIO_000776 , sio:SIO_000000 , geo:SpatialThing , neo:a_material-entity , neo:y_system , neo:y_artificial-system , neo:a_pod-solid , neo:a_pod-construction , sio:SIO_010000 , pext:Animal , foaf:Person , neo:e_result , pico:Condition , vcard:WebId , foaf:Agent , pext:User , neo:s_member , neo:s_element , neo:s_instance , neo:s_ldp-user , neo:s_solid-user , neo:s_tagged-object , opmv:Artifact , prov:Contributor ;
+    sio:SIO_000586 trinity:t_2df , trinity:t_28z , trinity:t_2as , trinity:t_2ac , trinity:t_297 ;
+    solid:account <https://uriser.stage.graphmetrix.net/> ;
+    solid:oidcIssuer <https://stage.graphmetrix.net> ;
+    solid:privateTypeIndex uriser:t_7t ;
+    solid:publicTypeIndex <https://uriser.stage.graphmetrix.net/profile/settings/publicTypeIndex> ;
+    space:preferencesFile uriser:t_ax ;
+    space:storage <https://uriser.stage.graphmetrix.net/> ;
+    tag:tag "uriser"^^xsd:string ;
+    vcard:hasEmail "sergio@thetwin.no"^^xsd:string ;
+    vcard:url "https://uriser.stage.graphmetrix.net/i"^^xsd:string .
+uriser:t_1dp 
+    neo:i_attribute uriser:t_1do ;
+    neo:i_function foaf:name ;
+    neo:o_result "OIGRES EBIRU"@en ;
+    a sio:SIO_000614 .
+uriser:t_1w a neo:s_state .
+uriser:t_2hc 
+    neo:i_attribute uriser:t_2hb ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw12.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2fc 
+    neo:i_attribute uriser:t_2fb ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw04.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_ue a neo:s_state .
+uriser:t_2ht a neo:s_state .
+uriser:t_2cm 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    neo:m_last-change uriser:t_2c4 ;
+    a opmv:Artifact ;
+    rdfs:label "https://app.thetwin.no"^^xsd:string .
+uriser:t_8f a neo:s_state .
+vcard:hasEmail 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_email"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain foaf:Agent ;
+    rdfs:range vcard:Email .
+uriser:t_1gm a neo:s_state .
+uriser:t_8i 
+    neo:i_attribute uriser:t_8h ;
+    neo:i_function rdfs:label ;
+    neo:o_result "uriser_card"^^xsd:string ;
+    a sio:SIO_000614 .
+uriser:t_ji a neo:s_state .
+uriser:t_2fl 
+    neo:i_attribute uriser:t_2fk ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw05.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+<https://uriser.stage.graphmetrix.net/inbox/> 
+    neo:m_last-change uriser:t_co ;
+    a ldp:BasicContainer ;
+    rdfs:label "Inbox"^^xsd:string ;
+    vcard:url "https://uriser.stage.graphmetrix.net/node/t_8t"^^xsd:string .
+uriser:t_jk a neo:s_state .
+uriser:t_jh 
+    neo:i_attribute uriser:t_jg ;
+    neo:i_function foaf:name ;
+    neo:o_result "SERGIO URIBE"@en ;
+    a sio:SIO_000614 .
+neo:s_solid-user 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "s_solid-user"^^xsd:string ;
+    a neo:s_solid-user , sio:SIO_000135 .
+uriser:t_2b0 a neo:s_state .
+uriser:t_2ce 
+    neo:i_attribute uriser:t_2cd ;
+    neo:i_function acl:trustedApp ;
+    neo:o_result uriser:t_2cm ;
+    a sio:SIO_000614 .
+uriser:t_82 a neo:s_state .
+neo:a_pod-construction 
+    neo:m_rank "8"^^xsd:integer ;
+    neo:m_cid "a_pod-construction"^^xsd:string ;
+    a neo:a_pod-construction , sio:SIO_000135 .
+uriser:t_iv a neo:s_state .
+solid:oidcIssuer 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_oidc-issuer"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_solid-user ;
+    rdfs:label "oidcIssuer"@en ;
+    rdfs:range neo:s_oidc-issuer .
+uriser:t_88 
+    neo:i_attribute uriser:t_87 ;
+    neo:i_function foaf:primaryTopic ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_bo 
+    neo:i_attribute uriser:t_bn ;
+    neo:i_function solid:account ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/> ;
+    a sio:SIO_000614 .
+neo:a_material-entity 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "a_material-entity"^^xsd:string ;
+    a sio:SIO_000135 , neo:a_material-entity ;
+    rdfs:label "Material Entity"@en .
+uriser:t_18c 
+    neo:i_attribute uriser:t_18b ;
+    neo:i_function foaf:img ;
+    neo:o_result uriser:t_hx ;
+    a sio:SIO_000614 .
+uriser:t_85 a neo:s_state .
+tag:tag 
+    neo:m_rank "8"^^xsd:integer ;
+    neo:m_cid "f_tag"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_tagged-object ;
+    rdfs:label "Tag"@en ;
+    rdfs:range rdfs:Literal .
+uriser:t_bq 
+    neo:i_attribute uriser:t_bp ;
+    neo:i_function space:storage ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/> ;
+    a sio:SIO_000614 .
+neo:o_result 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "o_result"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain sio:SIO_000614 ;
+    rdfs:label "Result"@en .
+foaf:Agent 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "s_agent"^^xsd:string ;
+    neo:m_last-change uriser:t_co ;
+    a foaf:Agent , sio:SIO_000135 ;
+    rdfs:label "Agent"@en , "Agent"^^xsd:string .
+solid:publicTypeIndex 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "m_public-type-index"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_solid-user ;
+    rdfs:label "public type index"@en ;
+    rdfs:range solid:ListedDocument .
+uriser:t_2f3 
+    neo:i_attribute uriser:t_2f2 ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw03.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+neo:y_system 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "y_system"^^xsd:string ;
+    a neo:y_system , sio:SIO_000135 ;
+    rdfs:label "System"@en .
+pext:User 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "s_user"^^xsd:string ;
+    a pext:User , sio:SIO_000135 ;
+    rdfs:label "User"^^xsd:string .
+uriser:t_2el 
+    neo:i_attribute uriser:t_2ek ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw01.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_fi 
+    neo:i_attribute uriser:t_ff ;
+    neo:i_function sio:SIO_000586 ;
+    neo:o_result trinity:t_2ac ;
+    a sio:SIO_000614 .
+foaf:maker 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_maker"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain opmv:Artifact ;
+    rdfs:label "maker"^^xsd:string ;
+    rdfs:range foaf:Agent .
+uriser:t_2h2 a neo:s_state .
+neo:s_member 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "s_member"^^xsd:string ;
+    a sio:SIO_000135 , neo:s_member ;
+    rdfs:label "Member"^^xsd:string .
+neo:y_artificial-system 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "y_artificial-system"^^xsd:string ;
+    a neo:y_artificial-system , sio:SIO_000135 ;
+    rdfs:label "Artificial System"@en .
+uriser:t_8a 
+    neo:i_attribute uriser:t_89 ;
+    neo:i_function foaf:maker ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_2hl 
+    neo:i_attribute uriser:t_2hk ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw13.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+foaf:PersonalProfileDocument 
+    neo:m_rank "7"^^xsd:integer ;
+    neo:m_cid "a_rdf-personal-profile"^^xsd:string ;
+    a foaf:PersonalProfileDocument , sio:SIO_000135 ;
+    rdfs:label "PersonalProfileDocument"^^xsd:string .
+uriser:t_8b a neo:s_state .
+pico:Condition 
+    neo:m_rank "3"^^xsd:integer ;
+    neo:m_cid "s_condition"^^xsd:string ;
+    a sio:SIO_000135 , pico:Condition ;
+    rdfs:label "Condition"@en .
+sio:SIO_000586 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "b_capable"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:y_system ;
+    rdfs:label "has capability"@en ;
+    rdfs:range neo:f_function .
+uriser:t_ax a neo:e_result .
+<http://www.w3.org/2006/vcard/ns#email> a neo:f_function .
+neo:i_attribute 
+    neo:m_rank "8"^^xsd:integer ;
+    neo:m_cid "i_attribute"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain sio:SIO_000614 ;
+    rdfs:range neo:s_state .
+uriser:t_nj 
+    neo:i_attribute uriser:t_ni ;
+    neo:i_function foaf:img ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/profile/images/profile-picture.png> ;
+    a sio:SIO_000614 .
+uri4uri:path 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_uri-path"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain sio:SIO_000776 ;
+    rdfs:label "path"@en ;
+    rdfs:range rdfs:Literal .
+trinity:t_2df 
+    neo:m_tag "f_add-trusted-app"^^xsd:string ;
+    neo:m_last-change trinity:t_3vw ;
+    a opmv:Artifact ;
+    rdfs:label "add trusted app"^^xsd:string , "add trusted app"@en ;
+    tag:tag "f_add-trusted-app"^^xsd:string .
+uriser:t_s1 
+    neo:i_attribute uriser:t_s0 ;
+    neo:i_function foaf:img ;
+    neo:o_result uriser:t_rp ;
+    a sio:SIO_000614 .
+uriser:t_1x4 
+    neo:i_attribute uriser:t_1x3 ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://william.trinpod.eu/i> ;
+    a sio:SIO_000614 .
+trinity:t_297 
+    a opmv:Artifact ;
+    rdfs:label "solid read"^^xsd:string .
+obo:IAO_0000178 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "a_information-storage"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "Information Storage"@en .
+<https://tw09.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_5n 
+    neo:m_last-change uriser:t_co ;
+    a opmv:Artifact ;
+    rdfs:label "https://stage.graphmetrix.net"^^xsd:string .
+uriser:t_175 
+    neo:i_attribute uriser:t_174 ;
+    neo:i_function foaf:img ;
+    neo:o_result uriser:t_16t ;
+    a sio:SIO_000614 .
+<https://tw08.stage.graphmetrix.net/i> a neo:e_result .
+solid:privateTypeIndex 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "m_private-type-index"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_solid-user ;
+    rdfs:label "private type index"@en ;
+    rdfs:range solid:UnlistedDocument .
+<https://tw20.stage.graphmetrix.net/i> a neo:e_result .
+prov:Contributor 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "s_contributor"^^xsd:string ;
+    a prov:Contributor , sio:SIO_000135 ;
+    rdfs:label "Contributor"@en .
+uriser:t_2iu 
+    neo:i_attribute uriser:t_2it ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw18.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+<https://tw19.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_md a neo:e_result .
+<https://tw15.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_1fe 
+    neo:i_attribute uriser:t_1fd ;
+    neo:i_function foaf:name ;
+    neo:o_result "Sergio Uribe"@en ;
+    a sio:SIO_000614 .
+pext:Animal 
+    neo:m_rank "7"^^xsd:integer ;
+    neo:m_cid "y_animal"^^xsd:string ;
+    a pext:Animal , sio:SIO_000135 ;
+    rdfs:label "Animal"@en .
+uriser:t_2jk a neo:s_state .
+<https://uriser.stage.graphmetrix.net/public/images/profile-photo.png> a neo:e_result .
+uriser:t_1xl 
+    neo:i_attribute uriser:t_1xk ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://suribes.trinpod.eu/i> ;
+    a sio:SIO_000614 .
+uriser:t_2ek a neo:s_state .
+uriser:t_89 a neo:s_state .
+sio:SIO_000000 
+    neo:m_rank "2"^^xsd:integer ;
+    neo:m_cid "e_entity"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "Entity"@en .
+<https://tw12.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_1gw 
+    neo:i_attribute uriser:t_1gv ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://seruri.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_8c 
+    neo:i_attribute uriser:t_8b ;
+    neo:i_function uri4uri:path ;
+    neo:o_result "/profile/card"^^xsd:string ;
+    a sio:SIO_000614 .
+opmv:Artifact 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "a_artifact"^^xsd:string ;
+    a sio:SIO_000135 , opmv:Artifact ;
+    rdfs:label "Artifact"@en .
+uriser:t_174 a neo:s_state .
+<https://tw14.stage.graphmetrix.net/i> a neo:e_result .
+foaf:primaryTopic 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_primary-topic"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "primary topic"^^xsd:string .
+<https://tw13.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_u4 a neo:e_result .
+<http://xmlns.com/foaf/0.1/img> a neo:f_function .
+acl:trustedApp 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "m_trusted-app"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_solid-user ;
+    rdfs:range neo:y_web-application-trusted .
+solid:account 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_solid-account"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_solid-user ;
+    rdfs:label "account"@en .
+uriser:t_1do a neo:s_state .
+uriser:t_p4 
+    neo:i_attribute uriser:t_p3 ;
+    neo:i_function foaf:img ;
+    neo:o_result uriser:t_md ;
+    a sio:SIO_000614 .
+uriser:t_2jm 
+    neo:i_function tl:at ;
+    neo:o_result "2025-09-10T19:00:40.714791Z"^^xsd:dateTime ;
+    a sio:SIO_000614 .
+neo:s_tagged-object 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "s_tagged-object"^^xsd:string ;
+    a neo:s_tagged-object , sio:SIO_000135 ;
+    rdfs:label "Tagged Object"@en .
+ldp:inbox 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "m_ldp-inbox"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_ldp-user ;
+    rdfs:label "Inbox"^^xsd:string .
+<https://william.trinpod.eu/i> a neo:e_result .
+uriser:t_8h a neo:s_state .
+trinity:t_28z 
+    a acl:Write ;
+    rdfs:label "solid write"^^xsd:string .
+sio:SIO_010000 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "y_organism"^^xsd:string ;
+    a sio:SIO_010000 , sio:SIO_000135 ;
+    rdfs:label "organism"@en .
+foaf:Person 
+    neo:m_rank "8"^^xsd:integer ;
+    neo:m_cid "y_person"^^xsd:string ;
+    a foaf:Person , sio:SIO_000135 ;
+    rdfs:label "Person"^^xsd:string .
+geo:SpatialThing 
+    neo:m_rank "3"^^xsd:integer ;
+    neo:m_cid "z_spatial-entity"^^xsd:string ;
+    a sio:SIO_000135 , geo:SpatialThing ;
+    rdfs:label "Spatial Entity"@en .
+<https://seruri.stage.graphmetrix.net/i> 
+    a neo:y_system ;
+    rdfs:label "SERGIO URIBE"^^xsd:string .
+sio:SIO_000776 
+    neo:m_rank "1"^^xsd:integer ;
+    neo:m_cid "e_object"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "Object"@en .
+uriser:t_uf 
+    neo:i_attribute uriser:t_ue ;
+    neo:i_function foaf:img ;
+    neo:o_result uriser:t_u4 ;
+    a sio:SIO_000614 .
+neo:i_function 
+    neo:m_rank "9"^^xsd:integer ;
+    neo:m_cid "i_function"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain sio:SIO_000614 ;
+    rdfs:label "function"@en .
+uriser:t_18b a neo:s_state .
+neo:s_instance 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "s_instance"^^xsd:string ;
+    a sio:SIO_000135 , neo:s_instance ;
+    rdfs:label "Instance"^^xsd:string .
+rdf:type 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "t_type"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_instance ;
+    rdfs:label "type"@nl ;
+    rdfs:range neo:s_type .
+sio:SIO_000380 
+    neo:m_rank "3"^^xsd:integer ;
+    neo:m_cid "a_container"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "Container"@en .
+vcard:url 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_url"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "url"@en ;
+    rdfs:range xsd:string .
+<https://tw10.stage.graphmetrix.net/i> a neo:e_result .
+dcterms:contributor 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_contributor"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain opmv:Artifact ;
+    rdfs:label "contributor"@en ;
+    rdfs:range prov:Contributor .
+uriser:t_2il 
+    neo:i_attribute uriser:t_2ik ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw17.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+neo:s_ldp-user 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "s_ldp-user"^^xsd:string ;
+    a neo:s_ldp-user , sio:SIO_000135 .
+<http://xmlns.com/foaf/0.1/knows> a neo:f_function .
+neo:a_pod-solid 
+    neo:m_rank "7"^^xsd:integer ;
+    neo:m_cid "a_pod-solid"^^xsd:string ;
+    a neo:a_pod-solid , sio:SIO_000135 ;
+    rdfs:label "Solid Pod"@en .
+neo:e_result 
+    neo:m_rank "2"^^xsd:integer ;
+    neo:m_cid "e_result"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "Result"@en .
+uriser:t_jj 
+    neo:i_attribute uriser:t_ji ;
+    neo:i_function vcard:email ;
+    neo:o_result <mailto:sergio@thetwin.no> ;
+    a sio:SIO_000614 .
+uriser:t_2jy 
+    neo:t_end uriser:t_2jm ;
+    neo:t_start uriser:t_2jm ;
+    obo:OBI_0000308 uriser:t_i3 ;
+    a event:Event .
+<https://tw11.stage.graphmetrix.net/i> a neo:e_result .
+<https://stage.graphmetrix.net> a neo:s_oidc-issuer .
+neo:i_entity 
+    neo:m_rank "8"^^xsd:integer ;
+    neo:m_cid "i_entity"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain sio:SIO_000000 ;
+    rdfs:label "state"@en ;
+    rdfs:range neo:s_state .
+rdfs:label 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "m_label"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain sio:SIO_000776 ;
+    rdfs:label "Label"@en ;
+    rdfs:range rdf:langString .
+sio:SIO_000148 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "a_document"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "document"@en .
+uriser:t_7t a solid:UnlistedDocument .
+<https://uriser.stage.graphmetrix.net/profile/images/profile-picture.png> a neo:e_result .
+uriser:t_zr a neo:e_result .
+<https://tw03.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_hx a neo:e_result .
+trinity:t_2as 
+    a opmv:Artifact ;
+    rdfs:label "upload file"^^xsd:string .
+<https://tw16.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_16t a neo:e_result .
+<https://tw02.stage.graphmetrix.net/i> a neo:e_result .
+<https://tw05.stage.graphmetrix.net/i> a neo:e_result .
+<https://tw01.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_rp a neo:e_result .
+<https://ttk-i.stage.graphmetrix.net/i> 
+    neo:m_last-change uriser:t_co ;
+    a opmv:Artifact ;
+    rdfs:label "ttk-i"^^xsd:string .
+<https://tw17.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_2d8 a neo:s_state .
+uriser:t_2dh 
+    dcterms:contributor <https://uriser.stage.graphmetrix.net/i> ;
+    neo:m_last-change uriser:t_2cz ;
+    a opmv:Artifact ;
+    rdfs:label "https://mynet.thetwin.no"^^xsd:string .
+uriser:t_2g a neo:s_state .
+uriser:t_2e3 a neo:s_state .
+<mailto:sergio@thetwin.no> a neo:e_result .
+uriser:t_7w a neo:s_state .
+uriser:t_7f 
+    neo:i_attribute uriser:t_7e ;
+    neo:i_function solid:privateTypeIndex ;
+    neo:o_result uriser:t_7t ;
+    a sio:SIO_000614 .
+uriser:t_gu a neo:s_state .
+uriser:t_g7 
+    neo:i_attribute uriser:t_fs , uriser:t_fw ;
+    neo:i_function dcterms:contributor ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+<https://tw07.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_2ib a neo:s_state .
+<https://suribes.trinpod.eu/i> a neo:e_result .
+uriser:t_2gb a neo:s_state .
+uriser:t_2hb a neo:s_state .
+uriser:t_2f2 a neo:s_state .
+uriser:t_7d 
+    neo:i_attribute uriser:t_7c ;
+    neo:i_function solid:publicTypeIndex ;
+    neo:o_result <https://uriser.stage.graphmetrix.net/profile/settings/publicTypeIndex> ;
+    a sio:SIO_000614 .
+uriser:t_1x3 a neo:s_state .
+uriser:t_2fb a neo:s_state .
+<https://tw18.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_jg a neo:s_state .
+uriser:t_8g 
+    neo:i_attribute uriser:t_8f ;
+    neo:i_function rdf:type ;
+    neo:o_result foaf:PersonalProfileDocument ;
+    a sio:SIO_000614 .
+space:preferencesFile 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "m_preferences-file"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain neo:s_solid-user ;
+    rdfs:label "preferences file"^^xsd:string .
+space:storage 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "m_solid-storage"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain pext:User ;
+    rdfs:label "storage"^^xsd:string .
+gmxo:t_ 
+    neo:m_last-change neo:t_1qe29 ;
+    a sio:SIO_000090 ;
+    rdfs:label "Substance"@en .
+vcard:WebId 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "s_webid"^^xsd:string ;
+    a vcard:WebId , sio:SIO_000135 .
+neo:s_element 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "s_element"^^xsd:string ;
+    a sio:SIO_000135 , neo:s_element ;
+    rdfs:label "Element"@en .
+neo:m_last-change 
+    neo:m_rank "6"^^xsd:integer ;
+    neo:m_cid "m_last-change"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain sio:SIO_000000 ;
+    rdfs:label "last change"@en ;
+    rdfs:range event:Event .
+foaf:name 
+    neo:m_rank "5"^^xsd:integer ;
+    neo:m_cid "m_name"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:domain sio:SIO_000776 ;
+    rdfs:label "Name"@en ;
+    rdfs:range rdf:langString .
+event:Event 
+    neo:m_rank "4"^^xsd:integer ;
+    neo:m_cid "e_event"^^xsd:string ;
+    a sio:SIO_000135 ;
+    rdfs:label "Event"@en .
+trinity:t_2ac 
+    a opmv:Artifact ;
+    rdfs:label "create container"^^xsd:string .
+uriser:t_2br 
+    neo:i_attribute uriser:t_2bq ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://espen79.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+<https://tw21.stage.graphmetrix.net/i> a neo:e_result .
+<https://tw06.stage.graphmetrix.net/i> a neo:e_result .
+uriser:t_2hu 
+    neo:i_attribute uriser:t_2ht ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw14.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+uriser:t_1gn 
+    neo:i_attribute uriser:t_1gm ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://sergio-uribe.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+<https://sergio-uribe.stage.graphmetrix.net/i> a neo:e_result .
+<https://tw04.stage.graphmetrix.net/i> a neo:e_result .
+<https://uriser.stage.graphmetrix.net/profile/card> 
+    dcterms:contributor <https://ttk-i.stage.graphmetrix.net/i> , <https://espen79.stage.graphmetrix.net/i> , <https://uriser.stage.graphmetrix.net/i> ;
+    <http://xmlns.com/foaf/0.1/img> uriser:t_hx , uriser:t_16t , uriser:t_rp , uriser:t_u4 , <https://uriser.stage.graphmetrix.net/public/images/profile-photo.png> , uriser:t_md , uriser:t_zr , <https://uriser.stage.graphmetrix.net/profile/images/profile-picture.png> ;
+    <http://xmlns.com/foaf/0.1/knows> <https://seruri.stage.graphmetrix.net/i> , <https://sergio-uribe.stage.graphmetrix.net/i> , <https://tw13.stage.graphmetrix.net/i> , <https://tw01.stage.graphmetrix.net/i> , <https://tw14.stage.graphmetrix.net/i> , <https://tw17.stage.graphmetrix.net/i> , <https://suribes.trinpod.eu/i> , <https://tw04.stage.graphmetrix.net/i> , <https://william.trinpod.eu/i> , <https://tw02.stage.graphmetrix.net/i> , <https://tw05.stage.graphmetrix.net/i> , <https://tw03.stage.graphmetrix.net/i> , <https://tw07.stage.graphmetrix.net/i> , <https://tw21.stage.graphmetrix.net/i> , <https://tw15.stage.graphmetrix.net/i> , <https://tw12.stage.graphmetrix.net/i> , <https://tw19.stage.graphmetrix.net/i> , <https://tw16.stage.graphmetrix.net/i> , <https://tw10.stage.graphmetrix.net/i> , <https://tw18.stage.graphmetrix.net/i> , <https://tw06.stage.graphmetrix.net/i> , <https://tw08.stage.graphmetrix.net/i> , <https://tw20.stage.graphmetrix.net/i> , <https://tw09.stage.graphmetrix.net/i> , <https://espen79.stage.graphmetrix.net/i> , <https://tw11.stage.graphmetrix.net/i> ;
+    foaf:maker <https://uriser.stage.graphmetrix.net/i> ;
+    foaf:name "OIGRES EBIRU"@en , "Sergio Uribe"@en ;
+    foaf:primaryTopic <https://uriser.stage.graphmetrix.net/i> ;
+    neo:i_entity uriser:t_18b , uriser:t_1gv , uriser:t_174 , uriser:t_jg , uriser:t_ji , uriser:t_s0 , uriser:t_8b , uriser:t_1gm , uriser:t_8h , uriser:t_2hk , uriser:t_89 , uriser:t_8f , uriser:t_ue , uriser:t_87 , uriser:t_2ek , uriser:t_2ht , uriser:t_1w , uriser:t_2ik , uriser:t_2b0 , uriser:t_1xk , uriser:t_2fb , uriser:t_1do , uriser:t_fs , uriser:t_jk , uriser:t_1x3 , uriser:t_2et , uriser:t_p3 , uriser:t_2fk , uriser:t_2f2 , uriser:t_2g2 , uriser:t_2jk , uriser:t_2i2 , uriser:t_2hb , uriser:t_101 , uriser:t_1fd , uriser:t_2j2 , uriser:t_2ib , uriser:t_2gt , uriser:t_2it , uriser:t_2ft , uriser:t_2gb , uriser:t_2jb , uriser:t_ni , uriser:t_2jr , uriser:t_2gk , uriser:t_2bq , uriser:t_2h2 ;
+    neo:m_last-change uriser:t_2jy ;
+    a foaf:PersonalProfileDocument ;
+    rdfs:label "uriser_card"^^xsd:string ;
+    uri4uri:path "/profile/card"^^xsd:string ;
+    <http://www.w3.org/2006/vcard/ns#email> <mailto:sergio@thetwin.no> ;
+    vcard:url "https://uriser.stage.graphmetrix.net/node/t_8j"^^xsd:string .

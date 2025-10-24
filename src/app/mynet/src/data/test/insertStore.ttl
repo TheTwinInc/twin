@@ -1,0 +1,15 @@
+@prefix : </i#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix solid: <http://www.w3.org/ns/solid/terms#>.
+@prefix pro: </profile/>.
+@prefix tw0: <https://tw01.stage.graphmetrix.net/>.
+:patch a solid:InsertDeletePatch;
+    solid:inserts { pro:card foaf:knows tw0:i. }.
+
+
+
+@prefix solid: <http://www.w3.org/ns/solid/terms#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+<#patch> a solid:InsertDeletePatch;
+    solid:inserts { <https://sergio-uribe.stage.graphmetrix.net/profile/card> foaf:knows <https://tw01.stage.graphmetrix.net/i> . }.
+    

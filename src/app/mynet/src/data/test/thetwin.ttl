@@ -1,0 +1,280 @@
+@base <https://thetwin.stage.graphmetrix.net/profile/card> .
+@prefix tl: <http://purl.org/NET/c4dm/timeline.owl#> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix as: <https://www.w3.org/ns/activitystreams#> .
+@prefix uri4uri: <http://uri4uri.net/vocab#> .
+@prefix tag: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/> .
+@prefix schema: <http://schema.org/> .
+@prefix space: <http://www.w3.org/ns/pim/space#> .
+@prefix ttk-i: <https://ttk-i.stage.graphmetrix.net/node/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix trinity: <https://trinity.graphmetrix.net/node/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix pext: <http://www.ontotext.com/proton/protonext#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix acl: <http://www.w3.org/ns/auth/acl#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix solid: <http://www.w3.org/ns/solid/terms#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pico: <http://data.cochrane.org/ontologies/pico/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gmx: <http://graphmetrix.com/node#> .
+@prefix opmv: <http://purl.org/net/opmv/ns#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix neo: <https://neo.graphmetrix.net/node/> .
+@prefix gmxo: <https://ontology.graphmetrix.com/node/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix thetwin: <https://thetwin.stage.graphmetrix.net/node/> .
+solid:privateTypeIndex rdfs:label "private type index"@en .
+<https://thetwin.stage.graphmetrix.net/apps/> dcterms:contributor <https://thetwin.stage.graphmetrix.net/i> .
+tag:tag 
+    neo:m_last-change neo:t_1qpun ;
+    rdfs:label "Tag"@en .
+thetwin:t_fs 
+    dcterms:contributor <https://thetwin.stage.graphmetrix.net/i> ;
+    neo:m_last-change thetwin:t_fa ;
+    a opmv:Artifact ;
+    rdfs:label "http://localhost:5173"^^xsd:string .
+thetwin:t_zq 
+    dcterms:contributor <https://thetwin.stage.graphmetrix.net/i> ;
+    neo:m_last-change thetwin:t_z8 ;
+    a opmv:Artifact ;
+    rdfs:label "https://i4technology.ddns.net"^^xsd:string .
+pext:Animal 
+    a pext:Animal ;
+    rdfs:label "Animal"@en .
+<https://thetwin.stage.graphmetrix.net/inbox/> 
+    neo:m_last-change thetwin:t_ag ;
+    a ldp:BasicContainer ;
+    rdfs:label "Inbox"^^xsd:string ;
+    vcard:url "https://thetwin.stage.graphmetrix.net/node/t_8h"^^xsd:string .
+thetwin:t_dp 
+    dcterms:contributor <https://thetwin.stage.graphmetrix.net/i> ;
+    neo:m_last-change thetwin:t_d7 ;
+    a opmv:Artifact ;
+    rdfs:label "http://localhost:4200"^^xsd:string .
+space:preferencesFile rdfs:label "preferences file"^^xsd:string .
+neo:a_pod-construction 
+    neo:m_cid "a_pod-construction"^^xsd:string ;
+    a neo:a_pod-construction .
+neo:s_element 
+    a neo:s_element ;
+    rdfs:label "Element"@en .
+ldp:inbox rdfs:label "Inbox"^^xsd:string .
+neo:s_tagged-object 
+    neo:m_last-change neo:t_1qpun ;
+    a neo:s_tagged-object ;
+    rdfs:label "Tagged Object"@en .
+<https://thetwin.stage.graphmetrix.net/profile/> 
+    dcterms:contributor <https://thetwin.stage.graphmetrix.net/i> ;
+    ldp:contains <https://thetwin.stage.graphmetrix.net/profile/card> ;
+    neo:m_last-change thetwin:t_z8 ;
+    a ldp:BasicContainer ;
+    rdfs:label "Profile"^^xsd:string ;
+    sio:SIO_000794 "2"^^xsd:integer ;
+    vcard:url "https://thetwin.stage.graphmetrix.net/node/t_9e"^^xsd:string .
+sio:SIO_000586 
+    neo:m_last-change neo:t_1qcs4 ;
+    rdfs:label "has capability"@en .
+sio:SIO_000148 
+    neo:m_last-change neo:t_1qpx9 ;
+    rdfs:label "document"@en .
+thetwin:t_8p a neo:e_result .
+acl:trustedApp 
+    neo:m_cid "m_trusted-app"^^xsd:string ;
+    neo:m_last-change neo:t_1qnvh .
+<https://thetwin.stage.graphmetrix.net/> 
+    dcterms:contributor <https://thetwin.stage.graphmetrix.net/i> ;
+    ldp:contains <https://thetwin.stage.graphmetrix.net/profile/> ;
+    neo:m_last-change thetwin:t_z8 ;
+    a ldp:BasicContainer , solid:Account ;
+    rdfs:label "The Twin: Storage"^^xsd:string ;
+    schema:about <https://thetwin.stage.graphmetrix.net/i> ;
+    sio:SIO_000794 "8"^^xsd:integer ;
+    solid:owner <https://thetwin.stage.graphmetrix.net/i> ;
+    vcard:url "https://thetwin.stage.graphmetrix.net/node/t_bv"^^xsd:string .
+solid:oidcIssuer rdfs:label "oidcIssuer"@en .
+prov:Contributor 
+    a prov:Contributor ;
+    rdfs:label "Contributor"@en .
+<https://thetwin.stage.graphmetrix.net/profile/settings/publicTypeIndex> 
+    neo:m_last-change thetwin:t_ag ;
+    a solid:ListedDocument ;
+    rdfs:label "Public Type Index"@en ;
+    vcard:url "https://thetwin.stage.graphmetrix.net/node/t_7b"^^xsd:string .
+sio:SIO_010000 
+    neo:m_last-change neo:t_1qckd ;
+    a sio:SIO_010000 ;
+    rdfs:label "organism"@en .
+vcard:hasEmail 
+    neo:m_cid "m_email"^^xsd:string ;
+    neo:m_last-change neo:t_1q9ed .
+foaf:name rdfs:label "Name"@en .
+neo:s_ldp-user 
+    neo:m_cid "s_ldp-user"^^xsd:string ;
+    a neo:s_ldp-user .
+neo:s_instance 
+    a neo:s_instance ;
+    rdfs:label "Instance"^^xsd:string .
+neo:i_attribute neo:m_cid "i_attribute"^^xsd:string .
+neo:y_organic-system 
+    neo:m_last-change neo:t_1qckd ;
+    a neo:y_organic-system ;
+    rdfs:label "Organic System"@en .
+sio:SIO_000776 
+    neo:m_last-change neo:t_1qoob ;
+    a sio:SIO_000135 ;
+    rdfs:label "Object"@en .
+vcard:WebId 
+    neo:m_cid "s_webid"^^xsd:string ;
+    neo:m_last-change neo:t_1qch1 ;
+    a vcard:WebId .
+neo:o_result rdfs:label "Result"@en .
+thetwin:t_7h a solid:UnlistedDocument .
+neo:e_result 
+    neo:m_last-change neo:t_1qpir ;
+    a sio:SIO_000135 ;
+    rdfs:label "Result"@en .
+neo:y_system 
+    neo:m_last-change neo:t_1qok2 ;
+    a neo:y_system ;
+    rdfs:label "System"@en .
+uri4uri:path 
+    neo:m_last-change neo:t_1qpjh ;
+    rdfs:label "path"@en .
+neo:m_last-change 
+    neo:m_last-change neo:t_1qe29 ;
+    rdfs:label "last change"@en .
+opmv:Artifact a opmv:Artifact .
+neo:i_entity rdfs:label "state"@en .
+foaf:maker rdfs:label "maker"^^xsd:string .
+rdfs:label 
+    neo:m_last-change neo:t_1q9o4 ;
+    rdfs:label "Label"@en .
+pico:Condition 
+    neo:m_last-change neo:t_1qnx6 ;
+    a pico:Condition ;
+    rdfs:label "Condition"@en .
+thetwin:t_yw 
+    neo:i_function tl:at ;
+    neo:o_result "2025-06-02T05:44:41.047197Z"^^xsd:dateTime ;
+    a sio:SIO_000614 .
+space:storage rdfs:label "storage"^^xsd:string .
+thetwin:t_z8 
+    neo:t_end thetwin:t_yw ;
+    neo:t_start thetwin:t_yw ;
+    obo:OBI_0000308 thetwin:t_cj ;
+    a as:Add , event:Event .
+foaf:PersonalProfileDocument 
+    a foaf:PersonalProfileDocument ;
+    rdfs:label "PersonalProfileDocument"^^xsd:string .
+thetwin:t_5a 
+    neo:m_last-change thetwin:t_ag ;
+    a opmv:Artifact ;
+    rdfs:label "https://trinapp.com"^^xsd:string .
+geo:SpatialThing 
+    neo:m_last-change neo:t_1qoj8 ;
+    a geo:SpatialThing ;
+    rdfs:label "Spatial Entity"@en .
+neo:i_function rdfs:label "function"@en .
+solid:account rdfs:label "account"@en .
+neo:a_pod-solid 
+    neo:m_last-change neo:t_1qckd ;
+    a neo:a_pod-solid ;
+    rdfs:label "Solid Pod"@en .
+dcterms:contributor rdfs:label "contributor"@en .
+solid:publicTypeIndex rdfs:label "public type index"@en .
+foaf:Agent 
+    neo:m_last-change thetwin:t_ag , neo:t_1q7f7 ;
+    a foaf:Agent ;
+    rdfs:label "Agent"@en , "Agent"^^xsd:string .
+<https://thetwininc.stage.graphmetrix.net/i> 
+    org:hasMember <https://thetwin.stage.graphmetrix.net/i> ;
+    vcard:hasMember <https://thetwin.stage.graphmetrix.net/i> .
+vcard:url rdfs:label "url"@en .
+event:Event 
+    neo:m_last-change neo:t_1qe29 ;
+    rdfs:label "Event"@en .
+pext:User 
+    neo:m_last-change neo:t_1q9ed ;
+    a pext:User ;
+    rdfs:label "User"^^xsd:string .
+thetwin:t_ek 
+    dcterms:contributor <https://thetwin.stage.graphmetrix.net/i> ;
+    neo:m_last-change thetwin:t_e2 ;
+    a opmv:Artifact ;
+    rdfs:label "https://penny.vincenttunru.com"^^xsd:string .
+neo:s_solid-user 
+    neo:m_cid "s_solid-user"^^xsd:string ;
+    neo:m_last-change neo:t_1q7df ;
+    a neo:s_solid-user .
+foaf:Person 
+    a foaf:Person ;
+    rdfs:label "Person"^^xsd:string .
+neo:y_artificial-system 
+    neo:m_last-change neo:t_1qpf5 ;
+    a neo:y_artificial-system ;
+    rdfs:label "Artificial System"@en .
+rdf:type rdfs:label "type"@nl .
+neo:a_material-entity 
+    neo:m_last-change neo:t_1qokq ;
+    a neo:a_material-entity ;
+    rdfs:label "Material Entity"@en .
+sio:SIO_000000 
+    neo:m_last-change neo:t_1qo18 ;
+    a sio:SIO_000135 ;
+    rdfs:label "Entity"@en .
+neo:s_member 
+    a neo:s_member ;
+    rdfs:label "Member"^^xsd:string .
+foaf:primaryTopic rdfs:label "primary topic"^^xsd:string .
+trinity:t_297 
+    a opmv:Artifact ;
+    rdfs:label "solid read"^^xsd:string .
+neo:substance 
+    neo:m_last-change neo:t_1qe29 ;
+    rdfs:label "Substance"@en .
+<https://kaitwinstage.stage.graphmetrix.net/i> 
+    a neo:y_system ;
+    rdfs:label "Kai Twin Stage"^^xsd:string .
+<https://ttk-i.stage.graphmetrix.net/i> 
+    neo:m_last-change thetwin:t_ag ;
+    a opmv:Artifact ;
+    rdfs:label "TrinPod™ Server: stage.graphmetrix.net"^^xsd:string .
+<https://thetwin.stage.graphmetrix.net/profile/card> 
+    dcterms:contributor <https://kaitwinstage.stage.graphmetrix.net/i> , <https://ttk-i.stage.graphmetrix.net/i> , <https://thetwin.stage.graphmetrix.net/i> ;
+    foaf:maker <https://thetwin.stage.graphmetrix.net/i> ;
+    foaf:primaryTopic <https://thetwin.stage.graphmetrix.net/i> ;
+    neo:m_last-change thetwin:t_z8 ;
+    a foaf:PersonalProfileDocument ;
+    rdfs:label "thetwin_card"^^xsd:string ;
+    uri4uri:path "/profile/card"^^xsd:string ;
+    vcard:url "https://thetwin.stage.graphmetrix.net/node/t_87"^^xsd:string .
+trinity:t_2df 
+    neo:m_tag "f_add-trusted-app"^^xsd:string ;
+    neo:m_last-change trinity:t_3vw ;
+    a opmv:Artifact ;
+    rdfs:label "add trusted app"^^xsd:string , "add trusted app"@en ;
+    tag:tag "f_add-trusted-app"^^xsd:string .
+<https://stage.graphmetrix.net> a neo:s_oidc-issuer .
+<https://thetwin.stage.graphmetrix.net/i> 
+    acl:trustedApp thetwin:t_dp , thetwin:t_5a , thetwin:t_zq , thetwin:t_ek , thetwin:t_fs ;
+    dcterms:contributor <https://ttk-i.stage.graphmetrix.net/i> , <https://kaitwinstage.stage.graphmetrix.net/i> , <https://thetwin.stage.graphmetrix.net/i> ;
+    foaf:name "The Twin"^^xsd:string ;
+    ldp:inbox <https://thetwin.stage.graphmetrix.net/inbox/> ;
+    neo:m_last-change thetwin:t_z8 ;
+    a foaf:Person , neo:a_pod-construction , vcard:WebId , neo:e_result , neo:y_system , neo:a_material-entity , geo:SpatialThing , sio:SIO_000776 , neo:substance , prov:Contributor , pico:Condition , foaf:Agent , neo:s_solid-user , neo:s_ldp-user , pext:User , pext:Animal , sio:SIO_010000 , neo:y_organic-system , neo:s_instance , neo:s_element , neo:s_member , opmv:Artifact , neo:s_tagged-object , neo:a_pod-solid , neo:y_artificial-system , sio:SIO_000000 ;
+    sio:SIO_000586 trinity:t_2df , trinity:t_297 ;
+    solid:account <https://thetwin.stage.graphmetrix.net/> ;
+    solid:oidcIssuer <https://stage.graphmetrix.net> ;
+    solid:privateTypeIndex thetwin:t_7h ;
+    solid:publicTypeIndex <https://thetwin.stage.graphmetrix.net/profile/settings/publicTypeIndex> ;
+    space:preferencesFile thetwin:t_8p ;
+    space:storage <https://thetwin.stage.graphmetrix.net/> ;
+    tag:tag "thetwin"^^xsd:string ;
+    vcard:hasEmail "test@thetwin.no"^^xsd:string ;
+    vcard:url "https://thetwin.stage.graphmetrix.net/i"^^xsd:string .

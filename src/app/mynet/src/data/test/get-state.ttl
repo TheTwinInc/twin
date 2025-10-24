@@ -1,0 +1,12 @@
+uriser:t_2fc 
+    neo:i_attribute uriser:t_2fb ;
+    neo:i_function foaf:knows ;
+    neo:o_result <https://tw04.stage.graphmetrix.net/i> ;
+    a sio:SIO_000614 .
+
+neo:i_entity uriser:t_18b , uriser:t_1gv , uriser:t_174 , uriser:t_jg , uriser:t_ji , uriser:t_s0 , uriser:t_8b , uriser:t_1gm , uriser:t_8h , uriser:t_2hk , uriser:t_89 , uriser:t_8f , uriser:t_ue , uriser:t_87 , uriser:t_2ek , uriser:t_2ht , uriser:t_1w , uriser:t_2ik , uriser:t_2b0 , uriser:t_1xk , uriser:t_2fb , uriser:t_1do , uriser:t_fs , uriser:t_jk , uriser:t_1x3 , uriser:t_2et , uriser:t_p3 , uriser:t_2fk , uriser:t_2f2 , uriser:t_2g2 , uriser:t_2jk , uriser:t_2i2 , uriser:t_2hb , uriser:t_101 , uriser:t_1fd , uriser:t_2j2 , uriser:t_2ib , uriser:t_2gt , uriser:t_2it , uriser:t_2ft , uriser:t_2gb , uriser:t_2jb , uriser:t_ni , uriser:t_2jr , uriser:t_2gk , uriser:t_2bq , uriser:t_2h2 ;
+uriser:t_2fb a neo:s_state .
+
+<https://tw04.stage.graphmetrix.net/i> a neo:e_result .
+<http://xmlns.com/foaf/0.1/knows> <https://seruri.stage.graphmetrix.net/i> , <https://sergio-uribe.stage.graphmetrix.net/i> , <https://tw13.stage.graphmetrix.net/i> , <https://tw01.stage.graphmetrix.net/i> , <https://tw14.stage.graphmetrix.net/i> , <https://tw17.stage.graphmetrix.net/i> , <https://suribes.trinpod.eu/i> , <https://tw04.stage.graphmetrix.net/i> , <https://william.trinpod.eu/i> , <https://tw02.stage.graphmetrix.net/i> , <https://tw05.stage.graphmetrix.net/i> , <https://tw03.stage.graphmetrix.net/i> , <https://tw07.stage.graphmetrix.net/i> , <https://tw21.stage.graphmetrix.net/i> , <https://tw15.stage.graphmetrix.net/i> , <https://tw12.stage.graphmetrix.net/i> , <https://tw19.stage.graphmetrix.net/i> , <https://tw16.stage.graphmetrix.net/i> , <https://tw10.stage.graphmetrix.net/i> , <https://tw18.stage.graphmetrix.net/i> , <https://tw06.stage.graphmetrix.net/i> , <https://tw08.stage.graphmetrix.net/i> , <https://tw20.stage.graphmetrix.net/i> , <https://tw09.stage.graphmetrix.net/i> , <https://espen79.stage.graphmetrix.net/i> , <https://tw11.stage.graphmetrix.net/i> ;
+
