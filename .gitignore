@@ -306,3 +306,4 @@ src/app/mynet/src/data/ns/IATA-1R-CL-Ontology.ttl
 src/app/mynet/src/data/ns/IATA-1R-DM-Ontology.ttl
 src/app/mynet/src/data/ns/org.ttl
 src/app/mynet/src/data/ns/vcard.ttl
+src/app/mynet/src/app/gm-libs/gm_20251008.js
