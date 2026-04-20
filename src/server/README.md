@@ -1,2 +1,0 @@
-# SBD.server
-SBD Server
