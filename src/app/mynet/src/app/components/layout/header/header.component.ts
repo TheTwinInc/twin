@@ -31,7 +31,7 @@ import { MatDividerModule } from '@angular/material/divider';
         MatButtonModule,
         MatIconModule,
         MatMenuModule,
-        NgOptimizedImage,
+        // NgOptimizedImage,
         MatCardModule,
         FormsModule,
         ReactiveFormsModule,

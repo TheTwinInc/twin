@@ -54,9 +54,10 @@ export class ProfileKnowsListComponent implements OnInit, OnDestroy {
     enableAddContact: boolean = false;
     enableEditContacts: boolean = false;
 
-    displayColumns: string[] = ['select', 'name', 'webId', 'actions'];
-    // displayColumns: string[] = ['name', 'webId', 'actions'];
-    displayColumnsMobile: string[] = ['name', 'actions'];
+    // displayColumns: string[] = ['select', 'name', 'img', 'webId', 'actions'];
+    displayColumns: string[] = ['select', 'img', 'name',  'webId', 'actions'];
+    // displayColumnsMobile: string[] = ['name', 'img', 'actions'];
+    displayColumnsMobile: string[] = ['img', 'name', 'actions'];
     dataSource!: MatTableDataSource<IContactProfile>;
     selection = new SelectionModel<IContactProfile>(true, []);
 
@@ -159,7 +160,7 @@ export class ProfileKnowsListComponent implements OnInit, OnDestroy {
         .subscribe(x => {
             // this.logger.info(`PKL: Is mobile: ${x}`);
             this.isMobile = x;
-            this.logger.info(`PKL: Is mobile: ${this.isMobile}`);
+            // this.logger.info(`PKL: Is mobile: ${this.isMobile}`);
             this.onScreenSizeUpdate();
         });
     }
@@ -253,5 +254,13 @@ export class ProfileKnowsListComponent implements OnInit, OnDestroy {
 
     reloadContacts() {
         this.contactService.reloadContacts(this.webId);
+    }
+
+    async getImageUrl(imageUrl:string): Promise<string>{
+
+        const blob = await this.rdfService.getBlobWithCredentials(imageUrl);
+        const blobUrl = URL.createObjectURL(blob);
+
+        return blobUrl;
     }
 }

@@ -39,6 +39,7 @@ export class ProfileHomeComponent implements OnInit, OnDestroy {
     editing: boolean = false;
     saved: boolean = false;
     editingPicture: boolean = false;
+    imageUrl!: string;
     
     session!: Session;
     sessionInfo?: ISessionInfo | null;
@@ -108,15 +109,21 @@ export class ProfileHomeComponent implements OnInit, OnDestroy {
     async reloadProfile() {
         if (this.solidAuthService.isLoggedIn()) {
             const profile = await this.solidProfileService.getProfile();
-            await this.getAccessControl(profile);
+            // await this.getAccessControl(profile);
             
+            // Get image
             if (profile) {
                 this.form.setValue(profile);
                 // Store initial values
                 this.initialValue = this.form.getRawValue();
+                const url = this.initialValue.img;
+                const blob = await this.rdfService.getBlobWithCredentials(url);
+                this.imageUrl = URL.createObjectURL(blob);
             }
         }
     }
+
+    // async loadProfileImage(url: string): Promise
 
     /** Get Acces Control */
     async getAccessControl(profile: IProfile | null): Promise<AccessHeaders | null> {
@@ -187,40 +194,31 @@ export class ProfileHomeComponent implements OnInit, OnDestroy {
         this.exitEditing();
     }
 
-    async onFileSelected(event: Event) {
+    async uploadImage(event: Event) {
         const input = event.target as HTMLInputElement;
         const profile = this.form.value;
-        // if (!input.files?.length) {
         if (undefined != input.files ) {
             const file = input.files[0];
-            // const folder = prompt('Folder name?', 'images');
-            // const filename = prompt('File name?', 'profile-photo.jpg');
-            // const imagePath = `/public/${folder}/${filename}`;
-            
-
             let profileUrl = this.solidProfileService.getProfileUrl(profile.webId);
+            let solidAccountUrl = await this.solidProfileService.getSolidAccount();
             
             if (null != profileUrl) {
-                // const uploadUrl = profileUrl.replace('/profile/card', `/public/${filename}`);
                 const fileName = file.name;
-                const extension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
-                const filename = `profile-picture.${extension}`;
-                const uploadUrl = profileUrl.replace('/profile/card', `/public/images/${filename}`);
-                // const uploadUrl = profile.webId.concat(`${imagePath}`);
+                // const uploadUrl = profileUrl.replace('/profile/card', `/home/images/${fileName}`);
+                const uploadUrl = `${solidAccountUrl}home/images/${fileName}`;
+                this.logger.info(`PHC: Upload url: ${uploadUrl}`);
                 
                 const uploadResult = await this.solidProfileService.uploadImage(uploadUrl, file);
 
                 if (uploadResult) {
-                    // profile.photo = uploadUrl;
-                    // await this.solid.updateProfile(this.profileDoc, this.webId, [
-                    // await this.solidProfileService.updateProfileImage(profile);
+                    this.logger.info(`PHC: Uploaded file: ${uploadUrl}`)
+                    //     // profile.photo = uploadUrl;
+                //     // await this.solid.updateProfile(this.profileDoc, this.webId, [
+                //     // await this.solidProfileService.updateProfileImage(profile);
                 }
             }
                 
             this.editing = false;
-            // const uploadUrl = profileUrl.replace('/profile/card', `/home/images/oppstartshorn.JPG`);
-            // profile.photo = uploadUrl;
-            // await this.solidProfileService.updateProfilePicture(profile);
         }
         
         const data = await this.solidProfileService.getProfile();

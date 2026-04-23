@@ -28,13 +28,9 @@ export class ContactService {
 
     async getContacts(webId: string | undefined) {
         if (undefined != webId && '' != webId)   {
-            // this.loading = true;
-            // this._contacts = await this.rdfService.getContacts(webId);
-            // let contacts = await this.rdfService.getContacts(webId);
-            const subject = this.rdfService.getProfileUrl(webId);
+            const subject = this.rdfService.getProfileUrl(webId, null);
             const predicate = ns.FOAF('knows');
             if (null != subject) {
-                // this.logger.info(`CS: Contacts request: ${subject}, ${predicate}`);
                 const contacts = await this.rdfService.getTriples(subject, predicate, null);
                 this.logger.info(`CS: Contacts: ${JSON.stringify(contacts)}`);
                 if (undefined != contacts) {
@@ -71,17 +67,15 @@ export class ContactService {
         try {
             if (webId && contactWebId) {
                 const predicate = ns.FOAF('knows');
-                const subject = this.rdfService.getProfileUrl(webId);
+                const subject = this.rdfService.getProfileUrl(webId, null);
                 if (null != subject) {
                     const addedContact = await this.rdfService.addTriple(subject, predicate, contactWebId);
-                    // const addedContact = await this.rdfService.addTripleGM(webId, predicate, contactWebId);
                     if (addedContact) {
                         await this.addToContacts(contactWebId);
                         this.broadcastContacts();
                         this.logger.debug(`Added contact: ${contactWebId}`);
                     }
                 }
-                
             }
         } catch (error: any) {
             this.logger.error(`Failed to add contact: ${error.message}`);
@@ -122,7 +116,7 @@ export class ContactService {
 
     async removeContact(webId: string, contact: IContactProfile): Promise<void> {
         let removedContact = false;
-        let subjectUri = this.rdfService.getProfileUrl(webId);
+        let subjectUri = this.rdfService.getProfileUrl(webId, null);
         this.logger.info(`CS: Contact to remove: ${JSON.stringify(contact)}, from: ${JSON.stringify(subjectUri)}`);
         try {
             if (undefined != subjectUri) {

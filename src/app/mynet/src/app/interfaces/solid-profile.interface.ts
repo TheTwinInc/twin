@@ -16,3 +16,8 @@ export interface ISolidProfile {
     role: string;
     organization?: string;
 }
+
+export interface IProfileImage {
+    imageUrl: string;
+    blobUrl: string;
+}

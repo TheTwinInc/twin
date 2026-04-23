@@ -80,8 +80,12 @@ export class RdfService {
 
     /** Load RDF resource into service store */
     async loadResource(resourceUrl: string | NamedNode | undefined): Promise<void> {
-        if (undefined != resourceUrl) {
-            await this.fetcher.load(resourceUrl);
+        try {
+            if (undefined != resourceUrl) {
+                await this.fetcher.load(resourceUrl);
+            }
+        } catch (error) {
+            this.logger.error(`RDF: Error loading resource: ${error}`, );
         }
     }
 
@@ -444,7 +448,7 @@ export class RdfService {
             
             const object = isLiteral ? $rdf.literal(value, lang) : $rdf.sym(value);
             
-            this.logger.info(`RDF: subject uri: ${webId}, predicate node: ${JSON.stringify(predicateNode)}, object: ${object}`);
+            this.logger.info(`RDF: webId: ${webId}, subject: ${subject} predicate node: ${JSON.stringify(predicateNode)}, object: ${object}`);
             await this.addTriple(subject, predicateNode, object);
             // await this.addTriple(subjectUri, predicateNode, object);
             insertions.push($rdf.quad(subject, predicateNode, object, doc));
@@ -464,13 +468,14 @@ export class RdfService {
     }
 
     /** Acquires the profile URL in the Solid Pod. */
-    getProfileUrl(webId: string): string | null {
+    getProfileUrl(webId: string, store: $rdf.Store | null): string | null {
+        const resourceStore = store ? store : this.store;
         let profileUri = null;
         const webIdNode = $rdf.sym(webId);
-        const matches = this.store.match(null, ns.FOAF('maker'), webIdNode);
+        const matches = resourceStore.match(null, ns.FOAF('maker'), webIdNode);
 
         for (const triple of matches) {
-            const isProfileDoc = this.store.holds(triple.subject, ns.RDF('type'), ns.FOAF('PersonalProfileDocument'));
+            const isProfileDoc = resourceStore.holds(triple.subject, ns.RDF('type'), ns.FOAF('PersonalProfileDocument'));
             if (isProfileDoc) {
                 profileUri = triple.subject.value; // This is the profile document URL
                 break;
@@ -498,7 +503,7 @@ export class RdfService {
 
     async setProfileImageSparql(webId: string, imageUrl: string): Promise<void> {
         // const profileDoc = webId.split('#')[0];
-        const subjectUri = this.getProfileUrl(webId);
+        const subjectUri = this.getProfileUrl(webId, null);
 
         if (null != subjectUri) {
             const subject = $rdf.sym(subjectUri);
@@ -524,7 +529,7 @@ export class RdfService {
 
     /** Removes the foaf:img triple from the user's profile RDF. */
     async deleteProfileImageSparql(webId: string): Promise<void> {
-        const subjectUri = this.getProfileUrl(webId);
+        const subjectUri = this.getProfileUrl(webId, null);
 
         if (null != subjectUri) {
             const subject = $rdf.sym(subjectUri);
@@ -585,13 +590,26 @@ export class RdfService {
             .filter(url => /\.(jpg|jpeg|png|gif)$/i.test(url));
     }
 
+    async getBlobWithCredentials(url: string): Promise<Blob> {
+        const response = await this.solidAuthService.getDefaultSession().fetch(url, {
+            method: 'GET',
+            credentials: 'include', // important: send cookies / session info
+            mode: 'cors'
+        });
+
+        if (!response.ok) {
+            this.logger.error(`RDF: Failed to fetch blob: ${response.status} ${response.statusText}`);
+        }
+        return await response.blob();
+    }
+
     async addTripleSolidPatch(subjectUrl: string, objectUrl: string): Promise<boolean> {
         let updatedNode = false;
         try {
             // Step 1: Authenticate (assumes prior login with @inrupt/solid-client-authn-browser)
             // Step 2: Create the main RDF graph for the patch
             const store = $rdf.graph();
-            const subjectUri = this.getProfileUrl(subjectUrl);
+            const subjectUri = this.getProfileUrl(subjectUrl, null);
             if (null != subjectUri) {
                 const subject = $rdf.sym(subjectUri);
                 const graph = $rdf.sym(subjectUri);
@@ -651,22 +669,26 @@ export class RdfService {
             const store = $rdf.graph();
 
             const subject = this.getNamedNode(subjectUrl);
-            const graph = this.getNamedNode(subjectUrl);
+            const base = this.getNamedNode(subjectUrl);
 
             // Step 3: Add the triple to the patch store
-            store.add(subject, predicate, object);
+            store.add(subject, predicate, object, base);
 
             // Step 4: Serialize the store to turtle
-            const patchContent = this.serialize(graph, store, this.getUri(subjectUrl));
-            this.logger.info(`RDF: Patch: ${JSON.stringify(patchContent)}`);
+            const baseUrl = this.getUri(subject);
+            const patchContent = this.serialize(base, store, base);
 
             // Step 5: Send the PATCH request
-            // const successfulFetch = await this.uploadTurtle(patchContent, this.getUri(subjectUrl));
-            // if (successfulFetch) {
-            //     updatedNode = true;
-            //     // this.logger.info(`RDF: Patch add to store: ${subject.value}, ${predicate.value}, ${JSON.stringify(object)}`);
-            //     this.store.add(subject, predicate, object);
-            // }
+            if ('' != patchContent) {
+                const successfulFetch = await this.uploadTurtle(patchContent, this.getUri(subjectUrl));
+                if (successfulFetch) {
+                    updatedNode = true;
+                    // this.logger.info(`RDF: Patch add to store: ${subject.value}, ${predicate.value}, ${JSON.stringify(object)}`);
+                    this.store.add(subject, predicate, object);
+                }
+            } else {
+                this.logger.error(`RDF: Failed to add triple GM: empty store`);    
+            }
         } catch (error: any) {
             this.logger.error(`RDF: Failed to add triple GM: ${error.message}`);
         } finally {
@@ -678,11 +700,6 @@ export class RdfService {
 
     async uploadTurtle(turtlebody: string | undefined, resourceUri: string) {
         let successfulFetch = false;
-        // if(!resourceUri) {
-        //     console.log("ERROR: URI missing for resource. Update not possible.");
-        //     return;
-        // }
-        // resourceUri = resourceUri.replace("//i", "/i");
         try {
             const response = await this.solidAuthService.getDefaultSession().fetch(
                 resourceUri,
@@ -752,8 +769,9 @@ export class RdfService {
     //     });
     // }
 
-    serialize(target: $rdf.NamedNode | null, store: $rdf.Store | null, baseurl: string) {
+    serialize(target: $rdf.NamedNode | null, store: $rdf.Store | null, baseurl: $rdf.NamedNode | string) {
         const resourceStore = store ? store : this.store;
+        // this.logger.info(`RDF: Serialize store: ${JSON.stringify(resourceStore)}`);
         const turtleFile = $rdf.serialize(
             target,
             resourceStore,
@@ -1008,25 +1026,43 @@ export class RdfService {
         .subscribe(contact => {
             // this.logger.info(`RDF: Fetched contact: ${JSON.stringify(contact)}`);
             // Parse Turtle string into the store
-            $rdf.parse(contact, this.store, webId, contentType, () => {
-                this.fillContactProfile(contactProfile, $rdf.sym(webId));
+            // TODO Make a new store per contact
+            const store = $rdf.graph();
+            $rdf.parse(contact, store, webId, contentType, () => {
+                this.fillContactProfile(contactProfile, $rdf.sym(webId), store);
                 // this.logger.info(`RDF: After parse: ${JSON.stringify(contactProfile)}`)
             });
         });
     }
 
-    fillContactProfile(contactProfile: IContactProfile, webId: NamedNode) {
+    fillContactProfile(contactProfile: IContactProfile, webId: NamedNode, store: $rdf.Store | null) {
+        const profileUrl = this.getProfileUrl(webId.value, store);
+        this.logger.info(`RDF: Contact profile url: ${profileUrl}`);
         contactProfile.name =
-            this.getLiteralValue(webId, ns.FOAF('name')) ??
-            this.getLiteralValue(webId, ns.VCARD('fn')) ??
+            this.getLiteralValue(webId, ns.FOAF('name'), store) ??
+            this.getLiteralValue(webId, ns.VCARD('fn'), store) ??
             'Unknown';
-        contactProfile.email = this.getUriValue(webId, ns.VCARD('hasEmail')) ?? '';
-        contactProfile.org = this.getUriValue(webId, ns.VCARD('organization-name')) ?? '';
-        contactProfile.role = this.getUriValue(webId, ns.VCARD('role')) ?? '';
+        contactProfile.email = this.getUriValue(webId, ns.VCARD('hasEmail'), store) ?? '';
+        
         contactProfile.img =
-            this.getUriValue(webId, ns.FOAF('img')) ??
-            this.getUriValue(webId, ns.VCARD('photo')) ?? '';
-        // this.logger.info(`RDF: Parsed contact: ${JSON.stringify(contactProfile)}`);
+            this.getUriValue(webId, ns.FOAF('img'), store) ??
+            this.getUriValue(webId, ns.VCARD('hasPhoto'), store) ?? '';
+            // this.getUriValue(this.sym(profileUrl), ns.FOAF('img'), store) ??
+            // this.getUriValue(this.sym(profileUrl), ns.VCARD('hasPhoto'), store) ?? '';
+        // if('' != contactProfile.img && undefined != profileUrl && '' != profileUrl) {
+        if(undefined != profileUrl) {
+            contactProfile.org = this.getUriValue(this.sym(profileUrl), ns.VCARD('organization-name'), store) ?? '';
+            contactProfile.role = this.getUriValue(this.sym(profileUrl), ns.VCARD('role'), store) ?? '';
+            if('' == contactProfile.img && '' != profileUrl) {
+                contactProfile.img =
+                    this.getUriValue(this.sym(profileUrl), ns.FOAF('img'), store) ??
+                    this.getUriValue(this.sym(profileUrl), ns.VCARD('hasPhoto'), store) ?? '';
+            }
+            
+        }
+        
+        this.logger.info(`RDF: Parsed contact: ${JSON.stringify(contactProfile)}`);
+        this.logger.info(`RDF: Profile url: ${JSON.stringify(profileUrl)}`);
     }
 
     async loadContact(person: $rdf.Node & NamedNode) {
@@ -1058,7 +1094,7 @@ export class RdfService {
 
     private extractSubjectFromProfileDocurl(profileDocUrl: string): NamedNode | null {
         let subject = null;
-        const subjectUri = this.getProfileUrl(profileDocUrl);
+        const subjectUri = this.getProfileUrl(profileDocUrl, null);
         if (null != subjectUri) {
             subject = $rdf.sym(subjectUri);
         }
@@ -1115,7 +1151,6 @@ export class RdfService {
             // Optionally, parse ACL/ACP document here later.
             effectiveAccess.source = headers.aclUrl ? 'ACL' : 'ACP';
         }
-
         return effectiveAccess;
     }
     
@@ -1200,7 +1235,7 @@ export class RdfService {
                 const store = $rdf.graph();
                 const mimeType = 'text/turtle';
 
-                this.logger.info(`RDF: parse acl: ${turtleText}`);
+                // this.logger.info(`RDF: parse acl: ${turtleText}`);
 
                 $rdf.parse(turtleText, store, aclUrl, mimeType);
 
@@ -1299,18 +1334,28 @@ export class RdfService {
     }
 
     /** Return literal string value for a given subject + predicate */
-    private getLiteralValue(subject: NamedNode, predicate: NamedNode): string | null {
-        const value = this.store.any(subject, predicate);
+    private getLiteralValue(subject: NamedNode | null, predicate: NamedNode, store: $rdf.Store | null): string | null {
+        const resourceStore = store ? store : this.store;
+        const value = resourceStore.any(subject, predicate);
+        // this.logger.info(`RDF: Literal value: ${JSON.stringify(value)}`);
         return value?.termType === 'Literal' ? value.value : null;
     }
 
     /** Return URI value for a given subject + predicate */
-    private getUriValue(subject: NamedNode, predicate: NamedNode): string | null {
-        const value = this.store.any(subject, predicate);
+    private getUriValue(subject: NamedNode | null, predicate: NamedNode, store: $rdf.Store | null): string | null {
+        const resourceStore = store ? store : this.store;
+        const value = resourceStore.any(subject, predicate);
+        // this.logger.info(`RDF: Uri value: ${JSON.stringify(value)}`);
         return value?.termType === 'NamedNode' ? value.value : null;
     }
 
-    public sym(value: string): $rdf.NamedNode {
+    // public sym(value: string | null): $rdf.NamedNode | null  {
+    public sym(value: string ): $rdf.NamedNode  {
+        // let sym = null;
+        // if (undefined != value) {
+        //     sym = $rdf.sym(value);
+        // }
+        // return sym;
         return $rdf.sym(value);
     }
 

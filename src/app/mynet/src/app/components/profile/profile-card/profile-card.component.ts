@@ -28,7 +28,8 @@ export class ProfileCardComponent {
         // private rdfService: RdfService,
         private solidAuthService: SolidAuthService,
         private solidProfileService: SolidProfileService,
-        private logger: LoggerService
+        private logger: LoggerService,
+        private rdfService: RdfService
     ) {}
 
   async ngOnInit() {
@@ -53,10 +54,16 @@ export class ProfileCardComponent {
                 const profile: IProfile | null = await this.solidProfileService.getProfile();
                 if (undefined != profile) {
                     this.name = profile.name ?? '';
-                    this.img = profile.img ?? '';
+                    // this.img = profile.img ?? '';
                     this.org = profile.org ?? '';
                     this.role = profile.role ?? '';
                     this.vCardInfo = await this.solidProfileService.getVCardString(this.webId);
+                    if (undefined != profile.img && '' != profile.img) {
+                        const blob = await this.rdfService.getBlobWithCredentials(profile.img);
+                        this.img = URL.createObjectURL(blob);
+                    } else {
+                        this.img = '';
+                    }
                 }
             } catch (error) {
                 this.logger.error(`Error loading profile: ${error}`, );

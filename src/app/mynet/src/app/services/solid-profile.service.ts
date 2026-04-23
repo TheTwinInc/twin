@@ -24,7 +24,7 @@ export class SolidProfileService {
     
     getProfileUrl(webId: string): string | null {
         let profileUrl;
-        profileUrl = this.rdfService.getProfileUrl(webId);
+        profileUrl = this.rdfService.getProfileUrl(webId, null);
         return profileUrl;
     }
 
@@ -46,7 +46,7 @@ export class SolidProfileService {
         if ( loggedIn && undefined != session && '' != webId) {
             // await this.rdfService.loadResource(webId);
             await this.rdfService.ensureLoaded(webId);
-            const profileUrl = this.rdfService.getProfileUrl(webId) ?? '';
+            const profileUrl = this.rdfService.getProfileUrl(webId, null) ?? '';
             if ('' != profileUrl) {
                 // this.logger.info(`SDS: Reading profile logged in: ${loggedIn}, webId: ${webId}, profile url: ${profileUrl}`);
                 const ownerWebid = this.rdfService.getOwnerWebId(profileUrl);
@@ -56,6 +56,7 @@ export class SolidProfileService {
                 profile.role = this.rdfService.getValue(profileUrl, ns.VCARD('role')) ?? '';
                 profile.org = this.rdfService.getValue(profileUrl, ns.VCARD('organization_name')) ?? '';
                 profile.phone = this.rdfService.getValue(profileUrl, ns.VCARD('Cell')) ?? '';
+                // profile.img = this.rdfService.getValue(null, ns.FOAF('img')) ?? '';
                 profile.img = this.rdfService.getValue(profileUrl, ns.FOAF('img')) ?? '';
                 // profile.img = this.rdfService.getProfileImageUrlsContaining(profileUrl, '/public/images/profile-picture') ?? '';
                 // rdfProfile.photo = (this.rdfService.getLiteral(profileUrl, FOAF.img) || this.rdfService.getLiteral(profileUrl, VCARD.photo)) ?? '';
@@ -124,7 +125,7 @@ export class SolidProfileService {
         // const resourceUrl = `${storageRoot}private/thetwin.ttl`;
         if ( loggedIn && undefined != session && '' != webId) {
             await this.rdfService.loadResource(webId);
-            let profileUrl = this.rdfService.getProfileUrl(webId) ?? '';
+            let profileUrl = this.rdfService.getProfileUrl(webId, null) ?? '';
             
             // const ownerWebid = this.rdfService.getOwnerWebId(profileUrl);
             // await this.rdfService.setValue(profileUrl, VCARD.email, email);
@@ -168,7 +169,7 @@ export class SolidProfileService {
         const photo = profile.img ?? '';
         if ( loggedIn && undefined != session && '' != webId) {
             
-            const profileUrl = this.rdfService.getProfileUrl(webId) ?? '';
+            const profileUrl = this.rdfService.getProfileUrl(webId, null) ?? '';
             if ('' != profileUrl) {
                 await this.rdfService.upsertValues(
                     webId,
@@ -193,7 +194,7 @@ export class SolidProfileService {
         const loggedIn = this.solidAuthService.isLoggedIn();
         if (loggedIn && undefined != session && '' != webId) {
             await this.rdfService.loadResource(webId);
-            let profileUrl = this.rdfService.getProfileUrl(webId) ?? '';
+            let profileUrl = this.rdfService.getProfileUrl(webId, null) ?? '';
             // await this.rdfService.setValue(profileUrl, FOAF.img, photo);
             if ('' != profileUrl) {
                 this.rdfService.deleteProfileImageSparql(webId);                
@@ -215,7 +216,7 @@ export class SolidProfileService {
         const webId = this.solidAuthService.getWebId();
         const triple = await this.rdfService.getTriple(null, ns.RDF('type'), ns.SOLID('Account'));
         solidAccount = triple?.subject.value ? triple?.subject.value : '';
-        this.logger.info(`SPS Solid Account: ${solidAccount}`);
+        // this.logger.info(`SPS: Solid Account: ${solidAccount}`);
         return solidAccount;
     }
 }

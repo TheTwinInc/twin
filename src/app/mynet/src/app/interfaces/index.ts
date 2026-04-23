@@ -1,5 +1,6 @@
 export * from './app-settings';
 export * from './solid.interface';
+export * from './solid-profile.interface';
 export * from './contained-resource.interface';
 export * from './nav-item.interface';
 export * from './rdf.interface';

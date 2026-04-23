@@ -1,8 +1,11 @@
 <div class="thumbnail-grid">
-  <img *ngFor="let img of images"
-       [src]="img"
-       [class.selected]="img === selectedImage"
-       (click)="selectImage(img)" />
+    @for (image of images; track $index) {
+        <img
+        [src]="image.blobUrl"
+        [class.selected]="image === selectedImage"
+        (click)="selectImage(image)" />
+    }
+  
 </div>
 
-<button (click)="confirmSelection()" [disabled]="!selectedImage">Set as Profile Picture</button>
+<button (click)="setProfilePicture()" [disabled]="!selectedImage">Set as Profile Picture</button>

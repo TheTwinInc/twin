@@ -8,8 +8,10 @@
 @if (!editing) {
     <div class="profile-card">
         <h2>Your Profile</h2>
-        @if(form.value.img) {
-            <img [src]="form.value.img" alt="Profile photo" class="profile-photo" />
+        <!-- @if(form.value.img) { -->
+        @if(imageUrl) {
+            <img [src]="imageUrl" alt="Profile photo" class="profile-photo" />
+            <!-- <img [src]="form.value.img" alt="Profile photo" class="profile-photo" /> -->
         }
         
         <p><strong>Name:</strong> {{ form.value.name }}</p>
@@ -54,8 +56,15 @@
     <div class="card">
         <h4 class="card-header">Edit Picture</h4>
         <div class="card-body">
-            <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+            <!-- <input type="file" accept="image/*" (change)="onFileSelected($event)" /> -->
             <app-profile-thumbnail-picker></app-profile-thumbnail-picker>
+        </div>
+    </div>
+    <div class="card">
+        <h4 class="card-header">Upload Picture</h4>
+        <div class="card-body">
+            <input type="file" accept="image/*" (change)="uploadImage($event)" />
+            <!-- <app-profile-thumbnail-picker></app-profile-thumbnail-picker> -->
         </div>
     </div>
 }

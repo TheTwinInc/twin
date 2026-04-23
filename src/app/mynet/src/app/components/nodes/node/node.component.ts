@@ -235,8 +235,8 @@ export class NodeComponent {
         const aclPublic = this.wacAllowPublicForm.value;
         const aclUser = this.wacAllowUserForm.value;
         const wacAllow: WacAllow = {
-            user: this.fillWac(aclUser),
-            public: this.fillWac(aclPublic),
+            user: this.fillModes(aclUser),
+            public: this.fillModes(aclPublic),
         };
         this.logger.info(`NC: WAC allow: ${JSON.stringify(wacAllow)}`);
 
@@ -253,9 +253,9 @@ export class NodeComponent {
             const agentAccess: AgentAccess = {
                 webId: webId,
                 read: true,
-                write: true,
-                append: true,
-                control: true
+                write: false,
+                append: false,
+                control: false
             }
 
             const modes = this.fillModes(agentAccess);
@@ -264,14 +264,14 @@ export class NodeComponent {
             const aclAuthorization: AgentAuthorization = {
                 accessTo: nodeUri,
                 // subject: nodeUri,
-                agentWebId: webId,
-                // webId: 'https://tw02.stage.graphmetrix.net/i',
+                // agentWebId: webId,
+                agentWebId: '',
+                // agentWebId: 'https://tw06.stage.graphmetrix.net/i',
                 modes: modes
             };
             
-            await this.aclService.setAccess(aclAuthorization);
+            await this.aclService.setAcl(aclAuthorization);
         }
-        
     }
 
     async deleteAcl() {
@@ -292,29 +292,29 @@ export class NodeComponent {
                 // webId: 'https://tw02.stage.graphmetrix.net/i',
             };
             
-            await this.aclService.deleteAccess(aclAuthorization);
+            // await this.aclService.deleteAcl(aclAuthorization);
+            const updated = await this.aclService.deleteAclAuthorizations(aclAuthorization);
         }
-        
     }
+
+    // fillModes(acl: any): string [] {
+    //     let wac = [];
+    //     if (acl.write) {
+    //         wac.push('write');
+    //     }
+    //     if (acl.read) {
+    //         wac.push('read');
+    //     }
+    //     if (acl.append) {
+    //         wac.push('append');
+    //     }
+    //     if (acl.control) {
+    //         wac.push('control');
+    //     }
+    //     return wac;
+    // }
 
     fillModes(acl: any): string [] {
-        let wac = [];
-        if (acl.write) {
-            wac.push('write');
-        }
-        if (acl.read) {
-            wac.push('read');
-        }
-        if (acl.append) {
-            wac.push('append');
-        }
-        if (acl.control) {
-            wac.push('control');
-        }
-        return wac;
-    }
-
-    fillWac(acl: any): string [] {
         let wac = [];
         if (acl.write) {
             wac.push('write');
