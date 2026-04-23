@@ -1,9 +1,0 @@
-pandas
-psycopg2
-notebook
-jupyterlab
-paho-mqtt
-websocket-client
-opencv-python
-rel
-pyserial

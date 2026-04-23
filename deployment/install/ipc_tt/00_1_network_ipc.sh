@@ -9,10 +9,8 @@ sudo localectl set-keymap no
 hostname=xd006-ipc127
 sudo hostnamectl set-hostname $hostname
 
-sudo sed -i "s+127.0.0.1.*+127.0.0.1       localhost app.fastdrop.no ws.fastdrop.no db.fastdrop.no+g" /etc/hosts
+sudo sed -i "s+127.0.0.1.*+127.0.0.1       localhost app.thetwin.no ws.thetwin.no db.thetwin.no+g" /etc/hosts
 sudo sed -i "s+127.0.1.1.*+127.0.1.1       $hostname+g" /etc/hosts
-
-echo "192.168.10.51   plc-fastdrop" | sudo tee -a /etc/hosts
 
 # Step 0 To enable network manually if internet is not available
 ip a

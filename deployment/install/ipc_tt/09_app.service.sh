@@ -1,35 +1,3 @@
-# # Choose project
-# project_name=thetwin-server
-
-# # Generate key thetwin-server_deploy_key
-# ssh-keygen -t ed25519 -C "your_email@example.com"
-
-# # Create repo server profile
-# sudo nano ~/.ssh/config
-
-# # Add
-# Host thetwin-server
-#         Hostname github.com
-#         IdentityFile=/home/$USER/.ssh/thetwin-server_deploy_key
-
-# # Add deployment key
-# echo <deployment_key> >> ~/.ssh/thetwin-server_deploy_key
-# echo FjWKETLVcmK2ZqkNwHOpRz9KE3J2/khc+rhwzliRxfw >> ~/.ssh/thetwin-server_deploy_key
-# chmod 600 ~/.ssh/thetwin-server_deploy_key
-
-# # Clone repo with user dev-AirportInnovation
-
-# cd thetwin
-# mkdir log
-# git clone git@thetwin.thetwin-server:AirportInnovation/$project_name
-# cd $project_name
-
-# # Getting updates
-# project_name=thetwin-server
-# git fetch git@thetwin.thetwin-server:AirportInnovation/$project_name
-
-# npm install
-
 # Choose app
 # servicename=expressdrop
 # servicename=demo

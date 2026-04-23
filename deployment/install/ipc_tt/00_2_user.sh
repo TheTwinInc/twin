@@ -1,12 +1,12 @@
 # Add user
-user=kis-admin
+user=tt-admin
 sudo adduser $user
 
 # As root
 su -
-user=kis-admin
+user=tt-admin
 usermod -aG sudo $user
-echo 'kis-admin        ALL=(ALL) NOPASSWD:ALL' | EDITOR='tee -a' visudo
+echo 'tt-admin        ALL=(ALL) NOPASSWD:ALL' | EDITOR='tee -a' visudo
 exit
 
 su $user
@@ -17,7 +17,7 @@ chmod 700 ~/.ssh
 touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 # echo public_key_string >> ~/.ssh/authorized_keys
-echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCn5iMYR6rgmtruGc5t5WuE4noLzpi2PB84rG5c8oM9XbWQhuEzGNsp4W78xJ7lbduHSO/wj4jhFK+WiGji4umzAFOuxz9U+aiHjdoNlF52U3Vmj09heDb6Kxm8YJxd9YVh84ZwCB/SIm9updozbsKuYlX3lNtkJm2LD0ddYHaQUPu/xJ9AB/g/eOxLLajnPs8EWXVjkXAXdZUXrngu6rXLJkJA7h+PJQSj1kHJkcTrmId8KY7ZATVWhWS99aD2TV1u+ALiUSUnXZfP+9MycXMADindPhp+592UelwcAWK721lZOO0kLdUr4YMjsvnGK7u8hT7zY+rb9PozIZ2gVG7n ub-service >> ~/.ssh/authorized_keys
+echo ssh-rsa <public_key_string> tt-service >> ~/.ssh/authorized_keys
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 
